@@ -4,7 +4,7 @@ import type { SiteConfig } from "../types/config";
 const SITE_LANG = "en"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-  title: "𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 🐞👑",
+  title: "𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯",
   subtitle: "One demo website",
   siteURL: "https://ahzer0coder.github.io/", // 请替换为你的站点URL，以斜杠结尾
   siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
@@ -147,7 +147,7 @@ export const siteConfig: SiteConfig = {
 
     homeText: {
       enable: true,
-      title: "𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯🐞👑",
+      title: "𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯",
       switchable: true,
 
       subtitle: [
