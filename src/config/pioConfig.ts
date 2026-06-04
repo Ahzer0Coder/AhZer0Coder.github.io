@@ -1,6 +1,7 @@
 import type { PioConfig } from "../types/config";
 
 // Pio 看板娘配置
+// بتاع البنت التحت ال انت هتمسحها
 export const pioConfig: PioConfig = {
 	enable: true, // 启用看板娘
 	models: ["/pio/models/NOIR/noir.model3.json"], // 默认模型路径
@@ -11,7 +12,7 @@ export const pioConfig: PioConfig = {
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	hideAboutMenu: false, // 隐藏内置 About 菜单按钮
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "Welcome to 𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 Website!", // 欢迎词
 		touch: [
 			"What are you doing?",
 			"Stop touching me!",
