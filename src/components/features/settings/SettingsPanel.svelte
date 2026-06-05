@@ -34,6 +34,7 @@ import {
 	setWavesEnabled,
 } from "@utils/setting-utils";
 import { onMount } from "svelte";
+import ThemeSwitch from "../../control/ThemeSwitch.svelte";
 import { fullscreenWallpaperConfig, sakuraConfig, siteConfig } from "@/config";
 
 import type { WALLPAPER_MODE } from "@/types/config";
@@ -324,13 +325,14 @@ $effect(() => {
 						</div>
 					</button>
 				</div>
-				<div class="flex gap-1">
+				<div class="flex items-center gap-1">
 					<div
 						class="transition bg-(--btn-regular-bg) w-10 h-7 flex justify-center
 						font-bold text-sm items-center text-(--btn-content)"
 					>
 						{hue}
 					</div>
+					<ThemeSwitch />
 				</div>
 			</div>
 			<div class="w-full h-6 px-1 bg-[oklch(0.80_0.10_0)] dark:bg-[oklch(0.70_0.10_0)] rounded select-none">
