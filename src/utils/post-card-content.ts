@@ -1,34 +1,36 @@
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 
+export const ENCRYPTED_POST_HOME_CONTENT = i18n(I18nKey.postEncryptedMessage);
+
 export interface PostHomeContentData {
-	description?: string;
-	hideHomeContent?: boolean;
-	password?: string | null;
+  description?: string;
+  hideHomeContent?: boolean;
+  password?: string | null;
 }
 
 function hasPassword(password?: string | null): boolean {
-	return typeof password === "string" && password.length > 0;
+  return typeof password === "string" && password.length > 0;
 }
 
 export function shouldHidePostHomeContent(data: PostHomeContentData): boolean {
-	return data.hideHomeContent ?? hasPassword(data.password);
+  return data.hideHomeContent ?? hasPassword(data.password);
 }
 
 export function getPostHomeContent(
-	data: PostHomeContentData,
-	excerpt: string,
+  data: PostHomeContentData,
+  excerpt: string,
 ): string {
-	return getPostPublicDescription(data, excerpt);
+  return getPostPublicDescription(data, excerpt);
 }
 
 export function getPostPublicDescription(
-	data: PostHomeContentData,
-	fallback = "",
+  data: PostHomeContentData,
+  fallback = "",
 ): string {
-	if (shouldHidePostHomeContent(data)) {
-		return i18n(I18nKey.postEncryptedMessage);
-	}
+  if (shouldHidePostHomeContent(data)) {
+    return ENCRYPTED_POST_HOME_CONTENT;
+  }
 
-	return data.description || fallback;
+  return data.description || fallback;
 }
