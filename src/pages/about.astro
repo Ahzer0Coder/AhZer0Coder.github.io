@@ -11,7 +11,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 const aboutPost = await getEntry("spec", "about");
 
 if (!aboutPost) {
-	throw new Error("About page content not found");
+    throw new Error("About page content not found");
 }
 
 const { Content } = await render(aboutPost);
@@ -19,24 +19,184 @@ const title = i18n(I18nKey.about);
 ---
 
 <MainGridLayout title={title}>
-	<!-- 引入右侧边栏布局管理器 -->
-	<script>
-		import("../scripts/right-sidebar-layout.js");
-	</script>
-	<div
-		class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32"
-	>
-		<div class="card-base z-10 px-9 py-6 relative w-full">
-			<PageHeader title={title} />
+    <script>
+        import("../scripts/right-sidebar-layout.js");
+    </script>
+    <div
+        class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32"
+    >
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+            <PageHeader title={title} />
 
-			<!-- 从MD文件读取的内容 -->
-			<Markdown class="mt-2">
-				<Content />
-			</Markdown>
-		</div>
-	</div>
+            <div class="mt-2">
+                <div class="about-container">
+                  <div class="profile-card">
+                    <div class="avatar-container">
+                      <img src="/path/to/your/avatar.png" alt="Ahzer0Coder" class="avatar" />
+                    </div>
+                    <h2 class="username">Ahzer0Coder</h2>
+                    <p class="title">BUG HUNTER & REVERSE ENGINEER</p>
+                    <div class="social-links">
+                      <a href="#" class="social-btn">Twitter</a>
+                      <a href="#" class="social-btn">LinkedIn</a>
+                      <a href="#" class="social-btn">GitHub</a>
+                      <a href="#" class="social-btn">Email</a>
+                    </div>
+                  </div>
 
-	<div class="mt-4">
-		<Comment path="/about/" />
-	</div>
+                  <div class="about-info">
+                    <h3>About Me</h3>
+                    <p>Hello world! I'm a <strong>Junior Security Researcher</strong> actively learning and exploring the depths of <strong>Bug Hunting</strong> and <strong>Reverse Engineering</strong>. Every day is a new challenge where I enjoy tearing down software to understand how it works, searching for vulnerabilities, and piecing together the complex puzzles hidden inside binaries. My journey in cybersecurity has just begun, and it's driven by a relentless curiosity to learn, break things responsibly, and grow.</p>
+
+                    <h3 class="mt-4">Arsenal & Skills</h3>
+                    <div class="skills-container">
+                      <span class="skill-tag">Burp Suite</span>
+                      <span class="skill-tag">Ghidra</span>
+                      <span class="skill-tag">IDA Pro</span>
+                      <span class="skill-tag">Web Exploitation</span>
+                      <span class="skill-tag">Malware Analysis</span>
+                      <span class="skill-tag">x86/x64 Assembly</span>
+                      <span class="skill-tag">Python Scripting</span>
+                    </div>
+
+                    <div class="quote-box">
+                      <p>"Every binary hides a story — you just need to read it backwards." 🧠</p>
+                    </div>
+                  </div>
+                </div>
+
+                <style>
+                  .about-container {
+                    display: flex;
+                    gap: 30px;
+                    color: #fff;
+                    font-family: system-ui, -apple-system, sans-serif;
+                    margin-top: 20px;
+                  }
+                  .profile-card {
+                    background-color: #1a1a1f;
+                    padding: 25px;
+                    border-radius: 12px;
+                    text-align: center;
+                    width: 35%;
+                    border: 1px solid #2d2d35;
+                    height: fit-content;
+                  }
+                  .avatar-container {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 15px;
+                  }
+                  .avatar {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 12px;
+                    border: 2px solid #8a2be2;
+                    object-fit: cover;
+                    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+                  }
+                  .username {
+                    margin: 0 0 5px 0;
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                    color: #e5e7eb;
+                  }
+                  .title {
+                    font-size: 0.75rem;
+                    color: #9ca3af;
+                    margin-bottom: 25px;
+                    letter-spacing: 1px;
+                  }
+                  .social-links {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                  }
+                  .social-btn {
+                    background-color: #232329;
+                    color: #d1d5db;
+                    text-decoration: none;
+                    padding: 10px;
+                    border-radius: 6px;
+                    font-size: 0.8rem;
+                    transition: all 0.3s ease;
+                    border: 1px solid transparent;
+                  }
+                  .social-btn:hover {
+                    background-color: #2d2d35;
+                    border-color: #8a2be2;
+                    color: #fff;
+                  }
+                  .about-info {
+                    width: 65%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                  }
+                  .about-info h3 {
+                    margin: 0 0 10px 0;
+                    font-size: 1.2rem;
+                    color: #fff;
+                    border-bottom: 2px solid #8a2be2;
+                    padding-bottom: 5px;
+                    width: fit-content;
+                  }
+                  .about-info p {
+                    line-height: 1.7;
+                    color: #d1d5db;
+                    font-size: 0.95rem;
+                    margin: 0;
+                  }
+                  .mt-4 {
+                    margin-top: 15px;
+                  }
+                  .skills-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                  }
+                  .skill-tag {
+                    background-color: transparent;
+                    border: 1px solid #8a2be2;
+                    color: #e5e7eb;
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                    font-size: 0.85rem;
+                    transition: 0.3s;
+                  }
+                  .skill-tag:hover {
+                    background-color: rgba(138, 43, 226, 0.2);
+                  }
+                  .quote-box {
+                    background-color: #1a1a1f;
+                    border-left: 4px solid #8a2be2;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    margin-top: 20px;
+                    border-top: 1px solid #2d2d35;
+                    border-right: 1px solid #2d2d35;
+                    border-bottom: 1px solid #2d2d35;
+                  }
+                  .quote-box p {
+                    font-style: italic;
+                    color: #e9d5ff;
+                    font-size: 0.95rem;
+                  }
+
+                  @media (max-width: 768px) {
+                    .about-container {
+                      flex-direction: column;
+                    }
+                    .profile-card, .about-info {
+                      width: 100%;
+                    }
+                  }
+                </style>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <Comment path="/about/" />
+    </div>
 </MainGridLayout>
