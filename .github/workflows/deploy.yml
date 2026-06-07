@@ -4,7 +4,7 @@ on:
   # 每次推送到 `main` 分支时触发这个"工作流程"
   # 如果你使用了别的分支名，请按需将 `main` 替换成你的分支名
   push:
-    branches: [ main ]
+    branches: [main]
   # 允许你在 GitHub 上的 Actions 标签中手动触发此"工作流程"
   workflow_dispatch:
 
@@ -19,25 +19,26 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
         with:
-          submodules: true  # 支持 Git Submodule 模式
-          token: ${{ secrets.GITHUB_TOKEN }}  # 自动访问同账号下的私有仓库
-      
+          submodules: true # 支持 Git Submodule 模式
+          lfs: true
+          token: ${{ secrets.GITHUB_TOKEN }} # 自动访问同账号下的私有仓库
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
-          
+
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-      
+
       - name: Build site
         run: pnpm run build
-      
+
       - name: Deploy to pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
