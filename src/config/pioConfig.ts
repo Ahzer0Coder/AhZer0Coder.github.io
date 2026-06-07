@@ -3,7 +3,7 @@ import type { PioConfig } from "../types/config";
 // Pio 看板娘配置
 // بتاع البنت التحت ال انت هتمسحها
 export const pioConfig: PioConfig = {
-	enable: true, // 启用看板娘
+	enable: false, // 启用看板娘
 	models: ["/pio/models/NOIR/noir.model3.json"], // 默认模型路径
 	position: "left", // 模型位置
 	width: 280, // 默认宽度
