@@ -8,7 +8,7 @@ export const LOCAL_PLAYLIST: Song[] = [
   {
     id: 1,
     title: "الشيخ محمود ايوب",
-    artist: "Dazbee",
+    artist: ".",
     cover: "assets/music/cover/dazbee.webp",
     url: "assets/music/url/dazbee.mp3",
     duration: 0,
@@ -16,7 +16,7 @@ export const LOCAL_PLAYLIST: Song[] = [
   {
     id: 2,
     title: "القارئ جعفر السعدي",
-    artist: "Kaya",
+    artist: ".",
     cover: "assets/music/cover/hitori.webp",
     url: "assets/music/url/hitori.mp3",
     duration: 240,
@@ -24,7 +24,7 @@ export const LOCAL_PLAYLIST: Song[] = [
   {
     id: 3,
     title: "الشيخ مشاري العفاسي",
-    artist: "ス리즈ブーケ",
+    artist: ".",
     cover: "assets/music/cover/xryx.webp",
     url: "assets/music/url/xryx.mp3",
     duration: 180,
@@ -32,7 +32,7 @@ export const LOCAL_PLAYLIST: Song[] = [
   {
     id: 4,
     title: "مش فاكر اسمه",
-    artist: "22/7",
+    artist: ".",
     cover: "assets/music/cover/cl.webp",
     url: "assets/music/url/cl.mp3",
     duration: 200,
