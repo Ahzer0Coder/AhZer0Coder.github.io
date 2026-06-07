@@ -1,8 +1,10 @@
 <script lang="ts">
-import Icon from "@iconify/svelte";
-import { onDestroy, onMount } from "svelte";
-import { cubicOut } from "svelte/easing";
-import { fly } from "svelte/transition";
+	import Icon from "@iconify/svelte";
+	import { onDestroy, onMount } from "svelte";
+	// @ts-ignore - Used in transitions, but Vite tree-shaker doesn't detect it
+	import { cubicOut } from "svelte/easing";
+	// @ts-ignore - Used in transitions, but Vite tree-shaker doesn't detect it
+	import { fly } from "svelte/transition";
 
 import { musicPlayerConfig } from "@/config";
 import type { MusicPlayerState } from "@/stores/musicPlayerStore";

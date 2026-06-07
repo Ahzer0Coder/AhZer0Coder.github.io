@@ -1,5 +1,6 @@
 <script lang="ts">
 import Icon from "@iconify/svelte";
+// @ts-ignore - Used in transitions, but Vite tree-shaker doesn't detect it
 import { slide } from "svelte/transition";
 
 import Key from "../../../../i18n/i18nKey";
