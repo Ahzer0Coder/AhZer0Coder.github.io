@@ -6,6 +6,8 @@ import Markdown from "@components/misc/Markdown.astro";
 
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
+import { profileConfig } from "../config";
+import Image from "../components/atoms/Image/Image.astro";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
 const aboutPost = await getEntry("spec", "about");
@@ -32,7 +34,11 @@ const title = i18n(I18nKey.about);
                 <div class="about-container">
                   <div class="profile-card">
                     <div class="avatar-container">
-                      <img src="/avatar.png" alt="Ahzer0Coder" class="avatar" />
+                      <div class="avatar-wrapper">
+                        <div class="avatar-frame">
+                          <Image src={profileConfig.avatar || ""} alt="Ahzer0Coder" class="avatar" loading="eager" fetchpriority="high" />
+                        </div>
+                      </div>
                     </div>
                     <h2 class="username">Ahzer0Coder</h2>
                     <p class="title">BUG HUNTER & REVERSE ENGINEER</p>
@@ -85,15 +91,57 @@ const title = i18n(I18nKey.about);
                   .avatar-container {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    width: 100%;
                     margin-bottom: 15px;
                   }
-                  .avatar {
-                    width: 110px;
-                    height: 110px;
+                  .avatar-wrapper {
+                    /* tall portrait wrapper matching image dimensions */
+                    width: 180px;
+                    height: 320px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 16px;
+                    padding: 0;
+                    transition: transform 0.28s ease, box-shadow 0.28s ease;
+                    box-shadow: inset 0 0 24px rgba(138,43,226,0.04);
+                    border: 1px solid rgba(138,43,226,0.06);
+                    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+                  }
+                  .avatar-frame {
+                    width: 100%;
+                    height: 100%;
                     border-radius: 12px;
-                    border: 2px solid #8a2be2;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: box-shadow 0.35s ease;
+                    box-shadow: 0 0 0 rgba(138,43,226,0);
+                    background: transparent;
+                  }
+                  .avatar {
+                    /* tall portrait image */
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 12px;
                     object-fit: cover;
-                    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+                    transform: none;
+                    transition: box-shadow 0.35s ease, transform 0.35s ease;
+                    box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+                    display: block;
+                  }
+                  .avatar-wrapper:hover {
+                    transform: translateY(-6px) rotate(3deg);
+                    box-shadow: 0 18px 40px rgba(0,0,0,0.6), 0 0 40px rgba(138,43,226,0.28);
+                  }
+                  .avatar-wrapper:hover .avatar-frame {
+                    box-shadow: 0 0 40px rgba(138,43,226,0.85);
+                  }
+                  .avatar-wrapper:hover .avatar {
+                    transform: scale(1.02);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(138,43,226,0.6);
                   }
                   .username {
                     margin: 0 0 5px 0;
