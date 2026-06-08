@@ -1,16 +1,11 @@
 ---
 "-":
 ---
-
 ---
 title: "RE4B"
-published: true
+date: 2026-06-09
+description: "Reverse engineering"
+draft: false
 
 ---
-
-
-# RE4B
-
-hi every body
-
-
+### RE4B
