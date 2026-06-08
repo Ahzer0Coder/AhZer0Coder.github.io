@@ -51,4 +51,4 @@ src/content/posts/
     └── index.md
 ```
 ### hi every body
-welcome every body hi
+welcome every body hi and i love code 
