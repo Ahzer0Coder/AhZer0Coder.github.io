@@ -50,14 +50,8 @@ src/content/posts/
     ├── cover.webp
     └── index.md
 ```
-<<<<<<< HEAD
 
 ### hi welcom
+
 we are try
 ....................
-
-
-=======
-### hi every body
-welcome every body hi and i love code 
->>>>>>> ca9f53012353f9fce3fce68aeec30c79e475197d
