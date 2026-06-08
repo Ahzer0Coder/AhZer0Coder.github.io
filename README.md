@@ -5,7 +5,7 @@ A personal cybersecurity blog by 0xV3n0m — documenting the journey through Rev
 
 Astro License: Apache-2.0 pnpm
 
-🌐 Live Site: v3nn00m.github.io
+🌐 Live Site: 𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯.github.io
 
 🔬 Reverse Engineering for Beginners (Re4B)
 An in-depth, chapter-by-chapter walkthrough of Reverse Engineering for Beginners by Dennis Yurichev. Each post covers compiler output analysis across x86/x64, ARM, and MIPS architectures with hands-on debugging sessions using x32dbg, IDA, and GDB.
