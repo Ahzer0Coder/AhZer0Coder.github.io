@@ -1,7 +1,7 @@
 ---
 "-":
 ---
-```YAML
+```markdown
 ---
 title: "RE4B"
 published: true
