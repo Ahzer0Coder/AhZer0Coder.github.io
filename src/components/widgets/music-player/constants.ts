@@ -4,13 +4,16 @@ export const STORAGE_KEY_VOLUME = "music-player-volume";
 
 export const DEFAULT_VOLUME = 0.7;
 
+// GitHub Release URLs - UPDATE TAG NAME AFTER CREATING RELEASE
+const RELEASE_BASE = "https://github.com/Ahzer0Coder/AhZer0Coder.github.io/releases/download/music-v1";
+
 export const LOCAL_PLAYLIST: Song[] = [
   {
     id: 1,
     title: "الشيخ محمود ايوب",
     artist: ".",
     cover: "assets/music/cover/dazbee.webp",
-    url: "assets/music/url/dazbee.mp3",
+    url: `${RELEASE_BASE}/dazbee.mp3`,
     duration: 0,
   },
   {
@@ -18,7 +21,7 @@ export const LOCAL_PLAYLIST: Song[] = [
     title: "القارئ جعفر السعدي",
     artist: ".",
     cover: "assets/music/cover/hitori.webp",
-    url: "assets/music/url/hitori.mp3",
+    url: `${RELEASE_BASE}/hitori.mp3`,
     duration: 240,
   },
   {
@@ -26,7 +29,7 @@ export const LOCAL_PLAYLIST: Song[] = [
     title: "الشيخ مشاري العفاسي",
     artist: ".",
     cover: "assets/music/cover/xryx.webp",
-    url: "assets/music/url/xryx.mp3",
+    url: `${RELEASE_BASE}/xryx.mp3`,
     duration: 180,
   },
   {
@@ -34,7 +37,7 @@ export const LOCAL_PLAYLIST: Song[] = [
     title: "مش فاكر اسمه",
     artist: ".",
     cover: "assets/music/cover/cl.webp",
-    url: "assets/music/url/cl.mp3",
+    url: `${RELEASE_BASE}/cl.mp3`,
     duration: 200,
   },
 ];
