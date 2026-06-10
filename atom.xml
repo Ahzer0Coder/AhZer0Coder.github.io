@@ -5,8 +5,122 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-06-08T22:13:14.839Z</updated>
+  <updated>2026-06-10T20:20:38.002Z</updated>
   <language>en</language>
+  <entry>
+    <title>Object-Oriented Programming (OOP)</title>
+    <link href="https://ahzer0coder.github.io/posts/oop/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/posts/oop/</id>
+    <published>2024-06-10T00:00:00.000Z</published>
+    <updated>2024-06-10T00:00:00.000Z</updated>
+    <summary>Core concepts and principles of Object-Oriented Programming</summary>
+    <content type="html"><![CDATA[<h1>Object-Oriented Programming (OOP)</h1>
+<p>Object-Oriented Programming is a programming paradigm based on the concept of "objects", which can contain data (attributes) and code (methods).</p>
+<h2>Four Pillars of OOP</h2>
+<h3>1. Encapsulation</h3>
+<p>Bundling data and methods that operate on that data within a single unit (class).</p>
+<pre><code>public class BankAccount {
+    private double balance;  // Encapsulated data
+    
+    public void deposit(double amount) {
+        balance += amount;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+}
+</code></pre>
+<h3>2. Inheritance</h3>
+<p>Creating new classes based on existing ones.</p>
+<pre><code>class Animal {
+    void eat() { System.out.println("Eating..."); }
+}
+
+class Dog extends Animal {
+    void bark() { System.out.println("Barking..."); }
+}
+</code></pre>
+<h3>3. Polymorphism</h3>
+<p>Objects of different types can be treated as objects of a common base type.</p>
+<pre><code>Animal myDog = new Dog();
+Animal myCat = new Cat();
+myDog.makeSound();  // "Woof!"
+myCat.makeSound();  // "Meow!"
+</code></pre>
+<h3>4. Abstraction</h3>
+<p>Hiding complex implementation details and showing only essential features.</p>
+<pre><code>abstract class Shape {
+    abstract double area();  // Abstract method
+}
+
+class Circle extends Shape {
+    double radius;
+    double area() { return Math.PI * radius * radius; }
+}
+</code></pre>
+<h2>Benefits</h2>
+<ul>
+<li><strong>Modularity</strong> - Code organized into reusable classes</li>
+<li><strong>Reusability</strong> - Inheritance promotes code reuse</li>
+<li><strong>Flexibility</strong> - Polymorphism enables flexible designs</li>
+<li><strong>Maintainability</strong> - Encapsulation protects internal state</li>
+</ul>
+<h2>When to Use OOP</h2>
+<ul>
+<li>Large applications with complex relationships</li>
+<li>Teams working on different modules</li>
+<li>Projects requiring frequent updates</li>
+<li>GUI applications, games, simulations</li>
+</ul>
+<h2>Conclusion</h2>
+<p>OOP provides powerful tools for modeling real-world problems and building scalable software systems.</p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="Programming Concepts"></category>
+  </entry>
+  <entry>
+    <title>Structured Programming</title>
+    <link href="https://ahzer0coder.github.io/posts/structured-programming/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/posts/structured-programming/</id>
+    <published>2024-06-10T00:00:00.000Z</published>
+    <updated>2024-06-10T00:00:00.000Z</updated>
+    <summary>Understanding the fundamentals of structured programming paradigm</summary>
+    <content type="html"><![CDATA[<h1>Structured Programming</h1>
+<p>Structured programming is a programming paradigm aimed at improving the clarity, quality, and development time of a computer program by making extensive use of structured control flow constructs.</p>
+<h2>Key Principles</h2>
+<ol>
+<li><strong>Sequence</strong> - Statements executed in order</li>
+<li><strong>Selection</strong> - Conditional branching (if/else)</li>
+<li><strong>Iteration</strong> - Loops (while, for)</li>
+<li><strong>Modularity</strong> - Breaking code into functions/procedures</li>
+</ol>
+<h2>Benefits</h2>
+<ul>
+<li><strong>Readability</strong> - Clear program flow</li>
+<li><strong>Maintainability</strong> - Easier to debug and modify</li>
+<li><strong>Reliability</strong> - Reduced complexity leads to fewer bugs</li>
+</ul>
+<h2>Example</h2>
+<pre><code>// Structured approach
+int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+</code></pre>
+<h2>Conclusion</h2>
+<p>Structured programming forms the foundation for modern programming practices and is essential for writing clean, maintainable code.</p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="Programming Concepts"></category>
+  </entry>
   <entry>
     <title>Simple Guides for Mizuki</title>
     <link href="https://ahzer0coder.github.io/posts/guide/" rel="alternate" type="text/html"/>

@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Simple Guides for Mizuki</title><link>https://ahzer0coder.github.io/posts/guide/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/guide/</guid><description>How to use this blog template.</description><pubDate>Mon, 01 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This blog template is built with &lt;a href=&quot;https://astro.build/&quot;&gt;Astro&lt;/a&gt;. For the things that are not mentioned in this guide, you may find the answers in the &lt;a href=&quot;https://docs.astro.build/&quot;&gt;Astro Docs&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
+&lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
+&lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;
+&lt;h3&gt;1. Encapsulation&lt;/h3&gt;
+&lt;p&gt;Bundling data and methods that operate on that data within a single unit (class).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class BankAccount {
+    private double balance;  // Encapsulated data
+    
+    public void deposit(double amount) {
+        balance += amount;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. Inheritance&lt;/h3&gt;
+&lt;p&gt;Creating new classes based on existing ones.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Animal {
+    void eat() { System.out.println(&quot;Eating...&quot;); }
+}
+
+class Dog extends Animal {
+    void bark() { System.out.println(&quot;Barking...&quot;); }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. Polymorphism&lt;/h3&gt;
+&lt;p&gt;Objects of different types can be treated as objects of a common base type.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Animal myDog = new Dog();
+Animal myCat = new Cat();
+myDog.makeSound();  // &quot;Woof!&quot;
+myCat.makeSound();  // &quot;Meow!&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;4. Abstraction&lt;/h3&gt;
+&lt;p&gt;Hiding complex implementation details and showing only essential features.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;abstract class Shape {
+    abstract double area();  // Abstract method
+}
+
+class Circle extends Shape {
+    double radius;
+    double area() { return Math.PI * radius * radius; }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Benefits&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Modularity&lt;/strong&gt; - Code organized into reusable classes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reusability&lt;/strong&gt; - Inheritance promotes code reuse&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibility&lt;/strong&gt; - Polymorphism enables flexible designs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintainability&lt;/strong&gt; - Encapsulation protects internal state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;When to Use OOP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Large applications with complex relationships&lt;/li&gt;
+&lt;li&gt;Teams working on different modules&lt;/li&gt;
+&lt;li&gt;Projects requiring frequent updates&lt;/li&gt;
+&lt;li&gt;GUI applications, games, simulations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;OOP provides powerful tools for modeling real-world problems and building scalable software systems.&lt;/p&gt;
+</content:encoded></item><item><title>Structured Programming</title><link>https://ahzer0coder.github.io/posts/structured-programming/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/structured-programming/</guid><description>Understanding the fundamentals of structured programming paradigm</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Structured Programming&lt;/h1&gt;
+&lt;p&gt;Structured programming is a programming paradigm aimed at improving the clarity, quality, and development time of a computer program by making extensive use of structured control flow constructs.&lt;/p&gt;
+&lt;h2&gt;Key Principles&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sequence&lt;/strong&gt; - Statements executed in order&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Selection&lt;/strong&gt; - Conditional branching (if/else)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Iteration&lt;/strong&gt; - Loops (while, for)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modularity&lt;/strong&gt; - Breaking code into functions/procedures&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Benefits&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Readability&lt;/strong&gt; - Clear program flow&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintainability&lt;/strong&gt; - Easier to debug and modify&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reliability&lt;/strong&gt; - Reduced complexity leads to fewer bugs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;// Structured approach
+int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i &amp;lt;= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Structured programming forms the foundation for modern programming practices and is essential for writing clean, maintainable code.&lt;/p&gt;
+</content:encoded></item><item><title>Simple Guides for Mizuki</title><link>https://ahzer0coder.github.io/posts/guide/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/guide/</guid><description>How to use this blog template.</description><pubDate>Mon, 01 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This blog template is built with &lt;a href=&quot;https://astro.build/&quot;&gt;Astro&lt;/a&gt;. For the things that are not mentioned in this guide, you may find the answers in the &lt;a href=&quot;https://docs.astro.build/&quot;&gt;Astro Docs&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Front-matter of Posts&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;---
 title: My First Blog Post
