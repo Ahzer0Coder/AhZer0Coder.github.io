@@ -11,7 +11,7 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
+  
 # 需要写入权限来推送到pages分支
 permissions:
   contents: write
@@ -20,11 +20,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+    
       - name: Checkout your repository using git
         uses: actions/checkout@v4
         with:
-          submodules: true # 支持 Git Submodule 模式
-          lfs: true
+          lfs: false
           token: ${{ secrets.GITHUB_TOKEN }} # 自动访问同账号下的私有仓库
 
       - name: Setup Node.js
