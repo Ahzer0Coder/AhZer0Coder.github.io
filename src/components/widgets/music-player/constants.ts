@@ -34,7 +34,7 @@ export const LOCAL_PLAYLIST: Song[] = [
   },
   {
     id: 4,
-    title: "مش فاكر اسمه",
+    title: "الشيخ علي صلاح عمر",
     artist: ".",
     cover: "assets/music/cover/cl.webp",
     url: `${RELEASE_BASE}/cl.mp3`,
