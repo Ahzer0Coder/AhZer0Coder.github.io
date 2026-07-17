@@ -1,4 +1,464 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Introduction to C++</title><link>https://ahzer0coder.github.io/posts/introduction-to-cpp/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/introduction-to-cpp/</guid><description>A comprehensive introduction to C++ programming language - history, philosophy, features, and getting started guide.</description><pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&quot;The only way to learn a new programming language is by writing programs in it.&quot;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&quot;In software development, learning is not a big part of the job. It is the job.&quot;&lt;/em&gt; — Woody Zuill&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&quot;Programming is not about typing, it&apos;s about thinking.&quot;&lt;/em&gt; — Rich Hickey&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;h3&gt;A Little History of C/C++ Programming Language&lt;/h3&gt;
+&lt;h4&gt;Assembly&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Extremely simple instructions&lt;/li&gt;
+&lt;li&gt;Requires lots of code to do simple tasks&lt;/li&gt;
+&lt;li&gt;Can express anything your computer can do&lt;/li&gt;
+&lt;li&gt;Hard to read, write&lt;/li&gt;
+&lt;li&gt;...redundant, boring programming, bugs proliferation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;main:
+.Lfunc_begin0:
+    push rbp
+.Lcfi0:
+.Lcfi1:
+    mov rbp, rsp
+.Lcfi2:
+    sub rsp, 16
+    movabs rdi, offset .L.str
+.Ltmp0:
+    mov al, 0
+    call printf
+    xor ecx, ecx
+    mov dword ptr [rbp - 4], eax
+    mov eax, ecx
+    add rsp, 16
+    pop rbp
+    ret
+.Ltmp1:
+.Lfunc_end0:
+
+.L.str:
+    .asciz &quot;Hello World\n&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the same code in C:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &quot;stdio.h&quot;
+
+int main() {
+    printf(&quot;Hello World\n&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;A Little History of C&lt;/h4&gt;
+&lt;p&gt;Areas of Application:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UNIX operating system&lt;/li&gt;
+&lt;li&gt;Computer games&lt;/li&gt;
+&lt;li&gt;Due to their power and ease of use, C was used in the programming of the special effects for Star Wars&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;A Little History of C++&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;C++&lt;/strong&gt; programming language (originally named &quot;C with Classes&quot;) was devised by &lt;strong&gt;Bjarne Stroustrup&lt;/strong&gt; — also an employee from Bell Labs (AT&amp;amp;T). Stroustrup started working on C with Classes in &lt;strong&gt;1979&lt;/strong&gt;. (The &lt;code&gt;++&lt;/code&gt; is a C language operator.) The first commercial release of the C++ language was in &lt;strong&gt;October 1985&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Areas of Application and Popularity&lt;/h3&gt;
+&lt;h4&gt;Why C++ is so Popular?&lt;/h4&gt;
+&lt;p&gt;There may be more than &lt;strong&gt;200 billion lines&lt;/strong&gt; of C/C++ code globally.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt; is the defining aspect of C++. No other programming language provides the performance-critical facilities of C++&lt;/li&gt;
+&lt;li&gt;Provide the programmer control over every aspect of performance&lt;/li&gt;
+&lt;li&gt;Leave no room for a lower level language&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ubiquity&lt;/strong&gt;. C++ can run from a low-power embedded device to large-scale supercomputers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-Paradigm&lt;/strong&gt;. Allow writing efficient code without losing high-level abstraction&lt;/li&gt;
+&lt;li&gt;Allow writing low-level code. Drivers, kernels, assembly (asm), etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ecosystem&lt;/strong&gt;. Many support tools such as debuggers, memory checkers, coverage, static analysis, profiling, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maturity&lt;/strong&gt;. C++ has a 40 years history. Many software problems have been already addressed and developing practices have been investigated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Areas of Application&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Operating systems&lt;/strong&gt;: Windows, Android, OS X, Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilers&lt;/strong&gt;: LLVM, Swift compiler&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Artificial Intelligence&lt;/strong&gt;: TensorFlow, Caffe, Microsoft Cognitive Toolkit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Image Editing&lt;/strong&gt;: Adobe Premier, Photoshop, Illustrator&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web browser&lt;/strong&gt;: Firefox, Chrome, etc. + WebAssembly&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;High-Performance Computing&lt;/strong&gt;: drug developing and testing, large scale climate models, physics simulations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded systems&lt;/strong&gt;: IoT, network devices (e.g. GSM), automotive&lt;/li&gt;
+&lt;li&gt;Google and Microsoft use C++ for web indexing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scientific Computing&lt;/strong&gt;: CERN/NASA, SETI@home, Folding@home&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Database&lt;/strong&gt;: MySQL, ScyllaDB&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Video Games&lt;/strong&gt;: Unreal Engine, Unity&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Entertainment&lt;/strong&gt;: Movie rendering (see Interstellar black hole rendering), virtual reality&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Finance&lt;/strong&gt;: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;An Important Example... (AI Evolution)&lt;/h4&gt;
+&lt;h4&gt;Performance&lt;/h4&gt;
+&lt;h4&gt;Memory Usage&lt;/h4&gt;
+&lt;h4&gt;Energy Efficiency&lt;/h4&gt;
+&lt;h4&gt;CO2 Production&lt;/h4&gt;
+&lt;h3&gt;C++ Philosophy&lt;/h3&gt;
+&lt;h4&gt;C++ Philosophy - Performance&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;High-level code (clean and safe) should produce a program just as fast as low-level code (complex and difficult).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;C++ Philosophy - Type Safety&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enforce safety at compile time:&lt;/strong&gt;
+The main goal here is to detect errors early. In C++, the compiler strictly checks your code to make sure you&apos;re not performing illogical operations (such as trying to combine text with a number). Detecting these errors before launching the program (Compile time) prevents it from crashing suddenly while the client is using it (Run time), which is crucial for major commercial programs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Statically Typed Language:&lt;/strong&gt;
+In C++, you must declare the type of a variable (eg int, string) before using it. Once the type is selected, it cannot be changed. This strict system is what gives the compiler the ability to verify security.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Benefits of Type Annotations:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Ease of reading the code (More readable):&lt;/strong&gt; When another programmer looks at the code and finds the data types clearly defined, he immediately understands the purpose of each variable or function, which makes the code a documentation for itself&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Improving performance and efficiency (Compiler optimizations):&lt;/strong&gt; Since the compiler precisely knows the type and space of each statement in memory, he can optimize the source code so that it runs at the maximum possible speed and without any additional consumption of device resources during operation (unlike dynamic languages that waste part of the time to identify the type of the variable during operation).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create custom type systems (Define own type system):&lt;/strong&gt; The C++ language is not limited to basic types (numbers, texts), but rather gives the programmer the power and freedom to invent completely new and complex data types (such as object classes) that suit the idea of his program, while applying the same strict security rules to them.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Programming model:&lt;/strong&gt; compartmentalization, only addition features if they solve an actual problem, and allow full control&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Predictable runtime&lt;/strong&gt; (under constraints): no garbage collector, no dynamic type system → real-time systems&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Low resources:&lt;/strong&gt; low memory and energy consumption → restricted hardware platforms&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Well suited for static analysis&lt;/strong&gt; → safety critical software&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Portability&lt;/strong&gt; → Modern C++ standards are highly portable&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Who is C++ for?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&quot;C++ is for people who want to use hardware very well and manage the complexity of doing that through abstraction&quot;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&quot;A language like C++ is not for everybody. It is generated via sharp and effective tool for professional basically and definitely for people who aim at some kind of precision&quot;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;C++ Weaknesses&lt;/h3&gt;
+&lt;h4&gt;Why C++ is so Difficult?&lt;/h4&gt;
+&lt;p&gt;And why teaching C++ as first programming language is a bad idea? C++ is the hardest language from students to master:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;More languages in one&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Standard C/C++ programming&lt;/li&gt;
+&lt;li&gt;Preprocessor&lt;/li&gt;
+&lt;li&gt;Object-Oriented features&lt;/li&gt;
+&lt;li&gt;Templates and Meta-Programming&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Huge set of features&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worry about memory management&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Low-level implementation details:&lt;/strong&gt; pointer arithmetic, structure, padding, undefined behavior, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frustrating:&lt;/strong&gt; compiler/runtime errors (e.g. seg. fault)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;:::note[Quotes]
+&lt;em&gt;&quot;C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off&quot;&lt;/em&gt; — &lt;strong&gt;Bjarne Stroustrup&lt;/strong&gt;, Creator of the C++ language&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&quot;The problem with using C++...is that there&apos;s already a strong tendency in the language to require you to know everything before you can do anything&quot;&lt;/em&gt; — &lt;strong&gt;Larry Wall&lt;/strong&gt;, Creator of the Perl language&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&quot;Despite having 20 years of experience with C++, when I compile a non-trivial chunk of code for the first time without any error or warning, I am suspicious. It is not, usually, a good sign&quot;&lt;/em&gt; — &lt;strong&gt;Daniel Lemire&lt;/strong&gt;, Prof. at the University of Quebec
+:::&lt;/p&gt;
+&lt;p&gt;:::important[Advanced Resources]
+These are advanced resources for solving C++ problems after you finish the course:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1881r1.html&quot;&gt;P1881R1 - C++ Safety Concerns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2137r0.html&quot;&gt;P2137R0 - Directions for ISO C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carbon-language/carbon-lang&quot;&gt;Carbon Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.circle-lang.org/site/index.html&quot;&gt;Circle Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hsutter/cppfront&quot;&gt;CppFront - Herb Sutter&apos;s C++ Syntax Frontend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=gG4BJ23BFBE&quot;&gt;CppFront Talk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cisa.gov/sites/default/files/2023-12/The-Case-for-Memory-Safe-Roadmaps-508c.pdf&quot;&gt;The Case for Memory Safe Roadmaps - CISA&lt;/a&gt;
+:::&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Why Switching to a New Language is Hard?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;No perfect language.&lt;/strong&gt; There are always newer &apos;shining&apos; languages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alignment.&lt;/strong&gt; Force all developers to switch to the new language&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interoperability.&lt;/strong&gt; Hundreds of billion lines of existing code. Must interoperate with C and C++ code imposing serious design constraints&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ecosystem.&lt;/strong&gt; Lack of tools and libraries developed in the last four decades&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time and Cost.&lt;/strong&gt; Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Course&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;The primary goal of the course is to drive who has previous experience with C/C++ and object-oriented programming to a proficiency level of C++ programming.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Proficiency:&lt;/strong&gt; know what you are doing and the related implications&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Understand&lt;/strong&gt; what problems/issues address a given language feature&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learn engineering practices&lt;/strong&gt; (e.g. code conventions, tools) and hardware/software techniques (e.g. semantic, optimizations) that are not strictly related to C++&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;What the course is:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A practical course, prefer examples to long descriptions&lt;/li&gt;
+&lt;li&gt;A &quot;quite&quot; advanced C++ programming language course&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;What the course is not:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A theoretical course on programming&lt;/li&gt;
+&lt;li&gt;A high-level concept description&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Books and References&lt;/h3&gt;
+&lt;h5&gt;Unofficial C++ Reference:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.cppreference.com/&quot;&gt;cppreference.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://eel.is/c++draft/&quot;&gt;C++ Draft Standard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Tutorials&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.learncpp.com/&quot;&gt;LearnCpp.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/C%2B%2B_Programming&quot;&gt;C++ Programming - Wikibooks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www3.ntu.edu.sg/home/ehchua/programming/index.html&quot;&gt;C++ Programming - NTU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Other Resources:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/tagged/c%2b%2b&quot;&gt;Stack Overflow - C++&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;News:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://isocpp.org/&quot;&gt;isocpp.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/cpp/&quot;&gt;Reddit r/cpp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.libhunt.com/&quot;&gt;LibHunt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://accu.org/journals/nonmembers/overload_issue_members/&quot;&gt;ACCU Overload&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Coding Exercises:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://leetcode.com/problemset/algorithms/&quot;&gt;LeetCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://open.kattis.com/&quot;&gt;Kattis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Main Conferences:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://cppcon.org/&quot;&gt;CppCon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/CppCon&quot;&gt;CppCon GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cppnow.org/&quot;&gt;CppNow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/CppNorth/CppNorth_Slides&quot;&gt;CppNorth Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://accu.org/&quot;&gt;ACCU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://isocpp.org/wiki/faq/conferences-worldwide&quot;&gt;Conferences Worldwide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Parenthesis and Brackets&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symbol&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Informal Name&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;{}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Braces&lt;/td&gt;
+&lt;td&gt;Curly brackets&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Brackets&lt;/td&gt;
+&lt;td&gt;Square brackets&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Parenthesis&lt;/td&gt;
+&lt;td&gt;Round brackets&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Angle brackets&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What Editor/ IDE/Compiler Should I Use?&lt;/h3&gt;
+&lt;h4&gt;1. What Compiler Should I Use?&lt;/h4&gt;
+&lt;p&gt;Most popular compilers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft Visual Code (MSVC)&lt;/strong&gt; is the compiler offered by Microsoft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The GNU Compiler Collection (GCC)&lt;/strong&gt; contains the most popular C++ Linux compiler&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clang&lt;/strong&gt; is a C++ compiler based on LLVM Infrastructure available for Linux/Windows/Apple (default) platforms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;:::tip[Suggested compiler on Linux for beginner: Clang]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Comparable performance with GCC/MSVC and low memory usage&lt;/li&gt;
+&lt;li&gt;Expressive diagnostics (examples and propose corrections)&lt;/li&gt;
+&lt;li&gt;Strict C++ compliance. GCC/MSVC compatibility (inverse direction is not ensured)&lt;/li&gt;
+&lt;li&gt;Includes very useful tools: memory sanitizer, static code analyzer, automatic formatting, linter, etc.
+:::&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2. Install the Compiler on Linux?&lt;/h4&gt;
+&lt;p&gt;gcc/g++ is the default C/C++ compiler on most Linux distributions. If necessary, it can be updated manually. Follow the instructions below to update it on Ubuntu/Debian (v14):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-14 g++-14
+gcc-14 --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install the last clang/clang++ (v21):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 21
+clang++ --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;3. Install the Compiler on Windows?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Direct Installer:&lt;/strong&gt; Visual Studio Community 2026&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clang on Windows:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Windows Subsystem for Linux (WSL)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Windows Powershell → wsl –install -d Ubuntu-24.04
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enable virtualization support in UEFI/BIOS: &lt;code&gt;Intel Virtualization Technology (VT-x) (Intel) or SVM Mode (AMD)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clang + MSVC Build Tools: Download Build Tools per Visual Studio → &lt;code&gt;Install Desktop development with C++&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Popular C++ IDEs&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://visualstudio.microsoft.com/it/&quot;&gt;Microsoft Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.jetbrains.com/clion/&quot;&gt;CLion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.qt.io/development/tools/qt-creator-ide&quot;&gt;Qt Creator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.apple.com/xcode/&quot;&gt;Xcode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cevelop.com&quot;&gt;Cevelop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Standalone GUI-based Coding Editors&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cursor.com/&quot;&gt;Cursor&lt;/a&gt; — AI-powered code editor based on VS Code&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://voideditor.com/&quot;&gt;Void Editor&lt;/a&gt; — Open-source Cursor alternative&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://devin.ai/desktop&quot;&gt;Windsurf&lt;/a&gt; — AI-powered editor&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://lap.dev/lapce/&quot;&gt;Lapce&lt;/a&gt; — Modern, open-source, written in Rust&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zed.dev/&quot;&gt;Zed&lt;/a&gt; — High-performance, built in Rust&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Standalone Text-based Coding Editors&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.vim.org/&quot;&gt;Vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://neovim.io/&quot;&gt;NeoVim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://helix-editor.com/&quot;&gt;Helix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;How to Compile?&lt;/h3&gt;
+&lt;p&gt;Compile C++11, C++14, C++17, C++20, C++23, C++26 programs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;g++ -o program              # compiler default standard version
+g++ -std=c++14 program.cpp -o program
+g++ -std=c++&amp;lt;version&amp;gt; program.cpp -o program
+make program.cpp            # a Makefile is not even needed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::note[Backward Compatibility]
+Any C++ standard is backward compatible. For example, a code compiled with C++17 still works with C++20. C++ is built on top of C and it supports backward compatibility in simple cases. However, there are several exceptions. The most common cases are C++ keywords (&lt;code&gt;new&lt;/code&gt;, &lt;code&gt;template&lt;/code&gt;, &lt;code&gt;class&lt;/code&gt;, &lt;code&gt;typename&lt;/code&gt;, etc.) that cannot be used for symbol naming.
+:::&lt;/p&gt;
+&lt;p&gt;It is a good practice to add warning flags and sanitizers, especially for beginners, to catch potential problems in the code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;gcc/clang options:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;g++ -Wall -Wextra -fsanitize=address,undefined -fanalyze program.cpp -o program
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Microsoft Compiler options:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cl /W4 /fsanitize=address /analyze program.cpp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Why C++ and Download IDE&lt;/h2&gt;
+&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Reverse Engineering:&lt;/strong&gt; C++ is a fundamental language for understanding and analyzing executable files (Binaries), and dealing deeply with advanced analysis tools like IDA Pro, x64dbg, and Ghidra.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Game Development:&lt;/strong&gt; The most powerful game engines (like Unreal Engine) are written in it for complex graphics processing at high speed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operating Systems:&lt;/strong&gt; Large parts of operating systems like Windows, macOS, and Linux are built with it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Heavy Desktop Applications:&lt;/strong&gt; Like design and editing software (Photoshop, Premiere).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web Browsers:&lt;/strong&gt; Popular browser engines like Google Chrome and Safari rely on it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded Systems and Databases.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;IDEs&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;VS Code&lt;/li&gt;
+&lt;li&gt;VS Community&lt;/li&gt;
+&lt;li&gt;CLion&lt;/li&gt;
+&lt;li&gt;Code::Blocks&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;How to Download Compiler and Debugger to VS Code and Use C++&lt;/h2&gt;
+&lt;h3&gt;1. Install in VS Code C/C++&lt;/h3&gt;
+&lt;p&gt;To use that we should download:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ compiler pre-installed&lt;/li&gt;
+&lt;li&gt;C++ debugger pre-installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. How?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Download MSYS2&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Open &lt;strong&gt;clang64&lt;/strong&gt; and write:&lt;pre&gt;&lt;code&gt;pacman -Syu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Open &lt;strong&gt;MSYS2&lt;/strong&gt; and write:&lt;pre&gt;&lt;code&gt;pacman -Su
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Open &lt;strong&gt;mingw64&lt;/strong&gt; and write:&lt;pre&gt;&lt;code&gt;pacman -Ss gcc          # shows available compilers
+pacman -S mingw-w64-x86_64-gcc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Download the debugger:&lt;pre&gt;&lt;code&gt;pacman -Ss gdb
+pacman -S mingw-w64-x86_64-gdb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Check the version:&lt;/strong&gt;&lt;pre&gt;&lt;code&gt;gcc --version
+g++ --version
+gdb --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Add the Path&lt;/h3&gt;
+&lt;p&gt;Add the download path to &lt;strong&gt;Edit the system environment variables&lt;/strong&gt; → double click on &lt;strong&gt;Path&lt;/strong&gt; → click &lt;strong&gt;New&lt;/strong&gt; → add the path.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Hello World with C++&lt;/h2&gt;
+&lt;p&gt;The previous example can be written with the global &lt;code&gt;std&lt;/code&gt; namespace:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+
+int main() {
+    cout &amp;lt;&amp;lt; &quot;Hello World!\n&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::note
+For sake of space and for improving the readability, we intentionally omit the &lt;code&gt;std&lt;/code&gt; namespace in most slides.
+:::&lt;/p&gt;
+&lt;h3&gt;C vs C++ Comparison&lt;/h3&gt;
+&lt;p&gt;:::tip[C code]&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+
+int main() {
+    int a = 4;
+    double b = 3.0;
+    char c[] = &quot;hello&quot;;
+    printf(&quot;%d %f %s\n&quot;, a, b, c);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;p&gt;:::tip[C++ code]&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int a = 4;
+    double b = 3.0;
+    char c[] = &quot;hello&quot;;
+    std::cout &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &quot; &quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &quot; &quot; &amp;lt;&amp;lt; c &amp;lt;&amp;lt; &quot;\n&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;I/O Stream (Why should we prefer I/O stream?)&lt;/h2&gt;
+&lt;h3&gt;Type Safe&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In the &lt;code&gt;printf&lt;/code&gt; function (legacy): The function does not know what type of variable it wants to print automatically. You must activate them with the variable type during the program (dynamically) using custom symbols such as &lt;code&gt;%d&lt;/code&gt; for integers or &lt;code&gt;%s&lt;/code&gt; for strings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In C++ functions (such as &lt;code&gt;cout&lt;/code&gt;): The compiler knows the type of the variable in advance (static) while writing the code. You don&apos;t need to tell it what type of data it is, it will automatically detect it and print it for sure.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Less Error Prone&lt;/h3&gt;
+&lt;p&gt;With I/O Stream, there are no redundant &lt;code&gt;%&lt;/code&gt; tokens that have to be consistent with the actual objects passed to I/O stream. Removing redundancy removes a class of errors.&lt;/p&gt;
+&lt;h3&gt;Extensible&lt;/h3&gt;
+&lt;p&gt;The C++ I/O Stream mechanism allows new user-defined types to be passed to I/O stream without breaking existing code.&lt;/p&gt;
+&lt;h3&gt;Comparable Performance&lt;/h3&gt;
+&lt;p&gt;If used correctly, may be faster than C I/O (&lt;code&gt;printf&lt;/code&gt;, &lt;code&gt;scanf&lt;/code&gt;, etc.).&lt;/p&gt;
+</content:encoded></item><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
 &lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
 &lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;
 &lt;h3&gt;1. Encapsulation&lt;/h3&gt;
