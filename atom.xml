@@ -5,7 +5,7 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-17T11:24:11.264Z</updated>
+  <updated>2026-07-17T11:31:17.937Z</updated>
   <language>en</language>
   <entry>
     <title>Introduction to C++</title>
@@ -23,6 +23,7 @@
 <blockquote>
 <p><em>"Programming is not about typing, it's about thinking."</em> — Rich Hickey</p>
 </blockquote>
+<p><img src="./images/Pasted%20image%2020260711141748.png" alt="C++ Introduction" /></p>
 <h2>Introduction</h2>
 <h3>A Little History of C/C++ Programming Language</h3>
 <h4>Assembly</h4>
@@ -73,7 +74,10 @@ int main() {
 </ul>
 <h4>A Little History of C++</h4>
 <p>The <strong>C++</strong> programming language (originally named "C with Classes") was devised by <strong>Bjarne Stroustrup</strong> — also an employee from Bell Labs (AT&amp;T). Stroustrup started working on C with Classes in <strong>1979</strong>. (The <code>++</code> is a C language operator.) The first commercial release of the C++ language was in <strong>October 1985</strong>.</p>
+<p><img src="./images/Pasted%20image%2020260711151436.png" alt="C++ History" /></p>
 <h3>Areas of Application and Popularity</h3>
+<p><img src="./images/Pasted%20image%2020260711151621.png" alt="Areas of Application" /></p>
+<p><img src="./images/Pasted%20image%2020260711151641.png" alt="Popularity" /></p>
 <h4>Why C++ is so Popular?</h4>
 <p>There may be more than <strong>200 billion lines</strong> of C/C++ code globally.</p>
 <ul>
@@ -102,11 +106,17 @@ int main() {
 <li><strong>Entertainment</strong>: Movie rendering (see Interstellar black hole rendering), virtual reality</li>
 <li><strong>Finance</strong>: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more</li>
 </ul>
+<p><img src="./images/Pasted%20image%2020260711155847.png" alt="Applications" /></p>
 <h4>An Important Example... (AI Evolution)</h4>
+<p><img src="./images/Pasted%20image%2020260711155924.png" alt="AI Evolution" /></p>
 <h4>Performance</h4>
+<p><img src="./images/Pasted%20image%2020260711155948.png" alt="Performance" /></p>
 <h4>Memory Usage</h4>
+<p><img src="./images/Pasted%20image%2020260711160030.png" alt="Memory Usage" /></p>
 <h4>Energy Efficiency</h4>
+<p><img src="./images/Pasted%20image%2020260711160148.png" alt="Energy Efficiency" /></p>
 <h4>CO2 Production</h4>
+<p><img src="./images/Pasted%20image%2020260711160240.png" alt="CO2 Production" /></p>
 <h3>C++ Philosophy</h3>
 <h4>C++ Philosophy - Performance</h4>
 <ul>
@@ -195,6 +205,7 @@ These are advanced resources for solving C++ problems after you finish the cours
 <li><strong>Ecosystem.</strong> Lack of tools and libraries developed in the last four decades</li>
 <li><strong>Time and Cost.</strong> Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000</li>
 </ul>
+<p><img src="./images/Pasted%20image%2020260711174136.png" alt="Switching Languages" /></p>
 <h3>The Course</h3>
 <p><strong>The primary goal of the course is to drive who has previous experience with C/C++ and object-oriented programming to a proficiency level of C++ programming.</strong></p>
 <ul>
@@ -212,7 +223,9 @@ These are advanced resources for solving C++ problems after you finish the cours
 <li>A theoretical course on programming</li>
 <li>A high-level concept description</li>
 </ul>
+<p><img src="./images/Screenshot%202026-07-11%20174331.png" alt="Course Overview" /></p>
 <h3>Books and References</h3>
+<p><img src="./images/Pasted%20image%2020260711202010.png" alt="Books and References" /></p>
 <h5>Unofficial C++ Reference:</h5>
 <ul>
 <li><a href="https://en.cppreference.com/">cppreference.com</a></li>

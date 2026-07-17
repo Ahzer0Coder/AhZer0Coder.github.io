@@ -7,6 +7,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&quot;Programming is not about typing, it&apos;s about thinking.&quot;&lt;/em&gt; — Rich Hickey&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711141748.png&quot; alt=&quot;C++ Introduction&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;h3&gt;A Little History of C/C++ Programming Language&lt;/h3&gt;
 &lt;h4&gt;Assembly&lt;/h4&gt;
@@ -57,7 +58,10 @@ int main() {
 &lt;/ul&gt;
 &lt;h4&gt;A Little History of C++&lt;/h4&gt;
 &lt;p&gt;The &lt;strong&gt;C++&lt;/strong&gt; programming language (originally named &quot;C with Classes&quot;) was devised by &lt;strong&gt;Bjarne Stroustrup&lt;/strong&gt; — also an employee from Bell Labs (AT&amp;amp;T). Stroustrup started working on C with Classes in &lt;strong&gt;1979&lt;/strong&gt;. (The &lt;code&gt;++&lt;/code&gt; is a C language operator.) The first commercial release of the C++ language was in &lt;strong&gt;October 1985&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711151436.png&quot; alt=&quot;C++ History&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;Areas of Application and Popularity&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711151621.png&quot; alt=&quot;Areas of Application&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711151641.png&quot; alt=&quot;Popularity&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;Why C++ is so Popular?&lt;/h4&gt;
 &lt;p&gt;There may be more than &lt;strong&gt;200 billion lines&lt;/strong&gt; of C/C++ code globally.&lt;/p&gt;
 &lt;ul&gt;
@@ -86,11 +90,17 @@ int main() {
 &lt;li&gt;&lt;strong&gt;Entertainment&lt;/strong&gt;: Movie rendering (see Interstellar black hole rendering), virtual reality&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Finance&lt;/strong&gt;: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711155847.png&quot; alt=&quot;Applications&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;An Important Example... (AI Evolution)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711155924.png&quot; alt=&quot;AI Evolution&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;Performance&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711155948.png&quot; alt=&quot;Performance&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;Memory Usage&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711160030.png&quot; alt=&quot;Memory Usage&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;Energy Efficiency&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711160148.png&quot; alt=&quot;Energy Efficiency&quot; /&gt;&lt;/p&gt;
 &lt;h4&gt;CO2 Production&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711160240.png&quot; alt=&quot;CO2 Production&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;C++ Philosophy&lt;/h3&gt;
 &lt;h4&gt;C++ Philosophy - Performance&lt;/h4&gt;
 &lt;ul&gt;
@@ -179,6 +189,7 @@ These are advanced resources for solving C++ problems after you finish the cours
 &lt;li&gt;&lt;strong&gt;Ecosystem.&lt;/strong&gt; Lack of tools and libraries developed in the last four decades&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Time and Cost.&lt;/strong&gt; Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711174136.png&quot; alt=&quot;Switching Languages&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;The Course&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;The primary goal of the course is to drive who has previous experience with C/C++ and object-oriented programming to a proficiency level of C++ programming.&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -196,7 +207,9 @@ These are advanced resources for solving C++ problems after you finish the cours
 &lt;li&gt;A theoretical course on programming&lt;/li&gt;
 &lt;li&gt;A high-level concept description&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Screenshot%202026-07-11%20174331.png&quot; alt=&quot;Course Overview&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;Books and References&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Pasted%20image%2020260711202010.png&quot; alt=&quot;Books and References&quot; /&gt;&lt;/p&gt;
 &lt;h5&gt;Unofficial C++ Reference:&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://en.cppreference.com/&quot;&gt;cppreference.com&lt;/a&gt;&lt;/li&gt;
