@@ -2,6 +2,7 @@
 title: "Introduction to C++"
 published: 2026-07-11
 description: "A comprehensive introduction to C++ programming language - history, philosophy, features, and getting started guide."
+image: ./cover.jpg
 tags: ["cpp", "programming", "tutorial", "beginner"]
 category: "C++"
 draft: false
