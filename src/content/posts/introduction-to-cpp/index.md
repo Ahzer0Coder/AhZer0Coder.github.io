@@ -13,6 +13,8 @@ draft: false
 
 > *"Programming is not about typing, it's about thinking."* — Rich Hickey
 
+![C++ Introduction](./images/Pasted%20image%2020260711141748.png)
+
 ## Introduction
 
 ### A Little History of C/C++ Programming Language
@@ -73,7 +75,13 @@ Areas of Application:
 
 The **C++** programming language (originally named "C with Classes") was devised by **Bjarne Stroustrup** — also an employee from Bell Labs (AT&T). Stroustrup started working on C with Classes in **1979**. (The `++` is a C language operator.) The first commercial release of the C++ language was in **October 1985**.
 
+![C++ History](./images/Pasted%20image%2020260711151436.png)
+
 ### Areas of Application and Popularity
+
+![Areas of Application](./images/Pasted%20image%2020260711151621.png)
+
+![Popularity](./images/Pasted%20image%2020260711151641.png)
 
 #### Why C++ is so Popular?
 
@@ -104,15 +112,27 @@ There may be more than **200 billion lines** of C/C++ code globally.
 - **Entertainment**: Movie rendering (see Interstellar black hole rendering), virtual reality
 - **Finance**: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more
 
+![Applications](./images/Pasted%20image%2020260711155847.png)
+
 #### An Important Example... (AI Evolution)
+
+![AI Evolution](./images/Pasted%20image%2020260711155924.png)
 
 #### Performance
 
+![Performance](./images/Pasted%20image%2020260711155948.png)
+
 #### Memory Usage
+
+![Memory Usage](./images/Pasted%20image%2020260711160030.png)
 
 #### Energy Efficiency
 
+![Energy Efficiency](./images/Pasted%20image%2020260711160148.png)
+
 #### CO2 Production
+
+![CO2 Production](./images/Pasted%20image%2020260711160240.png)
 
 ### C++ Philosophy
 
@@ -189,6 +209,8 @@ These are advanced resources for solving C++ problems after you finish the cours
 - **Ecosystem.** Lack of tools and libraries developed in the last four decades
 - **Time and Cost.** Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000
 
+![Switching Languages](./images/Pasted%20image%2020260711174136.png)
+
 ### The Course
 
 **The primary goal of the course is to drive who has previous experience with C/C++ and object-oriented programming to a proficiency level of C++ programming.**
@@ -205,7 +227,11 @@ These are advanced resources for solving C++ problems after you finish the cours
 - A theoretical course on programming
 - A high-level concept description
 
+![Course Overview](./images/Screenshot%202026-07-11%20174331.png)
+
 ### Books and References
+
+![Books and References](./images/Pasted%20image%2020260711202010.png)
 
 ##### Unofficial C++ Reference:
 
