@@ -8,11 +8,11 @@ category: "C++"
 draft: false
 ---
 
-> *"The only way to learn a new programming language is by writing programs in it."*
+> _"The only way to learn a new programming language is by writing programs in it."_
 
-> *"In software development, learning is not a big part of the job. It is the job."* — Woody Zuill
+> _"In software development, learning is not a big part of the job. It is the job."_ — Woody Zuill
 
-> *"Programming is not about typing, it's about thinking."* — Rich Hickey
+> _"Programming is not about typing, it's about thinking."_ — Rich Hickey
 
 ![C++ Introduction](./images/Pasted%20image%2020260711141748.png)
 
@@ -162,9 +162,9 @@ There may be more than **200 billion lines** of C/C++ code globally.
 
 ### Who is C++ for?
 
-> *"C++ is for people who want to use hardware very well and manage the complexity of doing that through abstraction"*
+> _"C++ is for people who want to use hardware very well and manage the complexity of doing that through abstraction"_
 
-> *"A language like C++ is not for everybody. It is generated via sharp and effective tool for professional basically and definitely for people who aim at some kind of precision"*
+> _"A language like C++ is not for everybody. It is generated via sharp and effective tool for professional basically and definitely for people who aim at some kind of precision"_
 
 ### C++ Weaknesses
 
@@ -183,11 +183,11 @@ And why teaching C++ as first programming language is a bad idea? C++ is the har
 - **Frustrating:** compiler/runtime errors (e.g. seg. fault)
 
 :::note[Quotes]
-*"C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off"* — **Bjarne Stroustrup**, Creator of the C++ language
+_"C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off"_ — **Bjarne Stroustrup**, Creator of the C++ language
 
-*"The problem with using C++...is that there's already a strong tendency in the language to require you to know everything before you can do anything"* — **Larry Wall**, Creator of the Perl language
+_"The problem with using C++...is that there's already a strong tendency in the language to require you to know everything before you can do anything"_ — **Larry Wall**, Creator of the Perl language
 
-*"Despite having 20 years of experience with C++, when I compile a non-trivial chunk of code for the first time without any error or warning, I am suspicious. It is not, usually, a good sign"* — **Daniel Lemire**, Prof. at the University of Quebec
+_"Despite having 20 years of experience with C++, when I compile a non-trivial chunk of code for the first time without any error or warning, I am suspicious. It is not, usually, a good sign"_ — **Daniel Lemire**, Prof. at the University of Quebec
 :::
 
 :::important[Advanced Resources]
@@ -200,7 +200,7 @@ These are advanced resources for solving C++ problems after you finish the cours
 - [CppFront - Herb Sutter's C++ Syntax Frontend](https://github.com/hsutter/cppfront)
 - [CppFront Talk](https://www.youtube.com/watch?v=gG4BJ23BFBE)
 - [The Case for Memory Safe Roadmaps - CISA](https://www.cisa.gov/sites/default/files/2023-12/The-Case-for-Memory-Safe-Roadmaps-508c.pdf)
-:::
+  :::
 
 #### Why Switching to a New Language is Hard?
 
@@ -221,10 +221,12 @@ These are advanced resources for solving C++ problems after you finish the cours
 - **Learn engineering practices** (e.g. code conventions, tools) and hardware/software techniques (e.g. semantic, optimizations) that are not strictly related to C++
 
 **What the course is:**
+
 - A practical course, prefer examples to long descriptions
 - A "quite" advanced C++ programming language course
 
 **What the course is not:**
+
 - A theoretical course on programming
 - A high-level concept description
 
@@ -272,12 +274,12 @@ These are advanced resources for solving C++ problems after you finish the cours
 
 ##### Parenthesis and Brackets
 
-| Symbol | Name | Informal Name |
-|--------|------|---------------|
-| `{}` | Braces | Curly brackets |
-| `[]` | Brackets | Square brackets |
-| `()` | Parenthesis | Round brackets |
-| `<>` | Angle brackets | — |
+| Symbol | Name           | Informal Name   |
+| ------ | -------------- | --------------- |
+| `{}`   | Braces         | Curly brackets  |
+| `[]`   | Brackets       | Square brackets |
+| `()`   | Parenthesis    | Round brackets  |
+| `<>`   | Angle brackets | —               |
 
 ### What Editor/ IDE/Compiler Should I Use?
 
@@ -290,11 +292,12 @@ Most popular compilers:
 - **Clang** is a C++ compiler based on LLVM Infrastructure available for Linux/Windows/Apple (default) platforms
 
 :::tip[Suggested compiler on Linux for beginner: Clang]
+
 - Comparable performance with GCC/MSVC and low memory usage
 - Expressive diagnostics (examples and propose corrections)
 - Strict C++ compliance. GCC/MSVC compatibility (inverse direction is not ensured)
 - Includes very useful tools: memory sanitizer, static code analyzer, automatic formatting, linter, etc.
-:::
+  :::
 
 #### 2. Install the Compiler on Linux?
 
@@ -470,6 +473,7 @@ For sake of space and for improving the readability, we intentionally omit the `
 ### C vs C++ Comparison
 
 :::tip[C code]
+
 ```c
 #include <stdio.h>
 
@@ -480,9 +484,11 @@ int main() {
     printf("%d %f %s\n", a, b, c);
 }
 ```
+
 :::
 
 :::tip[C++ code]
+
 ```cpp
 #include <iostream>
 
@@ -493,6 +499,7 @@ int main() {
     std::cout << a << " " << b << " " << c << "\n";
 }
 ```
+
 :::
 
 ---
