@@ -169,5 +169,19 @@ export const navBarConfig: NavBarConfig = {
 
     // 项目页面
     LinkPreset.Projects,
+
+    // C++ section
+    {
+      name: "C++",
+      url: "/cpp/",
+      icon: "material-symbols:code",
+      children: [
+        {
+          name: "Introduction to C++",
+          url: "/cpp/introduction-to-cpp/",
+          icon: "material-symbols:book",
+        },
+      ],
+    },
   ],
 };

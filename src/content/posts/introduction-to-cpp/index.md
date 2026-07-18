@@ -5,6 +5,8 @@ description: "A comprehensive introduction to C++ programming language - history
 image: ./maxresdefault.jpg
 tags: ["cpp", "programming", "tutorial", "beginner"]
 category: "C++"
+priority: 1
+permalink: "cpp/introduction-to-cpp"
 draft: false
 ---
 
