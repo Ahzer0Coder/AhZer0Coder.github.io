@@ -525,3 +525,222 @@ The C++ I/O Stream mechanism allows new user-defined types to be passed to I/O s
 ### Comparable Performance
 
 If used correctly, may be faster than C I/O (`printf`, `scanf`, etc.).
+
+---
+
+## Comment
+
+- Single line comments in C++ start with double slashes `//` and the compiler ignores them. We use them to comment or document the code or use them as notes:
+- Multi-line comments use `/* */`
+
+```cpp
+int main() {
+    // this is a comment
+
+    /* This is a
+       multi-line comment */
+}
+```
+
+---
+
+## Hello World with C++
+
+Now we are ready to get the first glimpse at our "Hello World" example. The following program is the simplest "Hello World" example. It prints out `Hello World` in the console window:
+
+```cpp
+#include <iostream>
+int main() {
+    std::cout << "hello world";
+}
+```
+
+:::note[Explanation]
+The `#include <iostream>` statement includes the iostream header into our source file via the `#include` directive. The iostream header is part of the standard library. We need its inclusion to use the `std::cout` object, also known as a standard-output stream. The `<<` operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes `""`. The `;` marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon `;` in C++. The `std` is the standard-library namespace and `::` is the scope resolution operator. Object `cout` is inside the `std` namespace, and to access it, we need to prepend the call with `std::`.
+:::
+
+We can output multiple string literals by separating them with multiple `<<` operators:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "first output " << " second output ";
+}
+```
+
+To output on a new line, we need to output a new-line character `\n` literal:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "first line " << '\n' << "second line";
+}
+```
+
+Or:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "first line \n second line";
+}
+```
+
+---
+
+## Types
+
+### Fundamental Types
+
+C++ has some built-in types. We often refer to them as fundamental types. A declaration is a statement that introduces a name into a current scope.
+
+#### Boolean
+
+Let us declare a variable `b` of type `bool`. This type holds values of `true` and `false`:
+
+```cpp
+int main() {
+    bool b; // this has no value, default value is false == 0
+}
+```
+
+How to add value:
+
+```cpp
+int main() {
+    bool b = true; // or
+    bool A {false};
+}
+```
+
+:::important[Rule]
+All local variables must always be given an initial value once they are created (never leave them empty).
+
+If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called **undefined behavior (UB)**. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).
+
+More on this in the following chapters.
+:::
+
+#### Character
+
+Is used to represent a single character. The size is 1 byte:
+
+```cpp
+int main() {
+    char c = 'a';
+}
+```
+
+To print:
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = 'a';
+    std::cout << "the value of variable c is: " << c;
+}
+```
+
+Once declared and initialized, we can access our variable and change its value:
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = 'a';
+    std::cout << "the value of variable c is: " << c;
+    c = 'b';
+    std::cout << " the value of variable c is: " << c;
+}
+```
+
+The size of the char type in memory is usually one byte. We obtain the size of the type through the `sizeof` operator:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "the size for char is: " << sizeof(char) << " byte(s)";
+}
+```
+
+There are other character types such as `wchar_t` for holding characters of Unicode character set, `char16_t` for holding UTF-16 character sets, but for now, let us stick to the type `char`. A character literal is a character enclosed in single quotes. Example: `'a'`, `'A'`, `'z'`, `'X'`, `'0'` etc. Every character is represented by an integer number in the character set. That is why we can assign both numeric literals (up to a certain number) and character literals to our char variable:
+
+```cpp
+int main() {
+    char c = 'a';
+    // is the same as if we had
+    // char c = 97;
+}
+```
+
+The `'a'` character in ASCII table is represented with the number `97`.
+
+#### Integer
+
+Fundamental type is `int` called integer type. We use it to store integral values (whole numbers), both negative and positive:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    int c = -123;
+    std::cout << "the value x is: " << x << '\n' << "the value c is: " << c;
+}
+```
+
+The size of `int` is usually 4 bytes. We can also initialize the variable with another variable. It will receive a copy of its value. We still have two separate objects in memory:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    int y = x;
+    std::cout << "The value of x is: " << x << " ,the value of y is: " << y;
+    // x is 123
+    // y is 123
+    x = 456;
+    std::cout << "The value of x is: " << x << " ,the value of y is: " << y;
+    // x is now 456
+    // y is still 123
+}
+```
+
+Programming languages (like C and C++) allow you to write numerical values in three different number systems, and the compiler understands them based on the prefix you write before the number:
+
+- **Decimal:** Regular numbers from 0 to 9. You write the number directly without any additions.
+- **Octal:** Numbers from 0 to 7. To tell the compiler that the number is octal, you must place a zero (`0`) before it.
+- **Hexadecimal:** Numbers from 0 to 9 and letters from A to F. For the compiler to understand it, you must place `0x` before it.
+
+```cpp
+int main() {
+    int x = 10;     // decimal literal
+    int y = 012;    // octal literal
+    int z = 0xA;    // hexadecimal literal
+}
+```
+
+All these variables have been initialized to a value of 10 represented by different integer literals. For the most part, we will be using decimal literals. There are other integer types such as `int64_t` and others, but we will stick to `int` for now.
+
+#### Floating-Point
+
+There are three floating-point types in C++: `float`, `double`, `long double`, but we will stick to type `double` (double-precision). We use it for storing floating-point values / real numbers:
+
+```cpp
+#include <iostream>
+
+int main() {
+    double x = 2.56;
+    std::cout << " the value x is: " << x;
+}
+```
+
+#### Type void
+
+Type `void` is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type `void`, we can have functions of type `void`. Functions that do not return a value. We can also have a void pointer type marked with `void*`. More on this in later chapters when we discuss pointers and functions.
