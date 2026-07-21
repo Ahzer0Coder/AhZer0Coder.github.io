@@ -455,6 +455,20 @@ Add the download path to **Edit the system environment variables** → double cl
 
 ---
 
+## First Program
+
+Let us create a blank text file using the text editor or C++ IDE of our choice and name it `source.cpp`. First, let us create an empty C++ program that does nothing:
+
+```cpp
+int main()
+{
+}
+```
+
+This simple program does nothing, it has no parameters listed inside parentheses, and there are no statements inside the function body. It is essential to understand that this is the main program signature. There is also another main function signature accepting two different parameters used for manipulating the command line arguments. For now, we will only use the first form.
+
+---
+
 ## Hello World with C++
 
 The previous example can be written with the global `std` namespace:
@@ -744,3 +758,231 @@ int main() {
 #### Type void
 
 Type `void` is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type `void`, we can have functions of type `void`. Functions that do not return a value. We can also have a void pointer type marked with `void*`. More on this in later chapters when we discuss pointers and functions.
+
+### Type Modifiers
+
+Types can have modifiers. Some of the modifiers are `signed` and `unsigned`. The `signed` (the default if omitted) means the type can hold both positive and negative values, and `unsigned` means the type has unsigned representation. Other modifiers are for the size: `short` — type will have the width of at least 16 bits, and `long` — type will have the width of at least 32 bits. Furthermore, we can now combine these modifiers.
+
+```cpp
+#include <iostream>
+
+int main() {
+    unsigned long int x = 4294967295;
+    std::cout << "The value of an unsigned long integer variable is: " << x;
+}
+```
+
+---
+
+## Variable Declaration, Definition, and Initialization
+
+```cpp
+#include <iostream>
+
+int main() {
+    char c = 'h';
+    int x = 5;
+    double d = 5.2;
+}
+```
+
+```cpp
+int main() {
+    int d, e, f;
+}
+```
+
+```cpp
+int main() {
+    int x = 50;
+    int y = {30};
+    int z {20};
+}
+```
+
+A variable definition is setting a value in memory for a name. The definition is making sure we can access and use the name in our program. Roughly speaking, it is a declaration followed by an initialization (for variables) followed by a semicolon. The definition is also a declaration.
+
+### Declaration
+
+Write a program that declares variables inside the main function. Since we do not use any input or output, we do not need to include the `<iostream>` header:
+
+```cpp
+int main() {
+    int x;
+    double y;
+    char z;
+}
+```
+
+### Definition
+
+Write a program that defines three variables inside the main function. The variables are of `char`, `int`, and type `double`. The names of the variables are arbitrary. The initializers are arbitrary.
+
+```cpp
+int main() {
+    int x = 20;
+    double y = 2.36;
+    char z = 'c';
+}
+```
+
+### Initialization
+
+Write a program that defines three variables inside the main function. The variables are of `char`, `int`, and type `double`. The names of the variables are arbitrary. The initializers are arbitrary. The initialization is performed using the initializer list. Print the values afterward.
+
+```cpp
+#include <iostream>
+
+int main() {
+    char mychar {'c'};
+    int myint {225};
+    double mydouble {2.369};
+    std::cout << " the value char is: " << mychar << '\n';
+    std::cout << " the value int is:  " << myint << '\n';
+    std::cout << " the value double is: " << mydouble;
+}
+```
+
+---
+
+## Operators
+
+### Assignment Operator
+
+The assignment operator `=` assigns a value to a variable/object:
+
+```cpp
+int main() {
+    int myint = 20;       // define an integer variable myint
+    int x = 120;          // define an integer variable x
+    x = myint;            // assign a value of x to it
+
+    double mydouble = 2.39;  // define a double variable mydouble
+    char mychar = 's';       // define a char variable mychar
+    mychar = 'c';            // assign a new value to mychar
+}
+```
+
+### Arithmetic Operators
+
+We can do arithmetic operations using arithmetic operators:
+
+```cpp
++   // addition
+-   // subtraction
+*   // multiplication
+/   // division
+%   // modulo
+```
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    int y = 456;
+    int z = x + y;  // addition
+    z = x - y;      // subtraction
+    z = x * y;      // multiplication
+    z = x / y;      // division
+
+    std::cout << " the value of z is: " << z << '\n';
+}
+```
+
+The integer division, in our example, results in a value of 0. It is because the result of the integer division where both operands are integers is truncated towards zeros. In the expression `x / y`, `x` and `y` are operands and `/` is the operator. If we want a floating-point result, we need to use the type `double` and make sure at least one of the division operands is also of type `double`:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    double y = 456;
+    double z = x / y;
+    std::cout << " the value z is: " << z << '\n';
+}
+```
+
+### Compound Assignment Operators
+
+Compound assignment operators allow us to perform an arithmetic operation and assign a result with one operator:
+
+```cpp
++=   // compound addition
+-=   // compound subtraction
+*=   // compound multiplication
+/=   // compound division
+%=   // compound modulo
+```
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    x += 10;   // the same as x = x + 10
+    x -= 20;   // the same as x = x - 20
+    x *= 5;    // the same as x = x * 5
+    x /= 3;    // the same as x = x / 3
+    x %= 2;    // the same as x = x % 2
+    std::cout << " the value x is: " << x << '\n';
+}
+```
+
+### Increment/Decrement Operators
+
+Increment/decrement operators increment/decrement the value of the object:
+
+```cpp
+++x   // pre-increment operator
+x++   // post-increment operator
+--x   // pre-decrement operator
+x--   // post-decrement operator
+```
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    x++;
+    ++x;
+    --x;
+    x--;
+
+    std::cout << " the value x: " << x;
+}
+```
+
+Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.
+
+---
+
+## Standard Input
+
+In C++, we can read input from the user using `std::cin` along with the extraction operator `>>`. This allows programs to be interactive by accepting values at runtime:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x;
+    std::cout << "Enter a number: ";
+    std::cin >> x;
+    std::cout << "You entered: " << x << '\n';
+}
+```
+
+We can also read multiple values:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a;
+    double b;
+    std::cout << "Enter an integer and a double: ";
+    std::cin >> a >> b;
+    std::cout << "You entered: " << a << " and " << b << '\n';
+}
+```
