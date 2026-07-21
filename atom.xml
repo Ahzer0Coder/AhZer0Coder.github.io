@@ -5,7 +5,7 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-18T14:29:22.166Z</updated>
+  <updated>2026-07-21T21:01:31.622Z</updated>
   <language>en</language>
   <entry>
     <title>Introduction to C++</title>
@@ -487,6 +487,160 @@ int main() {
 <p>The C++ I/O Stream mechanism allows new user-defined types to be passed to I/O stream without breaking existing code.</p>
 <h3>Comparable Performance</h3>
 <p>If used correctly, may be faster than C I/O (<code>printf</code>, <code>scanf</code>, etc.).</p>
+<hr />
+<h2>Comment</h2>
+<ul>
+<li>Single line comments in C++ start with double slashes <code>//</code> and the compiler ignores them. We use them to comment or document the code or use them as notes:</li>
+<li>Multi-line comments use <code>/* */</code></li>
+</ul>
+<pre><code>int main() {
+    // this is a comment
+
+    /* This is a
+       multi-line comment */
+}
+</code></pre>
+<hr />
+<h2>Hello World with C++</h2>
+<p>Now we are ready to get the first glimpse at our "Hello World" example. The following program is the simplest "Hello World" example. It prints out <code>Hello World</code> in the console window:</p>
+<pre><code>#include &lt;iostream&gt;
+int main() {
+    std::cout &lt;&lt; "hello world";
+}
+</code></pre>
+<p>:::note[Explanation]
+The <code>#include &lt;iostream&gt;</code> statement includes the iostream header into our source file via the <code>#include</code> directive. The iostream header is part of the standard library. We need its inclusion to use the <code>std::cout</code> object, also known as a standard-output stream. The <code>&lt;&lt;</code> operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes <code>""</code>. The <code>;</code> marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon <code>;</code> in C++. The <code>std</code> is the standard-library namespace and <code>::</code> is the scope resolution operator. Object <code>cout</code> is inside the <code>std</code> namespace, and to access it, we need to prepend the call with <code>std::</code>.
+:::</p>
+<p>We can output multiple string literals by separating them with multiple <code>&lt;&lt;</code> operators:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first output " &lt;&lt; " second output ";
+}
+</code></pre>
+<p>To output on a new line, we need to output a new-line character <code>\n</code> literal:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first line " &lt;&lt; '\n' &lt;&lt; "second line";
+}
+</code></pre>
+<p>Or:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first line \n second line";
+}
+</code></pre>
+<hr />
+<h2>Types</h2>
+<h3>Fundamental Types</h3>
+<p>C++ has some built-in types. We often refer to them as fundamental types. A declaration is a statement that introduces a name into a current scope.</p>
+<h4>Boolean</h4>
+<p>Let us declare a variable <code>b</code> of type <code>bool</code>. This type holds values of <code>true</code> and <code>false</code>:</p>
+<pre><code>int main() {
+    bool b; // this has no value, default value is false == 0
+}
+</code></pre>
+<p>How to add value:</p>
+<pre><code>int main() {
+    bool b = true; // or
+    bool A {false};
+}
+</code></pre>
+<p>:::important[Rule]
+All local variables must always be given an initial value once they are created (never leave them empty).</p>
+<p>If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called <strong>undefined behavior (UB)</strong>. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).</p>
+<p>More on this in the following chapters.
+:::</p>
+<h4>Character</h4>
+<p>Is used to represent a single character. The size is 1 byte:</p>
+<pre><code>int main() {
+    char c = 'a';
+}
+</code></pre>
+<p>To print:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'a';
+    std::cout &lt;&lt; "the value of variable c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>Once declared and initialized, we can access our variable and change its value:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'a';
+    std::cout &lt;&lt; "the value of variable c is: " &lt;&lt; c;
+    c = 'b';
+    std::cout &lt;&lt; " the value of variable c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>The size of the char type in memory is usually one byte. We obtain the size of the type through the <code>sizeof</code> operator:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "the size for char is: " &lt;&lt; sizeof(char) &lt;&lt; " byte(s)";
+}
+</code></pre>
+<p>There are other character types such as <code>wchar_t</code> for holding characters of Unicode character set, <code>char16_t</code> for holding UTF-16 character sets, but for now, let us stick to the type <code>char</code>. A character literal is a character enclosed in single quotes. Example: <code>'a'</code>, <code>'A'</code>, <code>'z'</code>, <code>'X'</code>, <code>'0'</code> etc. Every character is represented by an integer number in the character set. That is why we can assign both numeric literals (up to a certain number) and character literals to our char variable:</p>
+<pre><code>int main() {
+    char c = 'a';
+    // is the same as if we had
+    // char c = 97;
+}
+</code></pre>
+<p>The <code>'a'</code> character in ASCII table is represented with the number <code>97</code>.</p>
+<h4>Integer</h4>
+<p>Fundamental type is <code>int</code> called integer type. We use it to store integral values (whole numbers), both negative and positive:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int c = -123;
+    std::cout &lt;&lt; "the value x is: " &lt;&lt; x &lt;&lt; '\n' &lt;&lt; "the value c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>The size of <code>int</code> is usually 4 bytes. We can also initialize the variable with another variable. It will receive a copy of its value. We still have two separate objects in memory:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int y = x;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; " ,the value of y is: " &lt;&lt; y;
+    // x is 123
+    // y is 123
+    x = 456;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; " ,the value of y is: " &lt;&lt; y;
+    // x is now 456
+    // y is still 123
+}
+</code></pre>
+<p>Programming languages (like C and C++) allow you to write numerical values in three different number systems, and the compiler understands them based on the prefix you write before the number:</p>
+<ul>
+<li><strong>Decimal:</strong> Regular numbers from 0 to 9. You write the number directly without any additions.</li>
+<li><strong>Octal:</strong> Numbers from 0 to 7. To tell the compiler that the number is octal, you must place a zero (<code>0</code>) before it.</li>
+<li><strong>Hexadecimal:</strong> Numbers from 0 to 9 and letters from A to F. For the compiler to understand it, you must place <code>0x</code> before it.</li>
+</ul>
+<pre><code>int main() {
+    int x = 10;     // decimal literal
+    int y = 012;    // octal literal
+    int z = 0xA;    // hexadecimal literal
+}
+</code></pre>
+<p>All these variables have been initialized to a value of 10 represented by different integer literals. For the most part, we will be using decimal literals. There are other integer types such as <code>int64_t</code> and others, but we will stick to <code>int</code> for now.</p>
+<h4>Floating-Point</h4>
+<p>There are three floating-point types in C++: <code>float</code>, <code>double</code>, <code>long double</code>, but we will stick to type <code>double</code> (double-precision). We use it for storing floating-point values / real numbers:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    double x = 2.56;
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x;
+}
+</code></pre>
+<h4>Type void</h4>
+<p>Type <code>void</code> is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type <code>void</code>, we can have functions of type <code>void</code>. Functions that do not return a value. We can also have a void pointer type marked with <code>void*</code>. More on this in later chapters when we discuss pointers and functions.</p>
 ]]></content>
     <author>
       <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>

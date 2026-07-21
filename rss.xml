@@ -471,6 +471,160 @@ int main() {
 &lt;p&gt;The C++ I/O Stream mechanism allows new user-defined types to be passed to I/O stream without breaking existing code.&lt;/p&gt;
 &lt;h3&gt;Comparable Performance&lt;/h3&gt;
 &lt;p&gt;If used correctly, may be faster than C I/O (&lt;code&gt;printf&lt;/code&gt;, &lt;code&gt;scanf&lt;/code&gt;, etc.).&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Comment&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Single line comments in C++ start with double slashes &lt;code&gt;//&lt;/code&gt; and the compiler ignores them. We use them to comment or document the code or use them as notes:&lt;/li&gt;
+&lt;li&gt;Multi-line comments use &lt;code&gt;/* */&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    // this is a comment
+
+    /* This is a
+       multi-line comment */
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Hello World with C++&lt;/h2&gt;
+&lt;p&gt;Now we are ready to get the first glimpse at our &quot;Hello World&quot; example. The following program is the simplest &quot;Hello World&quot; example. It prints out &lt;code&gt;Hello World&lt;/code&gt; in the console window:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;hello world&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::note[Explanation]
+The &lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt; statement includes the iostream header into our source file via the &lt;code&gt;#include&lt;/code&gt; directive. The iostream header is part of the standard library. We need its inclusion to use the &lt;code&gt;std::cout&lt;/code&gt; object, also known as a standard-output stream. The &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operator inserts our &quot;Hello World&quot; string literal into that output stream. String literal is enclosed in double quotes &lt;code&gt;&quot;&quot;&lt;/code&gt;. The &lt;code&gt;;&lt;/code&gt; marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon &lt;code&gt;;&lt;/code&gt; in C++. The &lt;code&gt;std&lt;/code&gt; is the standard-library namespace and &lt;code&gt;::&lt;/code&gt; is the scope resolution operator. Object &lt;code&gt;cout&lt;/code&gt; is inside the &lt;code&gt;std&lt;/code&gt; namespace, and to access it, we need to prepend the call with &lt;code&gt;std::&lt;/code&gt;.
+:::&lt;/p&gt;
+&lt;p&gt;We can output multiple string literals by separating them with multiple &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operators:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;first output &quot; &amp;lt;&amp;lt; &quot; second output &quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To output on a new line, we need to output a new-line character &lt;code&gt;\n&lt;/code&gt; literal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;first line &quot; &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; &quot;second line&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;first line \n second line&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Types&lt;/h2&gt;
+&lt;h3&gt;Fundamental Types&lt;/h3&gt;
+&lt;p&gt;C++ has some built-in types. We often refer to them as fundamental types. A declaration is a statement that introduces a name into a current scope.&lt;/p&gt;
+&lt;h4&gt;Boolean&lt;/h4&gt;
+&lt;p&gt;Let us declare a variable &lt;code&gt;b&lt;/code&gt; of type &lt;code&gt;bool&lt;/code&gt;. This type holds values of &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;false&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    bool b; // this has no value, default value is false == 0
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;How to add value:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    bool b = true; // or
+    bool A {false};
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::important[Rule]
+All local variables must always be given an initial value once they are created (never leave them empty).&lt;/p&gt;
+&lt;p&gt;If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called &lt;strong&gt;undefined behavior (UB)&lt;/strong&gt;. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).&lt;/p&gt;
+&lt;p&gt;More on this in the following chapters.
+:::&lt;/p&gt;
+&lt;h4&gt;Character&lt;/h4&gt;
+&lt;p&gt;Is used to represent a single character. The size is 1 byte:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    char c = &apos;a&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To print:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    char c = &apos;a&apos;;
+    std::cout &amp;lt;&amp;lt; &quot;the value of variable c is: &quot; &amp;lt;&amp;lt; c;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once declared and initialized, we can access our variable and change its value:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    char c = &apos;a&apos;;
+    std::cout &amp;lt;&amp;lt; &quot;the value of variable c is: &quot; &amp;lt;&amp;lt; c;
+    c = &apos;b&apos;;
+    std::cout &amp;lt;&amp;lt; &quot; the value of variable c is: &quot; &amp;lt;&amp;lt; c;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The size of the char type in memory is usually one byte. We obtain the size of the type through the &lt;code&gt;sizeof&lt;/code&gt; operator:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;the size for char is: &quot; &amp;lt;&amp;lt; sizeof(char) &amp;lt;&amp;lt; &quot; byte(s)&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are other character types such as &lt;code&gt;wchar_t&lt;/code&gt; for holding characters of Unicode character set, &lt;code&gt;char16_t&lt;/code&gt; for holding UTF-16 character sets, but for now, let us stick to the type &lt;code&gt;char&lt;/code&gt;. A character literal is a character enclosed in single quotes. Example: &lt;code&gt;&apos;a&apos;&lt;/code&gt;, &lt;code&gt;&apos;A&apos;&lt;/code&gt;, &lt;code&gt;&apos;z&apos;&lt;/code&gt;, &lt;code&gt;&apos;X&apos;&lt;/code&gt;, &lt;code&gt;&apos;0&apos;&lt;/code&gt; etc. Every character is represented by an integer number in the character set. That is why we can assign both numeric literals (up to a certain number) and character literals to our char variable:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    char c = &apos;a&apos;;
+    // is the same as if we had
+    // char c = 97;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;&apos;a&apos;&lt;/code&gt; character in ASCII table is represented with the number &lt;code&gt;97&lt;/code&gt;.&lt;/p&gt;
+&lt;h4&gt;Integer&lt;/h4&gt;
+&lt;p&gt;Fundamental type is &lt;code&gt;int&lt;/code&gt; called integer type. We use it to store integral values (whole numbers), both negative and positive:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    int c = -123;
+    std::cout &amp;lt;&amp;lt; &quot;the value x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; &quot;the value c is: &quot; &amp;lt;&amp;lt; c;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The size of &lt;code&gt;int&lt;/code&gt; is usually 4 bytes. We can also initialize the variable with another variable. It will receive a copy of its value. We still have two separate objects in memory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    int y = x;
+    std::cout &amp;lt;&amp;lt; &quot;The value of x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; ,the value of y is: &quot; &amp;lt;&amp;lt; y;
+    // x is 123
+    // y is 123
+    x = 456;
+    std::cout &amp;lt;&amp;lt; &quot;The value of x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; ,the value of y is: &quot; &amp;lt;&amp;lt; y;
+    // x is now 456
+    // y is still 123
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Programming languages (like C and C++) allow you to write numerical values in three different number systems, and the compiler understands them based on the prefix you write before the number:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Decimal:&lt;/strong&gt; Regular numbers from 0 to 9. You write the number directly without any additions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Octal:&lt;/strong&gt; Numbers from 0 to 7. To tell the compiler that the number is octal, you must place a zero (&lt;code&gt;0&lt;/code&gt;) before it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hexadecimal:&lt;/strong&gt; Numbers from 0 to 9 and letters from A to F. For the compiler to understand it, you must place &lt;code&gt;0x&lt;/code&gt; before it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int x = 10;     // decimal literal
+    int y = 012;    // octal literal
+    int z = 0xA;    // hexadecimal literal
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All these variables have been initialized to a value of 10 represented by different integer literals. For the most part, we will be using decimal literals. There are other integer types such as &lt;code&gt;int64_t&lt;/code&gt; and others, but we will stick to &lt;code&gt;int&lt;/code&gt; for now.&lt;/p&gt;
+&lt;h4&gt;Floating-Point&lt;/h4&gt;
+&lt;p&gt;There are three floating-point types in C++: &lt;code&gt;float&lt;/code&gt;, &lt;code&gt;double&lt;/code&gt;, &lt;code&gt;long double&lt;/code&gt;, but we will stick to type &lt;code&gt;double&lt;/code&gt; (double-precision). We use it for storing floating-point values / real numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    double x = 2.56;
+    std::cout &amp;lt;&amp;lt; &quot; the value x is: &quot; &amp;lt;&amp;lt; x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;Type void&lt;/h4&gt;
+&lt;p&gt;Type &lt;code&gt;void&lt;/code&gt; is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type &lt;code&gt;void&lt;/code&gt;, we can have functions of type &lt;code&gt;void&lt;/code&gt;. Functions that do not return a value. We can also have a void pointer type marked with &lt;code&gt;void*&lt;/code&gt;. More on this in later chapters when we discuss pointers and functions.&lt;/p&gt;
 </content:encoded></item><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
 &lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
 &lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;
