@@ -5,7 +5,7 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-21T21:01:31.622Z</updated>
+  <updated>2026-07-21T23:42:41.351Z</updated>
   <language>en</language>
   <entry>
     <title>Introduction to C++</title>
@@ -435,6 +435,14 @@ gdb --version
 <h3>3. Add the Path</h3>
 <p>Add the download path to <strong>Edit the system environment variables</strong> → double click on <strong>Path</strong> → click <strong>New</strong> → add the path.</p>
 <hr />
+<h2>First Program</h2>
+<p>Let us create a blank text file using the text editor or C++ IDE of our choice and name it <code>source.cpp</code>. First, let us create an empty C++ program that does nothing:</p>
+<pre><code>int main()
+{
+}
+</code></pre>
+<p>This simple program does nothing, it has no parameters listed inside parentheses, and there are no statements inside the function body. It is essential to understand that this is the main program signature. There is also another main function signature accepting two different parameters used for manipulating the command line arguments. For now, we will only use the first form.</p>
+<hr />
 <h2>Hello World with C++</h2>
 <p>The previous example can be written with the global <code>std</code> namespace:</p>
 <pre><code>#include &lt;iostream&gt;
@@ -641,6 +649,173 @@ int main() {
 </code></pre>
 <h4>Type void</h4>
 <p>Type <code>void</code> is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type <code>void</code>, we can have functions of type <code>void</code>. Functions that do not return a value. We can also have a void pointer type marked with <code>void*</code>. More on this in later chapters when we discuss pointers and functions.</p>
+<h3>Type Modifiers</h3>
+<p>Types can have modifiers. Some of the modifiers are <code>signed</code> and <code>unsigned</code>. The <code>signed</code> (the default if omitted) means the type can hold both positive and negative values, and <code>unsigned</code> means the type has unsigned representation. Other modifiers are for the size: <code>short</code> — type will have the width of at least 16 bits, and <code>long</code> — type will have the width of at least 32 bits. Furthermore, we can now combine these modifiers.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    unsigned long int x = 4294967295;
+    std::cout &lt;&lt; "The value of an unsigned long integer variable is: " &lt;&lt; x;
+}
+</code></pre>
+<hr />
+<h2>Variable Declaration, Definition, and Initialization</h2>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'h';
+    int x = 5;
+    double d = 5.2;
+}
+</code></pre>
+<pre><code>int main() {
+    int d, e, f;
+}
+</code></pre>
+<pre><code>int main() {
+    int x = 50;
+    int y = {30};
+    int z {20};
+}
+</code></pre>
+<p>A variable definition is setting a value in memory for a name. The definition is making sure we can access and use the name in our program. Roughly speaking, it is a declaration followed by an initialization (for variables) followed by a semicolon. The definition is also a declaration.</p>
+<h3>Declaration</h3>
+<p>Write a program that declares variables inside the main function. Since we do not use any input or output, we do not need to include the <code>&lt;iostream&gt;</code> header:</p>
+<pre><code>int main() {
+    int x;
+    double y;
+    char z;
+}
+</code></pre>
+<h3>Definition</h3>
+<p>Write a program that defines three variables inside the main function. The variables are of <code>char</code>, <code>int</code>, and type <code>double</code>. The names of the variables are arbitrary. The initializers are arbitrary.</p>
+<pre><code>int main() {
+    int x = 20;
+    double y = 2.36;
+    char z = 'c';
+}
+</code></pre>
+<h3>Initialization</h3>
+<p>Write a program that defines three variables inside the main function. The variables are of <code>char</code>, <code>int</code>, and type <code>double</code>. The names of the variables are arbitrary. The initializers are arbitrary. The initialization is performed using the initializer list. Print the values afterward.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char mychar {'c'};
+    int myint {225};
+    double mydouble {2.369};
+    std::cout &lt;&lt; " the value char is: " &lt;&lt; mychar &lt;&lt; '\n';
+    std::cout &lt;&lt; " the value int is:  " &lt;&lt; myint &lt;&lt; '\n';
+    std::cout &lt;&lt; " the value double is: " &lt;&lt; mydouble;
+}
+</code></pre>
+<hr />
+<h2>Operators</h2>
+<h3>Assignment Operator</h3>
+<p>The assignment operator <code>=</code> assigns a value to a variable/object:</p>
+<pre><code>int main() {
+    int myint = 20;       // define an integer variable myint
+    int x = 120;          // define an integer variable x
+    x = myint;            // assign a value of x to it
+
+    double mydouble = 2.39;  // define a double variable mydouble
+    char mychar = 's';       // define a char variable mychar
+    mychar = 'c';            // assign a new value to mychar
+}
+</code></pre>
+<h3>Arithmetic Operators</h3>
+<p>We can do arithmetic operations using arithmetic operators:</p>
+<pre><code>+   // addition
+-   // subtraction
+*   // multiplication
+/   // division
+%   // modulo
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int y = 456;
+    int z = x + y;  // addition
+    z = x - y;      // subtraction
+    z = x * y;      // multiplication
+    z = x / y;      // division
+
+    std::cout &lt;&lt; " the value of z is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<p>The integer division, in our example, results in a value of 0. It is because the result of the integer division where both operands are integers is truncated towards zeros. In the expression <code>x / y</code>, <code>x</code> and <code>y</code> are operands and <code>/</code> is the operator. If we want a floating-point result, we need to use the type <code>double</code> and make sure at least one of the division operands is also of type <code>double</code>:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    double y = 456;
+    double z = x / y;
+    std::cout &lt;&lt; " the value z is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Compound Assignment Operators</h3>
+<p>Compound assignment operators allow us to perform an arithmetic operation and assign a result with one operator:</p>
+<pre><code>+=   // compound addition
+-=   // compound subtraction
+*=   // compound multiplication
+/=   // compound division
+%=   // compound modulo
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x += 10;   // the same as x = x + 10
+    x -= 20;   // the same as x = x - 20
+    x *= 5;    // the same as x = x * 5
+    x /= 3;    // the same as x = x / 3
+    x %= 2;    // the same as x = x % 2
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Increment/Decrement Operators</h3>
+<p>Increment/decrement operators increment/decrement the value of the object:</p>
+<pre><code>++x   // pre-increment operator
+x++   // post-increment operator
+--x   // pre-decrement operator
+x--   // post-decrement operator
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x++;
+    ++x;
+    --x;
+    x--;
+
+    std::cout &lt;&lt; " the value x: " &lt;&lt; x;
+}
+</code></pre>
+<p>Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.</p>
+<hr />
+<h2>Standard Input</h2>
+<p>In C++, we can read input from the user using <code>std::cin</code> along with the extraction operator <code>&gt;&gt;</code>. This allows programs to be interactive by accepting values at runtime:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x;
+    std::cout &lt;&lt; "Enter a number: ";
+    std::cin &gt;&gt; x;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<p>We can also read multiple values:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a;
+    double b;
+    std::cout &lt;&lt; "Enter an integer and a double: ";
+    std::cin &gt;&gt; a &gt;&gt; b;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; a &lt;&lt; " and " &lt;&lt; b &lt;&lt; '\n';
+}
+</code></pre>
 ]]></content>
     <author>
       <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>

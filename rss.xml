@@ -419,6 +419,14 @@ gdb --version
 &lt;h3&gt;3. Add the Path&lt;/h3&gt;
 &lt;p&gt;Add the download path to &lt;strong&gt;Edit the system environment variables&lt;/strong&gt; → double click on &lt;strong&gt;Path&lt;/strong&gt; → click &lt;strong&gt;New&lt;/strong&gt; → add the path.&lt;/p&gt;
 &lt;hr /&gt;
+&lt;h2&gt;First Program&lt;/h2&gt;
+&lt;p&gt;Let us create a blank text file using the text editor or C++ IDE of our choice and name it &lt;code&gt;source.cpp&lt;/code&gt;. First, let us create an empty C++ program that does nothing:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main()
+{
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This simple program does nothing, it has no parameters listed inside parentheses, and there are no statements inside the function body. It is essential to understand that this is the main program signature. There is also another main function signature accepting two different parameters used for manipulating the command line arguments. For now, we will only use the first form.&lt;/p&gt;
+&lt;hr /&gt;
 &lt;h2&gt;Hello World with C++&lt;/h2&gt;
 &lt;p&gt;The previous example can be written with the global &lt;code&gt;std&lt;/code&gt; namespace:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
@@ -625,6 +633,173 @@ int main() {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;Type void&lt;/h4&gt;
 &lt;p&gt;Type &lt;code&gt;void&lt;/code&gt; is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type &lt;code&gt;void&lt;/code&gt;, we can have functions of type &lt;code&gt;void&lt;/code&gt;. Functions that do not return a value. We can also have a void pointer type marked with &lt;code&gt;void*&lt;/code&gt;. More on this in later chapters when we discuss pointers and functions.&lt;/p&gt;
+&lt;h3&gt;Type Modifiers&lt;/h3&gt;
+&lt;p&gt;Types can have modifiers. Some of the modifiers are &lt;code&gt;signed&lt;/code&gt; and &lt;code&gt;unsigned&lt;/code&gt;. The &lt;code&gt;signed&lt;/code&gt; (the default if omitted) means the type can hold both positive and negative values, and &lt;code&gt;unsigned&lt;/code&gt; means the type has unsigned representation. Other modifiers are for the size: &lt;code&gt;short&lt;/code&gt; — type will have the width of at least 16 bits, and &lt;code&gt;long&lt;/code&gt; — type will have the width of at least 32 bits. Furthermore, we can now combine these modifiers.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    unsigned long int x = 4294967295;
+    std::cout &amp;lt;&amp;lt; &quot;The value of an unsigned long integer variable is: &quot; &amp;lt;&amp;lt; x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Variable Declaration, Definition, and Initialization&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    char c = &apos;h&apos;;
+    int x = 5;
+    double d = 5.2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int d, e, f;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int x = 50;
+    int y = {30};
+    int z {20};
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A variable definition is setting a value in memory for a name. The definition is making sure we can access and use the name in our program. Roughly speaking, it is a declaration followed by an initialization (for variables) followed by a semicolon. The definition is also a declaration.&lt;/p&gt;
+&lt;h3&gt;Declaration&lt;/h3&gt;
+&lt;p&gt;Write a program that declares variables inside the main function. Since we do not use any input or output, we do not need to include the &lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt; header:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int x;
+    double y;
+    char z;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Definition&lt;/h3&gt;
+&lt;p&gt;Write a program that defines three variables inside the main function. The variables are of &lt;code&gt;char&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, and type &lt;code&gt;double&lt;/code&gt;. The names of the variables are arbitrary. The initializers are arbitrary.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int x = 20;
+    double y = 2.36;
+    char z = &apos;c&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Initialization&lt;/h3&gt;
+&lt;p&gt;Write a program that defines three variables inside the main function. The variables are of &lt;code&gt;char&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, and type &lt;code&gt;double&lt;/code&gt;. The names of the variables are arbitrary. The initializers are arbitrary. The initialization is performed using the initializer list. Print the values afterward.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    char mychar {&apos;c&apos;};
+    int myint {225};
+    double mydouble {2.369};
+    std::cout &amp;lt;&amp;lt; &quot; the value char is: &quot; &amp;lt;&amp;lt; mychar &amp;lt;&amp;lt; &apos;\n&apos;;
+    std::cout &amp;lt;&amp;lt; &quot; the value int is:  &quot; &amp;lt;&amp;lt; myint &amp;lt;&amp;lt; &apos;\n&apos;;
+    std::cout &amp;lt;&amp;lt; &quot; the value double is: &quot; &amp;lt;&amp;lt; mydouble;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Operators&lt;/h2&gt;
+&lt;h3&gt;Assignment Operator&lt;/h3&gt;
+&lt;p&gt;The assignment operator &lt;code&gt;=&lt;/code&gt; assigns a value to a variable/object:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int myint = 20;       // define an integer variable myint
+    int x = 120;          // define an integer variable x
+    x = myint;            // assign a value of x to it
+
+    double mydouble = 2.39;  // define a double variable mydouble
+    char mychar = &apos;s&apos;;       // define a char variable mychar
+    mychar = &apos;c&apos;;            // assign a new value to mychar
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Arithmetic Operators&lt;/h3&gt;
+&lt;p&gt;We can do arithmetic operations using arithmetic operators:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+   // addition
+-   // subtraction
+*   // multiplication
+/   // division
+%   // modulo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    int y = 456;
+    int z = x + y;  // addition
+    z = x - y;      // subtraction
+    z = x * y;      // multiplication
+    z = x / y;      // division
+
+    std::cout &amp;lt;&amp;lt; &quot; the value of z is: &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The integer division, in our example, results in a value of 0. It is because the result of the integer division where both operands are integers is truncated towards zeros. In the expression &lt;code&gt;x / y&lt;/code&gt;, &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are operands and &lt;code&gt;/&lt;/code&gt; is the operator. If we want a floating-point result, we need to use the type &lt;code&gt;double&lt;/code&gt; and make sure at least one of the division operands is also of type &lt;code&gt;double&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    double y = 456;
+    double z = x / y;
+    std::cout &amp;lt;&amp;lt; &quot; the value z is: &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Compound Assignment Operators&lt;/h3&gt;
+&lt;p&gt;Compound assignment operators allow us to perform an arithmetic operation and assign a result with one operator:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+=   // compound addition
+-=   // compound subtraction
+*=   // compound multiplication
+/=   // compound division
+%=   // compound modulo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    x += 10;   // the same as x = x + 10
+    x -= 20;   // the same as x = x - 20
+    x *= 5;    // the same as x = x * 5
+    x /= 3;    // the same as x = x / 3
+    x %= 2;    // the same as x = x % 2
+    std::cout &amp;lt;&amp;lt; &quot; the value x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Increment/Decrement Operators&lt;/h3&gt;
+&lt;p&gt;Increment/decrement operators increment/decrement the value of the object:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;++x   // pre-increment operator
+x++   // post-increment operator
+--x   // pre-decrement operator
+x--   // post-decrement operator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    x++;
+    ++x;
+    --x;
+    x--;
+
+    std::cout &amp;lt;&amp;lt; &quot; the value x: &quot; &amp;lt;&amp;lt; x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Standard Input&lt;/h2&gt;
+&lt;p&gt;In C++, we can read input from the user using &lt;code&gt;std::cin&lt;/code&gt; along with the extraction operator &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;. This allows programs to be interactive by accepting values at runtime:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x;
+    std::cout &amp;lt;&amp;lt; &quot;Enter a number: &quot;;
+    std::cin &amp;gt;&amp;gt; x;
+    std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also read multiple values:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int a;
+    double b;
+    std::cout &amp;lt;&amp;lt; &quot;Enter an integer and a double: &quot;;
+    std::cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b;
+    std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &quot; and &quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
 </content:encoded></item><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
 &lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
 &lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;
