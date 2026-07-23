@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Introduction to C++</title><link>https://ahzer0coder.github.io/cpp/introduction-to-cpp/</link><guid isPermaLink="true">https://ahzer0coder.github.io/cpp/introduction-to-cpp/</guid><description>A comprehensive introduction to C++ programming language - history, philosophy, features, and getting started guide.</description><pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯</title><description>One demo website</description><link>https://ahzer0coder.github.io/</link><language>en</language><item><title>Introduction to C++</title><link>https://ahzer0coder.github.io/cpp/introduction-to-cpp/</link><guid isPermaLink="true">https://ahzer0coder.github.io/cpp/introduction-to-cpp/</guid><description>A comprehensive introduction to C++ programming language - history, philosophy, features, types, operators, arrays, and getting started guide.</description><pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&quot;The only way to learn a new programming language is by writing programs in it.&quot;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
@@ -501,7 +501,8 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;:::note[Explanation]
-The &lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt; statement includes the iostream header into our source file via the &lt;code&gt;#include&lt;/code&gt; directive. The iostream header is part of the standard library. We need its inclusion to use the &lt;code&gt;std::cout&lt;/code&gt; object, also known as a standard-output stream. The &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operator inserts our &quot;Hello World&quot; string literal into that output stream. String literal is enclosed in double quotes &lt;code&gt;&quot;&quot;&lt;/code&gt;. The &lt;code&gt;;&lt;/code&gt; marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon &lt;code&gt;;&lt;/code&gt; in C++. The &lt;code&gt;std&lt;/code&gt; is the standard-library namespace and &lt;code&gt;::&lt;/code&gt; is the scope resolution operator. Object &lt;code&gt;cout&lt;/code&gt; is inside the &lt;code&gt;std&lt;/code&gt; namespace, and to access it, we need to prepend the call with &lt;code&gt;std::&lt;/code&gt;.
+The &lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt; statement includes the iostream header into our source file via the &lt;code&gt;#include&lt;/code&gt; directive. The iostream header is part of the standard library. We need its inclusion to use the &lt;code&gt;std::cout&lt;/code&gt; object, also known as a standard-output stream. The &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operator inserts our &quot;Hello World&quot; string literal into that output stream. String literal is enclosed in double quotes &lt;code&gt;&quot;&quot;&lt;/code&gt;. The &lt;code&gt;;&lt;/code&gt; marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon &lt;code&gt;;&lt;/code&gt; in C++. The &lt;code&gt;std&lt;/code&gt; is the standard-library namespace and &lt;code&gt;::&lt;/code&gt; is the scope resolution operator. Object &lt;code&gt;cout&lt;/code&gt; is inside the &lt;code&gt;std&lt;/code&gt; namespace, and to access it, we need to prepend the call with &lt;code&gt;std::&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Believe it or not, the detailed analysis and explanation of this example is 15 pages long. We can go into it right now, but we will be no wiser at this point as we first need to know what headers, streams, objects, operators, and string literals are. Do not worry. We will get there.
 :::&lt;/p&gt;
 &lt;p&gt;We can output multiple string literals by separating them with multiple &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; operators:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
@@ -541,7 +542,9 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;:::important[Rule]
-All local variables must always be given an initial value once they are created (never leave them empty).&lt;/p&gt;
+These examples declare a (local) variable &lt;code&gt;b&lt;/code&gt; of type &lt;code&gt;bool&lt;/code&gt; and initialize it to a value of &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Our variable now holds a value of &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All local variables must always be given an initial value once they are created (never leave them empty).&lt;/p&gt;
 &lt;p&gt;If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called &lt;strong&gt;undefined behavior (UB)&lt;/strong&gt;. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).&lt;/p&gt;
 &lt;p&gt;More on this in the following chapters.
 :::&lt;/p&gt;
@@ -779,27 +782,135 @@ int main() {
 &lt;p&gt;Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;Standard Input&lt;/h2&gt;
-&lt;p&gt;In C++, we can read input from the user using &lt;code&gt;std::cin&lt;/code&gt; along with the extraction operator &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;. This allows programs to be interactive by accepting values at runtime:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;std::cin&lt;/code&gt; is the standard input stream, and it uses the &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; operator to extract what has been read into our variable. The &lt;code&gt;std::cin &amp;gt;&amp;gt; x;&lt;/code&gt; statement means: read from a standard input into the &lt;code&gt;x&lt;/code&gt; variable. The &lt;code&gt;cin&lt;/code&gt; object resides inside the &lt;code&gt;std&lt;/code&gt; namespace. So, &lt;code&gt;std::cout &amp;lt;&amp;lt;&lt;/code&gt; is used for outputting data (to a screen) and &lt;code&gt;std::cin &amp;gt;&amp;gt;&lt;/code&gt; is used for inputting data (from the keyboard).&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
 
 int main() {
-    int x;
     std::cout &amp;lt;&amp;lt; &quot;Enter a number: &quot;;
+    int x = 0;
     std::cin &amp;gt;&amp;gt; x;
     std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos;;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also read multiple values:&lt;/p&gt;
+&lt;p&gt;You can enter more input in the same line:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
 
 int main() {
-    int a;
-    double b;
-    std::cout &amp;lt;&amp;lt; &quot;Enter an integer and a double: &quot;;
-    std::cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b;
-    std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &quot; and &quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; &apos;\n&apos;;
+    std::cout &amp;lt;&amp;lt; &quot;Please enter two numbers: &quot;;
+    int x = 0;
+    int y = 0;
+    std::cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+    std::cout &amp;lt;&amp;lt; &quot;Number 1: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot;, Number 2: &quot; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; &apos;\n&apos;;
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can enter different types of data in the same line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;Please enter an integer, a double, and a char: &quot;;
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+    std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot;, &quot; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; &quot;, &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Two Inputs&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;Please enter two numbers: &quot;;
+    int x = 0;
+    int y = 0;
+    std::cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+    std::cout &amp;lt;&amp;lt; &quot;Number 1: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot;, Number 2: &quot; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Multiple Inputs&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;Please enter an integer, a double, and a char: &quot;;
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+    std::cout &amp;lt;&amp;lt; &quot;You entered: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot;, &quot; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; &quot;, &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Inputs and Arithmetic Operations&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    std::cout &amp;lt;&amp;lt; &quot;Please enter two numbers: &quot;;
+    int x;
+    int y;
+    std::cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+    int z = x + y;
+    std::cout &amp;lt;&amp;lt; &quot;The sum is: &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Post-Increment and Compound Assignment&lt;/h3&gt;
+&lt;p&gt;Write a program that defines an &lt;code&gt;int&lt;/code&gt; variable called &lt;code&gt;x&lt;/code&gt; with a value of 123, post-increments that value in the next statement, and adds the value of 20 in the following statement using the compound assignment operator:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 123;
+    x++;
+    x += 20;
+    std::cout &amp;lt;&amp;lt; &quot;The value of x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Integral and Floating-point Division&lt;/h3&gt;
+&lt;p&gt;Write a program that divides 9 by 2 and assigns the result to an &lt;code&gt;int&lt;/code&gt; and a &lt;code&gt;double&lt;/code&gt; variable. Then modify one of the operands to be of type &lt;code&gt;double&lt;/code&gt; and observe the different outcomes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    int x = 9 / 2;
+    std::cout &amp;lt;&amp;lt; &quot;Integer result: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &apos;\n&apos;;
+
+    double d = 9 / 2;
+    std::cout &amp;lt;&amp;lt; &quot;Double result (both ints): &quot; &amp;lt;&amp;lt; d &amp;lt;&amp;lt; &apos;\n&apos;;
+
+    double z = 9.0 / 2;
+    std::cout &amp;lt;&amp;lt; &quot;Double result (one double): &quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &apos;\n&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Arrays&lt;/h2&gt;
+&lt;p&gt;Arrays are sequences of objects of the &lt;strong&gt;same type&lt;/strong&gt;. We can declare an array of type &lt;code&gt;char&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    char arr[5];
+    int arr2[6];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To initialize an array, we can use the initialization list &lt;code&gt;{}&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int arr[5] = {2, 5, 3, 6, 9};
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can access individual array elements through the subscript &lt;code&gt;[]&lt;/code&gt; operator and an index. The first array element has an &lt;strong&gt;index of 0&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int arr[4] = {1, 2, 3, 5};
+    arr[0] = 100;  // change the value of the first array element
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Index&lt;/h3&gt;
+&lt;p&gt;Index of array starts from 0:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    // index = {0, 1, 2, 3, 4}  This is the index arrangement
+    arr[4] = 100;  // we change the last element (5) to 100
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::tip[Modern C++]
+In modern C++, you should prefer &lt;code&gt;std::array&lt;/code&gt; and &lt;code&gt;std::vector&lt;/code&gt; containers over raw arrays. More on this in later chapters.
+:::&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Pointers&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;(This section is continued from the content above — more details on pointers coming in later chapters.)&lt;/em&gt;&lt;/p&gt;
 </content:encoded></item><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
 &lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
 &lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;

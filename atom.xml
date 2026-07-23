@@ -5,15 +5,15 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-21T23:42:41.351Z</updated>
+  <updated>2026-07-23T22:50:03.084Z</updated>
   <language>en</language>
   <entry>
     <title>Introduction to C++</title>
     <link href="https://ahzer0coder.github.io/cpp/introduction-to-cpp/" rel="alternate" type="text/html"/>
     <id>https://ahzer0coder.github.io/cpp/introduction-to-cpp/</id>
     <published>2026-07-11T00:00:00.000Z</published>
-    <updated>2026-07-11T00:00:00.000Z</updated>
-    <summary>A comprehensive introduction to C++ programming language - history, philosophy, features, and getting started guide.</summary>
+    <updated>2026-07-24T00:00:00.000Z</updated>
+    <summary>A comprehensive introduction to C++ programming language - history, philosophy, features, types, operators, arrays, and getting started guide.</summary>
     <content type="html"><![CDATA[<blockquote>
 <p><em>"The only way to learn a new programming language is by writing programs in it."</em></p>
 </blockquote>
@@ -517,7 +517,8 @@ int main() {
 }
 </code></pre>
 <p>:::note[Explanation]
-The <code>#include &lt;iostream&gt;</code> statement includes the iostream header into our source file via the <code>#include</code> directive. The iostream header is part of the standard library. We need its inclusion to use the <code>std::cout</code> object, also known as a standard-output stream. The <code>&lt;&lt;</code> operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes <code>""</code>. The <code>;</code> marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon <code>;</code> in C++. The <code>std</code> is the standard-library namespace and <code>::</code> is the scope resolution operator. Object <code>cout</code> is inside the <code>std</code> namespace, and to access it, we need to prepend the call with <code>std::</code>.
+The <code>#include &lt;iostream&gt;</code> statement includes the iostream header into our source file via the <code>#include</code> directive. The iostream header is part of the standard library. We need its inclusion to use the <code>std::cout</code> object, also known as a standard-output stream. The <code>&lt;&lt;</code> operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes <code>""</code>. The <code>;</code> marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon <code>;</code> in C++. The <code>std</code> is the standard-library namespace and <code>::</code> is the scope resolution operator. Object <code>cout</code> is inside the <code>std</code> namespace, and to access it, we need to prepend the call with <code>std::</code>.</p>
+<p>Believe it or not, the detailed analysis and explanation of this example is 15 pages long. We can go into it right now, but we will be no wiser at this point as we first need to know what headers, streams, objects, operators, and string literals are. Do not worry. We will get there.
 :::</p>
 <p>We can output multiple string literals by separating them with multiple <code>&lt;&lt;</code> operators:</p>
 <pre><code>#include &lt;iostream&gt;
@@ -557,7 +558,9 @@ int main() {
 }
 </code></pre>
 <p>:::important[Rule]
-All local variables must always be given an initial value once they are created (never leave them empty).</p>
+These examples declare a (local) variable <code>b</code> of type <code>bool</code> and initialize it to a value of <code>true</code>.</p>
+<p>Our variable now holds a value of <code>true</code>.</p>
+<p>All local variables must always be given an initial value once they are created (never leave them empty).</p>
 <p>If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called <strong>undefined behavior (UB)</strong>. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).</p>
 <p>More on this in the following chapters.
 :::</p>
@@ -795,27 +798,135 @@ int main() {
 <p>Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.</p>
 <hr />
 <h2>Standard Input</h2>
-<p>In C++, we can read input from the user using <code>std::cin</code> along with the extraction operator <code>&gt;&gt;</code>. This allows programs to be interactive by accepting values at runtime:</p>
+<p><code>std::cin</code> is the standard input stream, and it uses the <code>&gt;&gt;</code> operator to extract what has been read into our variable. The <code>std::cin &gt;&gt; x;</code> statement means: read from a standard input into the <code>x</code> variable. The <code>cin</code> object resides inside the <code>std</code> namespace. So, <code>std::cout &lt;&lt;</code> is used for outputting data (to a screen) and <code>std::cin &gt;&gt;</code> is used for inputting data (from the keyboard).</p>
 <pre><code>#include &lt;iostream&gt;
 
 int main() {
-    int x;
     std::cout &lt;&lt; "Enter a number: ";
+    int x = 0;
     std::cin &gt;&gt; x;
     std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; '\n';
 }
 </code></pre>
-<p>We can also read multiple values:</p>
+<p>You can enter more input in the same line:</p>
 <pre><code>#include &lt;iostream&gt;
 
 int main() {
-    int a;
-    double b;
-    std::cout &lt;&lt; "Enter an integer and a double: ";
-    std::cin &gt;&gt; a &gt;&gt; b;
-    std::cout &lt;&lt; "You entered: " &lt;&lt; a &lt;&lt; " and " &lt;&lt; b &lt;&lt; '\n';
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    std::cout &lt;&lt; "Number 1: " &lt;&lt; x &lt;&lt; ", Number 2: " &lt;&lt; y &lt;&lt; '\n';
 }
 </code></pre>
+<p>You can enter different types of data in the same line:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ", " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Two Inputs</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    std::cout &lt;&lt; "Number 1: " &lt;&lt; x &lt;&lt; ", Number 2: " &lt;&lt; y &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Multiple Inputs</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ", " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Inputs and Arithmetic Operations</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x;
+    int y;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    int z = x + y;
+    std::cout &lt;&lt; "The sum is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Post-Increment and Compound Assignment</h3>
+<p>Write a program that defines an <code>int</code> variable called <code>x</code> with a value of 123, post-increments that value in the next statement, and adds the value of 20 in the following statement using the compound assignment operator:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x++;
+    x += 20;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Integral and Floating-point Division</h3>
+<p>Write a program that divides 9 by 2 and assigns the result to an <code>int</code> and a <code>double</code> variable. Then modify one of the operands to be of type <code>double</code> and observe the different outcomes:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 9 / 2;
+    std::cout &lt;&lt; "Integer result: " &lt;&lt; x &lt;&lt; '\n';
+
+    double d = 9 / 2;
+    std::cout &lt;&lt; "Double result (both ints): " &lt;&lt; d &lt;&lt; '\n';
+
+    double z = 9.0 / 2;
+    std::cout &lt;&lt; "Double result (one double): " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<hr />
+<h2>Arrays</h2>
+<p>Arrays are sequences of objects of the <strong>same type</strong>. We can declare an array of type <code>char</code> as follows:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char arr[5];
+    int arr2[6];
+}
+</code></pre>
+<p>To initialize an array, we can use the initialization list <code>{}</code>:</p>
+<pre><code>int main() {
+    int arr[5] = {2, 5, 3, 6, 9};
+}
+</code></pre>
+<p>We can access individual array elements through the subscript <code>[]</code> operator and an index. The first array element has an <strong>index of 0</strong>:</p>
+<pre><code>int main() {
+    int arr[4] = {1, 2, 3, 5};
+    arr[0] = 100;  // change the value of the first array element
+}
+</code></pre>
+<h3>Index</h3>
+<p>Index of array starts from 0:</p>
+<pre><code>int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    // index = {0, 1, 2, 3, 4}  This is the index arrangement
+    arr[4] = 100;  // we change the last element (5) to 100
+}
+</code></pre>
+<p>:::tip[Modern C++]
+In modern C++, you should prefer <code>std::array</code> and <code>std::vector</code> containers over raw arrays. More on this in later chapters.
+:::</p>
+<hr />
+<h2>Pointers</h2>
+<p><em>(This section is continued from the content above — more details on pointers coming in later chapters.)</em></p>
 ]]></content>
     <author>
       <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
