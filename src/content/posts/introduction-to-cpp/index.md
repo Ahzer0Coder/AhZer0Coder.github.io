@@ -1,7 +1,8 @@
 ---
 title: "Introduction to C++"
 published: 2026-07-11
-description: "A comprehensive introduction to C++ programming language - history, philosophy, features, and getting started guide."
+updated: 2026-07-24
+description: "A comprehensive introduction to C++ programming language - history, philosophy, features, types, operators, arrays, and getting started guide."
 image: ./maxresdefault.jpg
 tags: ["cpp", "programming", "tutorial", "beginner"]
 category: "C++"
@@ -571,6 +572,8 @@ int main() {
 
 :::note[Explanation]
 The `#include <iostream>` statement includes the iostream header into our source file via the `#include` directive. The iostream header is part of the standard library. We need its inclusion to use the `std::cout` object, also known as a standard-output stream. The `<<` operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes `""`. The `;` marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon `;` in C++. The `std` is the standard-library namespace and `::` is the scope resolution operator. Object `cout` is inside the `std` namespace, and to access it, we need to prepend the call with `std::`.
+
+Believe it or not, the detailed analysis and explanation of this example is 15 pages long. We can go into it right now, but we will be no wiser at this point as we first need to know what headers, streams, objects, operators, and string literals are. Do not worry. We will get there.
 :::
 
 We can output multiple string literals by separating them with multiple `<<` operators:
@@ -631,6 +634,10 @@ int main() {
 ```
 
 :::important[Rule]
+These examples declare a (local) variable `b` of type `bool` and initialize it to a value of `true`.
+
+Our variable now holds a value of `true`.
+
 All local variables must always be given an initial value once they are created (never leave them empty).
 
 If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called **undefined behavior (UB)**. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).
@@ -960,29 +967,176 @@ Both pre-increment and post-increment operators add 1 to the value of our object
 
 ## Standard Input
 
-In C++, we can read input from the user using `std::cin` along with the extraction operator `>>`. This allows programs to be interactive by accepting values at runtime:
+`std::cin` is the standard input stream, and it uses the `>>` operator to extract what has been read into our variable. The `std::cin >> x;` statement means: read from a standard input into the `x` variable. The `cin` object resides inside the `std` namespace. So, `std::cout <<` is used for outputting data (to a screen) and `std::cin >>` is used for inputting data (from the keyboard).
 
 ```cpp
 #include <iostream>
 
 int main() {
-    int x;
     std::cout << "Enter a number: ";
+    int x = 0;
     std::cin >> x;
     std::cout << "You entered: " << x << '\n';
 }
 ```
 
-We can also read multiple values:
+You can enter more input in the same line:
 
 ```cpp
 #include <iostream>
 
 int main() {
-    int a;
-    double b;
-    std::cout << "Enter an integer and a double: ";
-    std::cin >> a >> b;
-    std::cout << "You entered: " << a << " and " << b << '\n';
+    std::cout << "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin >> x >> y;
+    std::cout << "Number 1: " << x << ", Number 2: " << y << '\n';
 }
 ```
+
+You can enter different types of data in the same line:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin >> x >> y >> z;
+    std::cout << "You entered: " << x << ", " << y << ", " << z << '\n';
+}
+```
+
+### Two Inputs
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin >> x >> y;
+    std::cout << "Number 1: " << x << ", Number 2: " << y << '\n';
+}
+```
+
+### Multiple Inputs
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin >> x >> y >> z;
+    std::cout << "You entered: " << x << ", " << y << ", " << z << '\n';
+}
+```
+
+### Inputs and Arithmetic Operations
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Please enter two numbers: ";
+    int x;
+    int y;
+    std::cin >> x >> y;
+    int z = x + y;
+    std::cout << "The sum is: " << z << '\n';
+}
+```
+
+### Post-Increment and Compound Assignment
+
+Write a program that defines an `int` variable called `x` with a value of 123, post-increments that value in the next statement, and adds the value of 20 in the following statement using the compound assignment operator:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 123;
+    x++;
+    x += 20;
+    std::cout << "The value of x is: " << x << '\n';
+}
+```
+
+### Integral and Floating-point Division
+
+Write a program that divides 9 by 2 and assigns the result to an `int` and a `double` variable. Then modify one of the operands to be of type `double` and observe the different outcomes:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 9 / 2;
+    std::cout << "Integer result: " << x << '\n';
+
+    double d = 9 / 2;
+    std::cout << "Double result (both ints): " << d << '\n';
+
+    double z = 9.0 / 2;
+    std::cout << "Double result (one double): " << z << '\n';
+}
+```
+
+---
+
+## Arrays
+
+Arrays are sequences of objects of the **same type**. We can declare an array of type `char` as follows:
+
+```cpp
+#include <iostream>
+
+int main() {
+    char arr[5];
+    int arr2[6];
+}
+```
+
+To initialize an array, we can use the initialization list `{}`:
+
+```cpp
+int main() {
+    int arr[5] = {2, 5, 3, 6, 9};
+}
+```
+
+We can access individual array elements through the subscript `[]` operator and an index. The first array element has an **index of 0**:
+
+```cpp
+int main() {
+    int arr[4] = {1, 2, 3, 5};
+    arr[0] = 100;  // change the value of the first array element
+}
+```
+
+### Index
+
+Index of array starts from 0:
+
+```cpp
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    // index = {0, 1, 2, 3, 4}  This is the index arrangement
+    arr[4] = 100;  // we change the last element (5) to 100
+}
+```
+
+:::tip[Modern C++]
+In modern C++, you should prefer `std::array` and `std::vector` containers over raw arrays. More on this in later chapters.
+:::
+
+---
+
+## Pointers
+
+*(This section is continued from the content above — more details on pointers coming in later chapters.)*
