@@ -24,7 +24,7 @@ seriesImage: /assets/img/cpp-history-philosophy.webp
 
 > _"Programming is not about typing, it's about thinking."_ — Rich Hickey
 
-![C++ Introduction](../introduction-to-cpp/images/Pasted%20image%2020260711141748.png)
+![C++ Introduction](/assets/img/cpp-history-philosophy.webp)
 
 ## Introduction
 
@@ -86,13 +86,13 @@ Areas of Application:
 
 The **C++** programming language (originally named "C with Classes") was devised by **Bjarne Stroustrup** — also an employee from Bell Labs (AT&T). Stroustrup started working on C with Classes in **1979**. (The `++` is a C language operator.) The first commercial release of the C++ language was in **October 1985**.
 
-![C++ History](../introduction-to-cpp/images/Pasted%20image%2020260711151436.png)
+![C++ History](/assets/img/cpp-getting-started.webp)
 
 ### Areas of Application and Popularity
 
-![Areas of Application](../introduction-to-cpp/images/Pasted%20image%2020260711151621.png)
+![Areas of Application](/assets/img/cpp-hello-world.png)
 
-![Popularity](../introduction-to-cpp/images/Pasted%20image%2020260711151641.png)
+![Popularity](/assets/img/cpp-types-variables.jpg)
 
 #### Why C++ is so Popular?
 
@@ -123,27 +123,27 @@ There may be more than **200 billion lines** of C/C++ code globally.
 - **Entertainment**: Movie rendering (see Interstellar black hole rendering), virtual reality
 - **Finance**: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more
 
-![Applications](../introduction-to-cpp/images/Pasted%20image%2020260711155847.png)
+![Applications](/assets/img/cpp-operators-input.webp)
 
 #### An Important Example... (AI Evolution)
 
-![AI Evolution](../introduction-to-cpp/images/Pasted%20image%2020260711155924.png)
+![AI Evolution](/assets/img/cpp-arrays-pointers-strings.webp)
 
 #### Performance
 
-![Performance](../introduction-to-cpp/images/Pasted%20image%2020260711155948.png)
+![Performance](/assets/img/cpp-history-philosophy.webp)
 
 #### Memory Usage
 
-![Memory Usage](../introduction-to-cpp/images/Pasted%20image%2020260711160030.png)
+![Memory Usage](/assets/img/cpp-history-philosophy.webp)
 
 #### Energy Efficiency
 
-![Energy Efficiency](../introduction-to-cpp/images/Pasted%20image%2020260711160148.png)
+![Energy Efficiency](/assets/img/cpp-history-philosophy.webp)
 
 #### CO2 Production
 
-![CO2 Production](../introduction-to-cpp/images/Pasted%20image%2020260711160240.png)
+![CO2 Production](/assets/img/cpp-history-philosophy.webp)
 
 ### C++ Philosophy
 
@@ -220,7 +220,7 @@ These are advanced resources for solving C++ problems after you finish the cours
 - **Ecosystem.** Lack of tools and libraries developed in the last four decades
 - **Time and Cost.** Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000
 
-![Switching Languages](../introduction-to-cpp/images/Pasted%20image%2020260711174136.png)
+![Switching Languages](/assets/img/cpp-history-philosophy.webp)
 
 ### The Course
 
@@ -240,11 +240,11 @@ These are advanced resources for solving C++ problems after you finish the cours
 - A theoretical course on programming
 - A high-level concept description
 
-![Course Overview](../introduction-to-cpp/images/Screenshot%202026-07-11%20174331.png)
+![Course Overview](/assets/img/cpp-history-philosophy.webp)
 
 ### Books and References
 
-![Books and References](../introduction-to-cpp/images/Pasted%20image%2020260711202010.png)
+![Books and References](/assets/img/cpp-history-philosophy.webp)
 
 ##### Unofficial C++ Reference:
 
