@@ -42,7 +42,7 @@ const homeContent = getPostHomeContent(
 
 <div
 	class:list={[
-		"card-base flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative",
+		"card-base flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
 		className,
 	]}
 	style={style}
@@ -193,4 +193,15 @@ const homeContent = getPostHomeContent(
 >
 </div>
 
-<style define:vars={{ coverWidth }}></style>
+<style define:vars={{ coverWidth }}>
+	.card-base {
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		border: 1px solid var(--line-divider);
+		background: var(--card-bg);
+	}
+	
+	.card-base:hover {
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		border-color: var(--primary);
+	}
+</style>

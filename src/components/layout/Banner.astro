@@ -615,12 +615,12 @@ const bannerFormats = getImageFormats();
 			<div class="w-4/5 lg:w-3/4 text-center mb-0">
 				<div class="flex flex-col">
 					{overlayTitle && (
-						<h1 class="banner-title text-6xl lg:text-8xl text-white drop-shadow-lg mb-2 lg:mb-4">
+						<h1 class="banner-title text-6xl lg:text-8xl mb-2 lg:mb-4" data-text={overlayTitle}>
 							{overlayTitle}
 						</h1>
 					)}
 					{overlaySubtitle && (
-						<h2 class="banner-subtitle text-xl lg:text-3xl text-white/90 drop-shadow-md">
+						<h2 class="banner-subtitle text-xl lg:text-3xl">
 							<span class="inline-block min-h-[1.2em]">
 								{typewriter && Array.isArray(overlaySubtitle) ? (
 									<TypewriterText
@@ -691,28 +691,28 @@ const bannerFormats = getImageFormats();
 						xlink:href="#gentle-wave"
 						x="48"
 						y="0"
-						class="opacity-25 fill-#171E23"
+						class="opacity-25 fill-[var(--page-bg)]"
 						style="animation-delay: -2s; animation-duration: 7s; will-change: transform;"
 					></use>
 					<use
 						xlink:href="#gentle-wave"
 						x="48"
 						y="3"
-						class="opacity-50 fill-#171E23"
+						class="opacity-50 fill-[var(--page-bg)]"
 						style="animation-delay: -3s; animation-duration: 10s; will-change: transform;"
 					></use>
 					<use
 						xlink:href="#gentle-wave"
 						x="48"
 						y="5"
-						class="opacity-75 fill-#171E23"
+						class="opacity-75 fill-[var(--page-bg)]"
 						style="animation-delay: -4s; animation-duration: 13s; will-change: transform;"
 					></use>
 					<use
 						xlink:href="#gentle-wave"
 						x="48"
 						y="7"
-						class="fill-#171E23"
+						class="fill-[var(--page-bg)]"
 						style="animation-delay: -5s; animation-duration: 20s; will-change: transform;"
 					></use>
 				</g>
@@ -751,18 +751,36 @@ const bannerFormats = getImageFormats();
 </div>
 
 <style>
-	/* Banner 文本样式 */
+	@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+	/* 
+		Hacker / Matrix Glitch Effect for Banner Title 
+	*/
 	.banner-title {
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-		animation: fadeInUp 1s ease-out;
-		font-weight: bold;
+		font-family: 'SDGlitchDemo', 'Share Tech Mono', monospace;
+		color: #e2b3ff;
+		-webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.9);
+		text-shadow: 
+			2px 2px 4px rgba(0, 0, 0, 0.8),
+			0 0 10px rgba(0, 0, 0, 0.6),
+			0 0 20px rgba(176, 38, 255, 0.4);
+		position: relative;
+		animation: fadeInUp 1s ease-out forwards, floating-title 3.5s 1s ease-in-out infinite alternate;
+		letter-spacing: 2px;
+	}
+
+	@keyframes floating-title {
+		0% { transform: translateY(0px); filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)); }
+		100% { transform: translateY(-12px); filter: drop-shadow(0 0 8px rgba(176, 38, 255, 0.5)); }
 	}
 
 	.banner-subtitle {
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0,0,0,0.5);
 		animation: fadeInUp 1s ease-out 0.3s both;
 		min-height: 1.5em;
 		line-height: 1.2;
+		color: #f5e6ff;
+		font-family: 'SDGlitchDemo', 'Share Tech Mono', monospace; 
 	}
 
 	@keyframes fadeInUp {
