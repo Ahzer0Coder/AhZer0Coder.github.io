@@ -13,7 +13,7 @@ hideFromFeed: true
 type: "course"
 series: "cpp"
 seriesOrder: 6
-seriesTitle: "Introduction to C++"
+seriesTitle: "C++"
 seriesDescription: "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
 seriesImage: /assets/img/cpp-history-philosophy.webp
 ---
