@@ -169,44 +169,5 @@ export const navBarConfig: NavBarConfig = {
 
     // 项目页面
     LinkPreset.Projects,
-
-    // C++ Chapters
-    {
-      name: "Introduction to C++",
-      url: "/cpp/",
-      icon: "material-symbols:code",
-      children: [
-        {
-          name: "Ch1: History & Philosophy",
-          url: "/cpp/history-philosophy/",
-          icon: "material-symbols:history",
-        },
-        {
-          name: "Ch2: Getting Started",
-          url: "/cpp/getting-started/",
-          icon: "material-symbols:description",
-        },
-        {
-          name: "Ch3: Hello World & I/O",
-          url: "/cpp/hello-world/",
-          icon: "material-symbols:info",
-        },
-        {
-          name: "Ch4: Types & Variables",
-          url: "/cpp/types-variables/",
-          icon: "material-symbols:folder",
-        },
-        {
-          name: "Ch5: Operators & Input",
-          url: "/cpp/operators-input/",
-          icon: "material-symbols:link",
-        },
-        {
-          name: "Ch6: Arrays, Pointers & Strings",
-          url: "/cpp/arrays-pointers-strings/",
-          icon: "material-symbols:psychology",
-        },
-      ],
-    },
   ],
 };
