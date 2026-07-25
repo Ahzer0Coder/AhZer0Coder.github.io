@@ -9,6 +9,7 @@ category: "C++"
 priority: 2
 permalink: "cpp/getting-started"
 draft: false
+hideFromFeed: true
 ---
 
 **Previous Chapter:** [History & Philosophy](/cpp/history-philosophy)

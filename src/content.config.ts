@@ -31,6 +31,9 @@ const postsCollection = defineCollection({
 		/* Posts alias */
 		alias: z.string().optional(),
 
+		/* Hide from main feed but keep accessible via direct URL */
+		hideFromFeed: z.boolean().optional().default(false),
+
 		/* Custom permalink - 自定义固定链接，优先级高于 alias */
 		permalink: z.string().optional(),
 

@@ -9,6 +9,7 @@ category: "C++"
 priority: 1
 permalink: "cpp/history-philosophy"
 draft: false
+hideFromFeed: true
 ---
 
 > _"The only way to learn a new programming language is by writing programs in it."_

@@ -9,6 +9,7 @@ category: "C++"
 priority: 6
 permalink: "cpp/arrays-pointers-strings"
 draft: false
+hideFromFeed: true
 ---
 
 **Previous Chapter:** [Operators & Input](/cpp/operators-input)

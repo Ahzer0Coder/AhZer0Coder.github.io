@@ -9,6 +9,7 @@ category: "C++"
 priority: 5
 permalink: "cpp/operators-input"
 draft: false
+hideFromFeed: true
 ---
 
 **Previous Chapter:** [Types & Variables](/cpp/types-variables)

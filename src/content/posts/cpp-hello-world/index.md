@@ -9,6 +9,7 @@ category: "C++"
 priority: 3
 permalink: "cpp/hello-world"
 draft: false
+hideFromFeed: true
 ---
 
 **Previous Chapter:** [Getting Started](/cpp/getting-started)

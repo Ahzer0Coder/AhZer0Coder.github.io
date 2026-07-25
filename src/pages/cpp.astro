@@ -1,11 +1,22 @@
 ---
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getSortedPostsList } from "@utils/content-utils";
+import { getCollection } from "astro:content";
+import { getPostUrl } from "@utils/url-utils";
+import { initPostIdMap } from "@utils/permalink-utils";
 
-const allPosts = await getSortedPostsList();
+const allPosts = await getCollection("posts", ({ data }) => {
+  return data.category === "C++";
+});
+
+initPostIdMap(allPosts);
+
 const cppPosts = allPosts
-  .filter((post) => post.data.category === "C++")
   .sort((a, b) => (a.data.priority ?? 99) - (b.data.priority ?? 99));
+
+function getUrl(post: typeof cppPosts[0]) {
+  if (post.data.permalink) return `/${post.data.permalink}/`;
+  return getPostUrl(post);
+}
 ---
 
 <MainGridLayout title="Introduction to C++">
@@ -38,7 +49,7 @@ const cppPosts = allPosts
       const image = post.data.image || "/assets/home/home.webp";
       return (
         <a
-          href={post.url}
+          href={getUrl(post)}
           class="group card-base overflow-hidden hover:border-[var(--primary)] transition-all duration-200 flex flex-col"
         >
           {/* Thumbnail */}

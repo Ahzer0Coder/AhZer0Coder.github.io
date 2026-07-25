@@ -9,6 +9,7 @@ category: "C++"
 priority: 4
 permalink: "cpp/types-variables"
 draft: false
+hideFromFeed: true
 ---
 
 **Previous Chapter:** [Hello World & I/O](/cpp/hello-world)
