@@ -172,7 +172,7 @@ export const navBarConfig: NavBarConfig = {
 
     // C++ Chapters
     {
-      name: "C++",
+      name: "Introduction to C++",
       url: "/cpp/history-philosophy/",
       icon: "material-symbols:code",
       children: [
@@ -184,7 +184,7 @@ export const navBarConfig: NavBarConfig = {
         {
           name: "Ch2: Getting Started",
           url: "/cpp/getting-started/",
-          icon: "material-symbols:rocket_launch",
+          icon: "material-symbols:play_arrow",
         },
         {
           name: "Ch3: Hello World & I/O",
