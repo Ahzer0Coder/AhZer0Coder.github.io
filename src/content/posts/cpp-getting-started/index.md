@@ -5,7 +5,7 @@ updated: 2026-07-25
 description: "Why learn C++, how to download and set up your IDE, compiler, and debugger for C++ development."
 image: /assets/img/cpp-getting-started.webp
 tags: ["cpp", "programming", "tutorial", "beginner", "setup"]
-category: "C++"
+
 priority: 2
 permalink: "cpp/getting-started"
 draft: false

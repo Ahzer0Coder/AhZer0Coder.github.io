@@ -5,7 +5,7 @@ updated: 2026-07-25
 description: "C++ arrays, pointers, null pointers, dereferencing, references, and introduction to std::string."
 image: /assets/img/cpp-arrays-pointers-strings.webp
 tags: ["cpp", "programming", "tutorial", "beginner", "arrays", "pointers", "strings"]
-category: "C++"
+
 priority: 6
 permalink: "cpp/arrays-pointers-strings"
 draft: false

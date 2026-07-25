@@ -5,7 +5,7 @@ updated: 2026-07-25
 description: "Learn about the history, philosophy, popularity, and application areas of the C++ programming language."
 image: /assets/img/cpp-history-philosophy.webp
 tags: ["cpp", "programming", "tutorial", "beginner", "history"]
-category: "C++"
+
 priority: 1
 permalink: "cpp/history-philosophy"
 draft: false

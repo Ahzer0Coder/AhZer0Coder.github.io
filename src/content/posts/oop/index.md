@@ -3,7 +3,7 @@ title: "Object-Oriented Programming (OOP)"
 published: 2024-06-10
 description: "Core concepts and principles of Object-Oriented Programming"
 tags: ["programming", "oop", "object-oriented", "paradigm"]
-category: "Programming Concepts"
+
 draft: false
 ---
 

@@ -3,7 +3,7 @@ title: "Structured Programming"
 published: 2024-06-10
 description: "Understanding the fundamentals of structured programming paradigm"
 tags: ["programming", "paradigm", "structured-programming"]
-category: "Programming Concepts"
+
 draft: false
 ---
 
