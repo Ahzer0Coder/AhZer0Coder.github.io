@@ -10,6 +10,12 @@ priority: 4
 permalink: "cpp/types-variables"
 draft: false
 hideFromFeed: true
+type: "course"
+series: "cpp"
+seriesOrder: 4
+seriesTitle: "Introduction to C++"
+seriesDescription: "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
+seriesImage: "../introduction-to-cpp/images/Pasted image 20260711141748.png"
 ---
 
 **Previous Chapter:** [Hello World & I/O](/cpp/hello-world)

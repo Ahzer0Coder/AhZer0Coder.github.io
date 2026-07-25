@@ -10,6 +10,12 @@ priority: 1
 permalink: "cpp/history-philosophy"
 draft: false
 hideFromFeed: true
+type: "course"
+series: "cpp"
+seriesOrder: 1
+seriesTitle: "Introduction to C++"
+seriesDescription: "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
+seriesImage: "../introduction-to-cpp/images/Pasted image 20260711141748.png"
 ---
 
 > _"The only way to learn a new programming language is by writing programs in it."_

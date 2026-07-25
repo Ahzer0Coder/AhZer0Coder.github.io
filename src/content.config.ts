@@ -28,6 +28,14 @@ const postsCollection = defineCollection({
 		passwordHint: z.string().optional().default(""),
 		hideHomeContent: z.boolean().optional(),
 
+		/* Series configuration */
+		type: z.string().optional(),
+		series: z.string().optional(),
+		seriesOrder: z.number().optional(),
+		seriesTitle: z.string().optional(),
+		seriesDescription: z.string().optional(),
+		seriesImage: z.string().optional(),
+
 		/* Posts alias */
 		alias: z.string().optional(),
 

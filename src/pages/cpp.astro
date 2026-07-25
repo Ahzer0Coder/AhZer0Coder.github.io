@@ -5,13 +5,15 @@ import { getPostUrl } from "@utils/url-utils";
 import { initPostIdMap } from "@utils/permalink-utils";
 
 const allPosts = await getCollection("posts", ({ data }) => {
-  return data.category === "C++";
+  return data.series === "cpp";
 });
 
 initPostIdMap(allPosts);
 
 const cppPosts = allPosts
-  .sort((a, b) => (a.data.priority ?? 99) - (b.data.priority ?? 99));
+  .sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const seriesMeta = cppPosts[0]?.data;
 
 function getUrl(post: typeof cppPosts[0]) {
   if (post.data.permalink) return `/${post.data.permalink}/`;
@@ -19,19 +21,19 @@ function getUrl(post: typeof cppPosts[0]) {
 }
 ---
 
-<MainGridLayout title="Introduction to C++">
+<MainGridLayout title={seriesMeta?.seriesTitle || "Introduction to C++"}>
   {/* Banner */}
   <div class="relative w-full rounded-[var(--radius-large)] overflow-hidden mb-6">
     <img
-      src="/assets/desktop-banner/1.webp"
+      src={seriesMeta?.seriesImage || "/assets/desktop-banner/1.webp"}
       alt="C++ Series Banner"
       class="w-full h-48 sm:h-64 object-cover"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
     <div class="absolute bottom-0 left-0 p-6 sm:p-8">
       <p class="text-sm text-white/70 mb-1">Series · {cppPosts.length} parts</p>
-      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Introduction to C++</h1>
-      <p class="text-white/80 max-w-xl">A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">{seriesMeta?.seriesTitle || "Introduction to C++"}</h1>
+      <p class="text-white/80 max-w-xl">{seriesMeta?.seriesDescription || "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."}</p>
     </div>
   </div>
 
