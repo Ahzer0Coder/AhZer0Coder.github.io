@@ -5,7 +5,6 @@ updated: 2026-07-25
 description: "C++ assignment, arithmetic, compound assignment, increment/decrement operators, and standard input with cin."
 image: /assets/img/cpp-operators-input.webp
 tags: ["cpp", "programming", "tutorial", "beginner", "operators", "input"]
-categories: ["C++"]
 
 priority: 5
 permalink: "cpp/operators-input"

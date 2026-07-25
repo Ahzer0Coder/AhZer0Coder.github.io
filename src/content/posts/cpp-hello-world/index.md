@@ -5,7 +5,6 @@ updated: 2026-07-25
 description: "Your first C++ program, understanding I/O streams, comments, and the cout output stream."
 image: /assets/img/cpp-hello-world.png
 tags: ["cpp", "programming", "tutorial", "beginner", "hello-world"]
-categories: ["C++"]
 
 priority: 3
 permalink: "cpp/hello-world"

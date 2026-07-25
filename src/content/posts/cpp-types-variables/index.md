@@ -5,7 +5,6 @@ updated: 2026-07-25
 description: "Fundamental C++ types (bool, char, int, double, void), type modifiers, and variable declaration, definition, and initialization."
 image: /assets/img/cpp-types-variables.jpg
 tags: ["cpp", "programming", "tutorial", "beginner", "types", "variables"]
-categories: ["C++"]
 
 priority: 4
 permalink: "cpp/types-variables"
