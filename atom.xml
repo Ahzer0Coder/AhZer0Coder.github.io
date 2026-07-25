@@ -5,39 +5,8 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-25T14:00:56.532Z</updated>
+  <updated>2026-07-25T14:09:41.728Z</updated>
   <language>en</language>
-  <entry>
-    <title>Introduction to C++</title>
-    <link href="https://ahzer0coder.github.io/cpp/introduction-to-cpp/" rel="alternate" type="text/html"/>
-    <id>https://ahzer0coder.github.io/cpp/introduction-to-cpp/</id>
-    <published>2026-07-11T00:00:00.000Z</published>
-    <updated>2026-07-25T00:00:00.000Z</updated>
-    <summary>A comprehensive introduction to C++ programming language - history, philosophy, features, types, operators, arrays, and getting started guide.</summary>
-    <content type="html"><![CDATA[<blockquote>
-<p><em>"The only way to learn a new programming language is by writing programs in it."</em></p>
-</blockquote>
-<p>Welcome to the <strong>Introduction to C++</strong> series! This is a beginner-friendly, chapter-by-chapter guide to learning C++ from scratch. Below you'll find all chapters listed in order — start from Chapter 1 and work your way through.</p>
-<hr />
-<h2>Chapters</h2>
-<h3><a href="/cpp/history-philosophy/">Chapter 1: History &amp; Philosophy</a></h3>
-<p>Learn about the history, philosophy, popularity, and application areas of the C++ programming language.</p>
-<h3><a href="/cpp/getting-started/">Chapter 2: Getting Started</a></h3>
-<p>Why learn C++, how to download and set up your IDE, compiler, and debugger for C++ development.</p>
-<h3><a href="/cpp/hello-world/">Chapter 3: Hello World &amp; I/O</a></h3>
-<p>Your first C++ program, understanding I/O streams, comments, and the cout output stream.</p>
-<h3><a href="/cpp/types-variables/">Chapter 4: Types &amp; Variables</a></h3>
-<p>Fundamental C++ types (bool, char, int, double, void), type modifiers, and variable declaration, definition, and initialization.</p>
-<h3><a href="/cpp/operators-input/">Chapter 5: Operators &amp; Input</a></h3>
-<p>C++ assignment, arithmetic, compound assignment, increment/decrement operators, and standard input with cin.</p>
-<h3><a href="/cpp/arrays-pointers-strings/">Chapter 6: Arrays, Pointers, References &amp; Strings</a></h3>
-<p>C++ arrays, pointers, null pointers, dereferencing, references, and introduction to std::string.</p>
-]]></content>
-    <author>
-      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
-    </author>
-    <category term="C++"></category>
-  </entry>
   <entry>
     <title>Object-Oriented Programming (OOP)</title>
     <link href="https://ahzer0coder.github.io/posts/oop/" rel="alternate" type="text/html"/>
