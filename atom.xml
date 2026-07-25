@@ -5,8 +5,1231 @@
   <link href="https://ahzer0coder.github.io/" rel="alternate" type="text/html"/>
   <link href="https://ahzer0coder.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://ahzer0coder.github.io/</id>
-  <updated>2026-07-25T00:22:27.037Z</updated>
+  <updated>2026-07-25T00:39:19.477Z</updated>
   <language>en</language>
+  <entry>
+    <title>C++ Chapter 6: Arrays, Pointers, References & Strings</title>
+    <link href="https://ahzer0coder.github.io/cpp/arrays-pointers-strings/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/arrays-pointers-strings/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>C++ arrays, pointers, null pointers, dereferencing, references, and introduction to std::string.</summary>
+    <content type="html"><![CDATA[<p><strong>Previous Chapter:</strong> <a href="/cpp/operators-input">Operators &amp; Input</a></p>
+<h2>Arrays</h2>
+<p>Arrays are sequences of objects of the <strong>same type</strong>. We can declare an array of type <code>char</code> as follows:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char arr[5];
+    int arr2[6];
+}
+</code></pre>
+<p>To initialize an array, we can use the initialization list <code>{}</code>:</p>
+<pre><code>int main() {
+    int arr[5] = {2, 5, 3, 6, 9};
+}
+</code></pre>
+<p>We can access individual array elements through the subscript <code>[]</code> operator and an index. The first array element has an <strong>index of 0</strong>:</p>
+<pre><code>int main() {
+    int arr[4] = {1, 2, 3, 5};
+    arr[0] = 100;  // change the value of the first array element
+}
+</code></pre>
+<h3>Index</h3>
+<p>Index of array starts from 0:</p>
+<pre><code>int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    // index = {0, 1, 2, 3, 4}  This is the index arrangement
+    arr[4] = 100;  // we change the last element (5) to 100
+}
+</code></pre>
+<p>:::tip[Modern C++]
+In modern C++, you should prefer <code>std::array</code> and <code>std::vector</code> containers over raw arrays. More on this in later chapters.
+:::</p>
+<hr />
+<h2>Pointers</h2>
+<p>Objects reside in memory. And so far, we have learned how to access and manipulate objects through variables. Another way to access an object in memory is through pointers. Each object in memory has its type and an address. This allows us to access the object through a pointer. So, pointers are types that can hold the address of a particular object. For illustrative purposes only, we will declare an unutilized pointer that can point to an int object:</p>
+<pre><code>int main()
+{
+    int* p;
+}
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+    int x = 123;
+    int* p = &amp;x;
+    std::cout &lt;&lt; "the value of x is: " &lt;&lt; x &lt;&lt; " the Place in RAM is: " &lt;&lt; p;
+}
+</code></pre>
+<ul>
+<li>
+<p><code>int* p</code> (declare reason): Here you are asking to create a new variable with a new name <code>p</code>. The presence of the asterisk <code>*</code> immediately after <code>int</code> is what tells the computer that this variable is not a regular variable for storing numbers, but rather a pointer. This is an operator intended exclusively to hold the "memory address" of another variable of type <code>int</code> (integer).</p>
+</li>
+<li>
+<p><code>=</code> (assignment operator): It simply means "take the value on the right side, and store it inside the variable on the left (<code>p</code>)".</p>
+</li>
+<li>
+<p><code>&amp;x</code> (address-of operator): The <code>&amp;</code> sign is called (address operator). When you put it before any variable (such as <code>x</code>), it means: "You do not need the value stored inside <code>x</code> (which is 123, for example), but rather the address of the room in which <code>x</code> resides in memory (RAM)."</p>
+</li>
+</ul>
+<h3>Null Pointer</h3>
+<pre><code>int main()
+{
+    int* p = nullptr;
+}
+</code></pre>
+<ul>
+<li>Problem: In C++, when you create a new pointer without giving it a specific address, it may point randomly to any unknown location in memory. This is dangerous and may cause the program to crash.</li>
+<li>Solution: If you want to create a pointer, but you have not yet decided which variable it will point to, you must explicitly tell the computer that this pointer does not currently point to anything. We do this using the <code>nullptr</code> keyword.</li>
+<li><strong>Important:</strong> The pointer type must always match the variable type.</li>
+</ul>
+<h3>Dereferencing</h3>
+<p>To print out the value of the dereferenced pointer, we can use the <code>*</code> operator. We can also change the value through the pointer:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+    int x = 123;
+    int* p = &amp;x;
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; *p &lt;&lt; " the place in RAM: " &lt;&lt; p;
+    *p = 147;
+    std::cout &lt;&lt; " the value x from x is: " &lt;&lt; x &lt;&lt; " the value x from *p is: " &lt;&lt; *p;
+}
+</code></pre>
+<hr />
+<h2>References</h2>
+<p>Another (somewhat) similar concept is a reference type. A reference type is an alias to an existing object in memory. References must be initialized. We describe a reference type as type_name followed by an ampersand <code>&amp;</code>. Example:</p>
+<pre><code>int main()
+{
+    int x = 20;
+    int&amp; y = x;
+}
+</code></pre>
+<p>Now we have two different names that refer to the same int object in memory. If we assign a different value to either one of them, they both change as we have one object in memory, but we are using two different names:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+    int x = 20;
+    int&amp; y = x;
+    x = 30;
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x &lt;&lt; " the value y is: " &lt;&lt; y;
+    y = 50;
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x &lt;&lt; " the value y is: " &lt;&lt; y;
+}
+</code></pre>
+<ul>
+<li><code>&amp;</code> is used for creating references and to find the address in RAM.</li>
+</ul>
+<hr />
+<h2>Introduction to Strings</h2>
+<p>We mentioned printing out a string literal such as <code>"Hello World."</code> to standard output via:</p>
+<pre><code>std::cout &lt;&lt; "Hello World.";
+</code></pre>
+<p>We can store these literals inside <code>std::string</code> type. C++ standard library offers a compound type called string or rather <code>std::string</code> as it is part of the <code>std</code> namespace. We use it for storing and manipulating strings.</p>
+<h3>Defining a String</h3>
+<p>To use the <code>std::string</code> type, we need to include the <code>&lt;string&gt;</code> header in our program. To print output we need to include the <code>&lt;iostream&gt;</code> header:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+    std::string s = "hello world";
+    std::cout &lt;&lt; s;
+}
+</code></pre>
+<h3>Concatenating Strings</h3>
+<p>We can add a string literal to our string using the compound operator <code>+=</code>:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+    std::string s = "hello";
+    s += " world";
+    std::cout &lt;&lt; s;
+}
+</code></pre>
+<p>We can add a character to our string using the <code>+=</code> operator:</p>
+<pre><code>#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::string s = "hello";
+    char c = '!';
+    s += c;
+    std::cout &lt;&lt; s;
+}
+</code></pre>
+<p>We can add another string to our string using the <code>+</code> operator. We say we concatenate the strings:</p>
+<pre><code>#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::string s1 = "hello ";
+    std::string s2 = "world";
+    std::string s3 = s1 + s2;
+    std::cout &lt;&lt; s3;
+}
+</code></pre>
+<h3>Accessing Characters</h3>
+<p>Individual characters of a string can be accessed through a subscript operator <code>[]</code> or via a member function <code>.at(index)</code>. The index starts at 0:</p>
+<pre><code>#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::string s = "hello world";
+    char c1 = s[0];
+    char c2 = s.at(0);
+    char c3 = s[6];
+    char c4 = s.at(6);
+    std::cout &lt;&lt; c1 &lt;&lt; '\n' &lt;&lt; c2 &lt;&lt; '\n' &lt;&lt; c3 &lt;&lt; '\n' &lt;&lt; c4;
+    std::cout &lt;&lt; '\n' &lt;&lt; s;
+}
+
+/*
+ the output:
+    h
+    h
+    w
+    w
+    hello world
+*/
+</code></pre>
+<h3>Comparing Strings</h3>
+<p>Comparing a string to another string is done using the equality operator <code>==</code>:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+    std::string s1 = "hello";
+    std::string s2 = "world";
+    if (s1 == s2)
+    {
+        std::cout &lt;&lt; "the strings are equal";
+    }
+    else
+    {
+        std::cout &lt;&lt; "the strings are not equal";
+    }
+}
+</code></pre>
+<h3>String Input</h3>
+<p>Preferred way of accepting a string from the standard input is via the <code>std::getline</code> function which takes <code>std::cin</code> and our string as parameters:</p>
+<pre><code>#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::string s;
+    std::cout &lt;&lt; "please enter string: ";
+    std::getline(std::cin, s);
+    std::cout &lt;&lt; "what you entered: " &lt;&lt; s;
+}
+</code></pre>
+<h4>Difference between <code>std::cin &gt;&gt;</code> and <code>std::getline</code></h4>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+    std::string me;
+    std::cout &lt;&lt; "please enter string: " &lt;&lt; '\n';
+    std::cin &gt;&gt; me;
+    std::cout &lt;&lt; "what you entered: " &lt;&lt; me;
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>std::cin &gt;&gt;</code></th>
+<th><code>std::getline</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reads spaces</td>
+<td>Stops at first space</td>
+<td>Reads spaces as part of the text</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Single word</td>
+<td>Full line</td>
+</tr>
+<tr>
+<td>Common use</td>
+<td>Reading numbers and single words</td>
+<td>Reading full names and sentences</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
+  <entry>
+    <title>C++ Chapter 2: Getting Started</title>
+    <link href="https://ahzer0coder.github.io/cpp/getting-started/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/getting-started/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>Why learn C++, how to download and set up your IDE, compiler, and debugger for C++ development.</summary>
+    <content type="html"><![CDATA[<p><strong>Previous Chapter:</strong> <a href="/cpp/history-philosophy">History &amp; Philosophy</a></p>
+<h2>Why C++ and Download IDE</h2>
+<h3>Why?</h3>
+<ol>
+<li><strong>Reverse Engineering:</strong> C++ is a fundamental language for understanding and analyzing executable files (Binaries), and dealing deeply with advanced analysis tools like IDA Pro, x64dbg, and Ghidra.</li>
+<li><strong>Game Development:</strong> The most powerful game engines (like Unreal Engine) are written in it for complex graphics processing at high speed.</li>
+<li><strong>Operating Systems:</strong> Large parts of operating systems like Windows, macOS, and Linux are built with it.</li>
+<li><strong>Heavy Desktop Applications:</strong> Like design and editing software (Photoshop, Premiere).</li>
+<li><strong>Web Browsers:</strong> Popular browser engines like Google Chrome and Safari rely on it.</li>
+<li><strong>Embedded Systems and Databases.</strong></li>
+</ol>
+<h3>IDEs</h3>
+<ol>
+<li>VS Code</li>
+<li>VS Community</li>
+<li>CLion</li>
+<li>Code::Blocks</li>
+</ol>
+<hr />
+<h2>How to Download Compiler and Debugger to VS Code and Use C++</h2>
+<h3>1. Install in VS Code C/C++</h3>
+<p>To use that we should download:</p>
+<ul>
+<li>C++ compiler pre-installed</li>
+<li>C++ debugger pre-installed</li>
+</ul>
+<h3>2. How?</h3>
+<ol>
+<li><strong>Download MSYS2</strong></li>
+<li>Open <strong>clang64</strong> and write:<pre><code>pacman -Syu
+</code></pre>
+</li>
+<li>Open <strong>MSYS2</strong> and write:<pre><code>pacman -Su
+</code></pre>
+</li>
+<li>Open <strong>mingw64</strong> and write:<pre><code>pacman -Ss gcc          # shows available compilers
+pacman -S mingw-w64-x86_64-gcc
+</code></pre>
+</li>
+<li>Download the debugger:<pre><code>pacman -Ss gdb
+pacman -S mingw-w64-x86_64-gdb
+</code></pre>
+</li>
+<li><strong>Check the version:</strong><pre><code>gcc --version
+g++ --version
+gdb --version
+</code></pre>
+</li>
+</ol>
+<h3>3. Add the Path</h3>
+<p>Add the download path to <strong>Edit the system environment variables</strong> → double click on <strong>Path</strong> → click <strong>New</strong> → add the path.</p>
+<hr />
+<h2>First Program</h2>
+<p>Let us create a blank text file using the text editor or C++ IDE of our choice and name it <code>source.cpp</code>. First, let us create an empty C++ program that does nothing:</p>
+<pre><code>int main()
+{
+}
+</code></pre>
+<p>This simple program does nothing, it has no parameters listed inside parentheses, and there are no statements inside the function body. It is essential to understand that this is the main program signature. There is also another main function signature accepting two different parameters used for manipulating the command line arguments. For now, we will only use the first form.</p>
+<hr />
+<p><strong>Next Chapter:</strong> <a href="/cpp/hello-world">Hello World &amp; I/O</a></p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
+  <entry>
+    <title>C++ Chapter 3: Hello World & I/O</title>
+    <link href="https://ahzer0coder.github.io/cpp/hello-world/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/hello-world/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>Your first C++ program, understanding I/O streams, comments, and the cout output stream.</summary>
+    <content type="html"><![CDATA[<p><strong>Previous Chapter:</strong> <a href="/cpp/getting-started">Getting Started</a></p>
+<h2>Hello World with C++</h2>
+<p>The previous example can be written with the global <code>std</code> namespace:</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello World!\n";
+}
+</code></pre>
+<p>:::note
+For sake of space and for improving the readability, we intentionally omit the <code>std</code> namespace in most slides.
+:::</p>
+<h3>C vs C++ Comparison</h3>
+<p>:::tip[C code]</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 4;
+    double b = 3.0;
+    char c[] = "hello";
+    printf("%d %f %s\n", a, b, c);
+}
+</code></pre>
+<p>:::</p>
+<p>:::tip[C++ code]</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a = 4;
+    double b = 3.0;
+    char c[] = "hello";
+    std::cout &lt;&lt; a &lt;&lt; " " &lt;&lt; b &lt;&lt; " " &lt;&lt; c &lt;&lt; "\n";
+}
+</code></pre>
+<p>:::</p>
+<hr />
+<h2>I/O Stream (Why should we prefer I/O stream?)</h2>
+<h3>Type Safe</h3>
+<ul>
+<li>
+<p>In the <code>printf</code> function (legacy): The function does not know what type of variable it wants to print automatically. You must activate them with the variable type during the program (dynamically) using custom symbols such as <code>%d</code> for integers or <code>%s</code> for strings.</p>
+</li>
+<li>
+<p>In C++ functions (such as <code>cout</code>): The compiler knows the type of the variable in advance (static) while writing the code. You don't need to tell it what type of data it is, it will automatically detect it and print it for sure.</p>
+</li>
+</ul>
+<h3>Less Error Prone</h3>
+<p>With I/O Stream, there are no redundant <code>%</code> tokens that have to be consistent with the actual objects passed to I/O stream. Removing redundancy removes a class of errors.</p>
+<h3>Extensible</h3>
+<p>The C++ I/O Stream mechanism allows new user-defined types to be passed to I/O stream without breaking existing code.</p>
+<h3>Comparable Performance</h3>
+<p>If used correctly, may be faster than C I/O (<code>printf</code>, <code>scanf</code>, etc.).</p>
+<hr />
+<h2>Comment</h2>
+<ul>
+<li>Single line comments in C++ start with double slashes <code>//</code> and the compiler ignores them. We use them to comment or document the code or use them as notes:</li>
+<li>Multi-line comments use <code>/* */</code></li>
+</ul>
+<pre><code>int main() {
+    // this is a comment
+
+    /* This is a
+       multi-line comment */
+}
+</code></pre>
+<hr />
+<h2>Hello World with C++</h2>
+<p>Now we are ready to get the first glimpse at our "Hello World" example. The following program is the simplest "Hello World" example. It prints out <code>Hello World</code> in the console window:</p>
+<pre><code>#include &lt;iostream&gt;
+int main() {
+    std::cout &lt;&lt; "hello world";
+}
+</code></pre>
+<p>:::note[Explanation]
+The <code>#include &lt;iostream&gt;</code> statement includes the iostream header into our source file via the <code>#include</code> directive. The iostream header is part of the standard library. We need its inclusion to use the <code>std::cout</code> object, also known as a standard-output stream. The <code>&lt;&lt;</code> operator inserts our "Hello World" string literal into that output stream. String literal is enclosed in double quotes <code>""</code>. The <code>;</code> marks the end of the statement. Statements are pieces of the C++ program that get executed. Statements end with a semicolon <code>;</code> in C++. The <code>std</code> is the standard-library namespace and <code>::</code> is the scope resolution operator. Object <code>cout</code> is inside the <code>std</code> namespace, and to access it, we need to prepend the call with <code>std::</code>.</p>
+<p>Believe it or not, the detailed analysis and explanation of this example is 15 pages long. We can go into it right now, but we will be no wiser at this point as we first need to know what headers, streams, objects, operators, and string literals are. Do not worry. We will get there.
+:::</p>
+<p>We can output multiple string literals by separating them with multiple <code>&lt;&lt;</code> operators:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first output " &lt;&lt; " second output ";
+}
+</code></pre>
+<p>To output on a new line, we need to output a new-line character <code>\n</code> literal:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first line " &lt;&lt; '\n' &lt;&lt; "second line";
+}
+</code></pre>
+<p>Or:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "first line \n second line";
+}
+</code></pre>
+<hr />
+<p><strong>Next Chapter:</strong> <a href="/cpp/types-variables">Types &amp; Variables</a></p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
+  <entry>
+    <title>C++ Chapter 1: History & Philosophy</title>
+    <link href="https://ahzer0coder.github.io/cpp/history-philosophy/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/history-philosophy/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>Learn about the history, philosophy, popularity, and application areas of the C++ programming language.</summary>
+    <content type="html"><![CDATA[<blockquote>
+<p><em>"The only way to learn a new programming language is by writing programs in it."</em></p>
+</blockquote>
+<blockquote>
+<p><em>"In software development, learning is not a big part of the job. It is the job."</em> — Woody Zuill</p>
+</blockquote>
+<blockquote>
+<p><em>"Programming is not about typing, it's about thinking."</em> — Rich Hickey</p>
+</blockquote>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711141748.png" alt="C++ Introduction" /></p>
+<h2>Introduction</h2>
+<h3>A Little History of C/C++ Programming Language</h3>
+<h4>Assembly</h4>
+<ul>
+<li>Extremely simple instructions</li>
+<li>Requires lots of code to do simple tasks</li>
+<li>Can express anything your computer can do</li>
+<li>Hard to read, write</li>
+<li>...redundant, boring programming, bugs proliferation</li>
+</ul>
+<pre><code>main:
+.Lfunc_begin0:
+    push rbp
+.Lcfi0:
+.Lcfi1:
+    mov rbp, rsp
+.Lcfi2:
+    sub rsp, 16
+    movabs rdi, offset .L.str
+.Ltmp0:
+    mov al, 0
+    call printf
+    xor ecx, ecx
+    mov dword ptr [rbp - 4], eax
+    mov eax, ecx
+    add rsp, 16
+    pop rbp
+    ret
+.Ltmp1:
+.Lfunc_end0:
+
+.L.str:
+    .asciz "Hello World\n"
+</code></pre>
+<p>This is the same code in C:</p>
+<pre><code>#include "stdio.h"
+
+int main() {
+    printf("Hello World\n");
+}
+</code></pre>
+<h4>A Little History of C</h4>
+<p>Areas of Application:</p>
+<ul>
+<li>UNIX operating system</li>
+<li>Computer games</li>
+<li>Due to their power and ease of use, C was used in the programming of the special effects for Star Wars</li>
+</ul>
+<h4>A Little History of C++</h4>
+<p>The <strong>C++</strong> programming language (originally named "C with Classes") was devised by <strong>Bjarne Stroustrup</strong> — also an employee from Bell Labs (AT&amp;T). Stroustrup started working on C with Classes in <strong>1979</strong>. (The <code>++</code> is a C language operator.) The first commercial release of the C++ language was in <strong>October 1985</strong>.</p>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711151436.png" alt="C++ History" /></p>
+<h3>Areas of Application and Popularity</h3>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711151621.png" alt="Areas of Application" /></p>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711151641.png" alt="Popularity" /></p>
+<h4>Why C++ is so Popular?</h4>
+<p>There may be more than <strong>200 billion lines</strong> of C/C++ code globally.</p>
+<ul>
+<li><strong>Performance</strong> is the defining aspect of C++. No other programming language provides the performance-critical facilities of C++</li>
+<li>Provide the programmer control over every aspect of performance</li>
+<li>Leave no room for a lower level language</li>
+<li><strong>Ubiquity</strong>. C++ can run from a low-power embedded device to large-scale supercomputers</li>
+<li><strong>Multi-Paradigm</strong>. Allow writing efficient code without losing high-level abstraction</li>
+<li>Allow writing low-level code. Drivers, kernels, assembly (asm), etc.</li>
+<li><strong>Ecosystem</strong>. Many support tools such as debuggers, memory checkers, coverage, static analysis, profiling, etc.</li>
+<li><strong>Maturity</strong>. C++ has a 40 years history. Many software problems have been already addressed and developing practices have been investigated</li>
+</ul>
+<h4>Areas of Application</h4>
+<ul>
+<li><strong>Operating systems</strong>: Windows, Android, OS X, Linux</li>
+<li><strong>Compilers</strong>: LLVM, Swift compiler</li>
+<li><strong>Artificial Intelligence</strong>: TensorFlow, Caffe, Microsoft Cognitive Toolkit</li>
+<li><strong>Image Editing</strong>: Adobe Premier, Photoshop, Illustrator</li>
+<li><strong>Web browser</strong>: Firefox, Chrome, etc. + WebAssembly</li>
+<li><strong>High-Performance Computing</strong>: drug developing and testing, large scale climate models, physics simulations</li>
+<li><strong>Embedded systems</strong>: IoT, network devices (e.g. GSM), automotive</li>
+<li>Google and Microsoft use C++ for web indexing</li>
+<li><strong>Scientific Computing</strong>: CERN/NASA, SETI@home, Folding@home</li>
+<li><strong>Database</strong>: MySQL, ScyllaDB</li>
+<li><strong>Video Games</strong>: Unreal Engine, Unity</li>
+<li><strong>Entertainment</strong>: Movie rendering (see Interstellar black hole rendering), virtual reality</li>
+<li><strong>Finance</strong>: electronic trading systems (Goldman, JPMorgan, Deutsche Bank) ... and many more</li>
+</ul>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711155847.png" alt="Applications" /></p>
+<h4>An Important Example... (AI Evolution)</h4>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711155924.png" alt="AI Evolution" /></p>
+<h4>Performance</h4>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711155948.png" alt="Performance" /></p>
+<h4>Memory Usage</h4>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711160030.png" alt="Memory Usage" /></p>
+<h4>Energy Efficiency</h4>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711160148.png" alt="Energy Efficiency" /></p>
+<h4>CO2 Production</h4>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711160240.png" alt="CO2 Production" /></p>
+<h3>C++ Philosophy</h3>
+<h4>C++ Philosophy - Performance</h4>
+<ul>
+<li>High-level code (clean and safe) should produce a program just as fast as low-level code (complex and difficult).</li>
+</ul>
+<h4>C++ Philosophy - Type Safety</h4>
+<ul>
+<li>
+<p><strong>Enforce safety at compile time:</strong>
+The main goal here is to detect errors early. In C++, the compiler strictly checks your code to make sure you're not performing illogical operations (such as trying to combine text with a number). Detecting these errors before launching the program (Compile time) prevents it from crashing suddenly while the client is using it (Run time), which is crucial for major commercial programs.</p>
+</li>
+<li>
+<p><strong>Statically Typed Language:</strong>
+In C++, you must declare the type of a variable (eg int, string) before using it. Once the type is selected, it cannot be changed. This strict system is what gives the compiler the ability to verify security.</p>
+</li>
+<li>
+<p><strong>Benefits of Type Annotations:</strong></p>
+<ol>
+<li><strong>Ease of reading the code (More readable):</strong> When another programmer looks at the code and finds the data types clearly defined, he immediately understands the purpose of each variable or function, which makes the code a documentation for itself</li>
+<li><strong>Improving performance and efficiency (Compiler optimizations):</strong> Since the compiler precisely knows the type and space of each statement in memory, he can optimize the source code so that it runs at the maximum possible speed and without any additional consumption of device resources during operation (unlike dynamic languages that waste part of the time to identify the type of the variable during operation).</li>
+<li><strong>Create custom type systems (Define own type system):</strong> The C++ language is not limited to basic types (numbers, texts), but rather gives the programmer the power and freedom to invent completely new and complex data types (such as object classes) that suit the idea of his program, while applying the same strict security rules to them.</li>
+</ol>
+</li>
+<li>
+<p><strong>Programming model:</strong> compartmentalization, only addition features if they solve an actual problem, and allow full control</p>
+</li>
+<li>
+<p><strong>Predictable runtime</strong> (under constraints): no garbage collector, no dynamic type system → real-time systems</p>
+</li>
+<li>
+<p><strong>Low resources:</strong> low memory and energy consumption → restricted hardware platforms</p>
+</li>
+<li>
+<p><strong>Well suited for static analysis</strong> → safety critical software</p>
+</li>
+<li>
+<p><strong>Portability</strong> → Modern C++ standards are highly portable</p>
+</li>
+</ul>
+<h3>Who is C++ for?</h3>
+<blockquote>
+<p><em>"C++ is for people who want to use hardware very well and manage the complexity of doing that through abstraction"</em></p>
+</blockquote>
+<blockquote>
+<p><em>"A language like C++ is not for everybody. It is generated via sharp and effective tool for professional basically and definitely for people who aim at some kind of precision"</em></p>
+</blockquote>
+<h3>C++ Weaknesses</h3>
+<h4>Why C++ is so Difficult?</h4>
+<p>And why teaching C++ as first programming language is a bad idea? C++ is the hardest language from students to master:</p>
+<ul>
+<li><strong>More languages in one</strong>
+<ul>
+<li>Standard C/C++ programming</li>
+<li>Preprocessor</li>
+<li>Object-Oriented features</li>
+<li>Templates and Meta-Programming</li>
+</ul>
+</li>
+<li><strong>Huge set of features</strong></li>
+<li><strong>Worry about memory management</strong></li>
+<li><strong>Low-level implementation details:</strong> pointer arithmetic, structure, padding, undefined behavior, etc.</li>
+<li><strong>Frustrating:</strong> compiler/runtime errors (e.g. seg. fault)</li>
+</ul>
+<p>:::note[Quotes]
+<em>"C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off"</em> — <strong>Bjarne Stroustrup</strong>, Creator of the C++ language</p>
+<p><em>"The problem with using C++...is that there's already a strong tendency in the language to require you to know everything before you can do anything"</em> — <strong>Larry Wall</strong>, Creator of the Perl language</p>
+<p><em>"Despite having 20 years of experience with C++, when I compile a non-trivial chunk of code for the first time without any error or warning, I am suspicious. It is not, usually, a good sign"</em> — <strong>Daniel Lemire</strong>, Prof. at the University of Quebec
+:::</p>
+<p>:::important[Advanced Resources]
+These are advanced resources for solving C++ problems after you finish the course:</p>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1881r1.html">P1881R1 - C++ Safety Concerns</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2137r0.html">P2137R0 - Directions for ISO C++</a></li>
+<li><a href="https://github.com/carbon-language/carbon-lang">Carbon Language</a></li>
+<li><a href="https://www.circle-lang.org/site/index.html">Circle Language</a></li>
+<li><a href="https://github.com/hsutter/cppfront">CppFront - Herb Sutter's C++ Syntax Frontend</a></li>
+<li><a href="https://www.youtube.com/watch?v=gG4BJ23BFBE">CppFront Talk</a></li>
+<li><a href="https://www.cisa.gov/sites/default/files/2023-12/The-Case-for-Memory-Safe-Roadmaps-508c.pdf">The Case for Memory Safe Roadmaps - CISA</a>
+:::</li>
+</ul>
+<h4>Why Switching to a New Language is Hard?</h4>
+<ul>
+<li><strong>No perfect language.</strong> There are always newer 'shining' languages</li>
+<li><strong>Alignment.</strong> Force all developers to switch to the new language</li>
+<li><strong>Interoperability.</strong> Hundreds of billion lines of existing code. Must interoperate with C and C++ code imposing serious design constraints</li>
+<li><strong>Ecosystem.</strong> Lack of tools and libraries developed in the last four decades</li>
+<li><strong>Time and Cost.</strong> Converting a codebase of 10 million lines: 500 developers, 5 years, $1,400,000,000</li>
+</ul>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711174136.png" alt="Switching Languages" /></p>
+<h3>The Course</h3>
+<p><strong>The primary goal of the course is to drive who has previous experience with C/C++ and object-oriented programming to a proficiency level of C++ programming.</strong></p>
+<ul>
+<li><strong>Proficiency:</strong> know what you are doing and the related implications</li>
+<li><strong>Understand</strong> what problems/issues address a given language feature</li>
+<li><strong>Learn engineering practices</strong> (e.g. code conventions, tools) and hardware/software techniques (e.g. semantic, optimizations) that are not strictly related to C++</li>
+</ul>
+<p><strong>What the course is:</strong></p>
+<ul>
+<li>A practical course, prefer examples to long descriptions</li>
+<li>A "quite" advanced C++ programming language course</li>
+</ul>
+<p><strong>What the course is not:</strong></p>
+<ul>
+<li>A theoretical course on programming</li>
+<li>A high-level concept description</li>
+</ul>
+<p><img src="../introduction-to-cpp/images/Screenshot%202026-07-11%20174331.png" alt="Course Overview" /></p>
+<h3>Books and References</h3>
+<p><img src="../introduction-to-cpp/images/Pasted%20image%2020260711202010.png" alt="Books and References" /></p>
+<h5>Unofficial C++ Reference:</h5>
+<ul>
+<li><a href="https://en.cppreference.com/">cppreference.com</a></li>
+<li><a href="https://eel.is/c++draft/">C++ Draft Standard</a></li>
+</ul>
+<h5>Tutorials</h5>
+<ul>
+<li><a href="https://www.learncpp.com/">LearnCpp.com</a></li>
+<li><a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming">C++ Programming - Wikibooks</a></li>
+<li><a href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html">C++ Programming - NTU</a></li>
+</ul>
+<h5>Other Resources:</h5>
+<ul>
+<li><a href="https://stackoverflow.com/questions/tagged/c%2b%2b">Stack Overflow - C++</a></li>
+</ul>
+<h5>News:</h5>
+<ul>
+<li><a href="https://isocpp.org/">isocpp.org</a></li>
+<li><a href="https://www.reddit.com/r/cpp/">Reddit r/cpp</a></li>
+<li><a href="https://www.libhunt.com/">LibHunt</a></li>
+<li><a href="https://accu.org/journals/nonmembers/overload_issue_members/">ACCU Overload</a></li>
+</ul>
+<h5>Coding Exercises:</h5>
+<ul>
+<li><a href="https://leetcode.com/problemset/algorithms/">LeetCode</a></li>
+<li><a href="https://open.kattis.com/">Kattis</a></li>
+</ul>
+<h5>Main Conferences:</h5>
+<ul>
+<li><a href="https://cppcon.org/">CppCon</a></li>
+<li><a href="https://github.com/CppCon">CppCon GitHub</a></li>
+<li><a href="https://cppnow.org/">CppNow</a></li>
+<li><a href="https://github.com/CppNorth/CppNorth_Slides">CppNorth Slides</a></li>
+<li><a href="https://accu.org/">ACCU</a></li>
+<li><a href="https://isocpp.org/wiki/faq/conferences-worldwide">Conferences Worldwide</a></li>
+</ul>
+<h5>Parenthesis and Brackets</h5>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Informal Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{}</code></td>
+<td>Braces</td>
+<td>Curly brackets</td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td>Brackets</td>
+<td>Square brackets</td>
+</tr>
+<tr>
+<td><code>()</code></td>
+<td>Parenthesis</td>
+<td>Round brackets</td>
+</tr>
+<tr>
+<td><code>&lt;&gt;</code></td>
+<td>Angle brackets</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>What Editor/ IDE/Compiler Should I Use?</h3>
+<h4>1. What Compiler Should I Use?</h4>
+<p>Most popular compilers:</p>
+<ul>
+<li><strong>Microsoft Visual Code (MSVC)</strong> is the compiler offered by Microsoft</li>
+<li><strong>The GNU Compiler Collection (GCC)</strong> contains the most popular C++ Linux compiler</li>
+<li><strong>Clang</strong> is a C++ compiler based on LLVM Infrastructure available for Linux/Windows/Apple (default) platforms</li>
+</ul>
+<p>:::tip[Suggested compiler on Linux for beginner: Clang]</p>
+<ul>
+<li>Comparable performance with GCC/MSVC and low memory usage</li>
+<li>Expressive diagnostics (examples and propose corrections)</li>
+<li>Strict C++ compliance. GCC/MSVC compatibility (inverse direction is not ensured)</li>
+<li>Includes very useful tools: memory sanitizer, static code analyzer, automatic formatting, linter, etc.
+:::</li>
+</ul>
+<h4>2. Install the Compiler on Linux?</h4>
+<p>gcc/g++ is the default C/C++ compiler on most Linux distributions. If necessary, it can be updated manually. Follow the instructions below to update it on Ubuntu/Debian (v14):</p>
+<pre><code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-14 g++-14
+gcc-14 --version
+</code></pre>
+<p>Install the last clang/clang++ (v21):</p>
+<pre><code>wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 21
+clang++ --version
+</code></pre>
+<h4>3. Install the Compiler on Windows?</h4>
+<ul>
+<li><strong>Direct Installer:</strong> Visual Studio Community 2026</li>
+<li><strong>Clang on Windows:</strong>
+<ul>
+<li>
+<p>Windows Subsystem for Linux (WSL)</p>
+<pre><code>Windows Powershell → wsl –install -d Ubuntu-24.04
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+</code></pre>
+<p>Enable virtualization support in UEFI/BIOS: <code>Intel Virtualization Technology (VT-x) (Intel) or SVM Mode (AMD)</code></p>
+</li>
+<li>
+<p>Clang + MSVC Build Tools: Download Build Tools per Visual Studio → <code>Install Desktop development with C++</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Popular C++ IDEs</h4>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/it/">Microsoft Visual Studio</a></li>
+<li><a href="https://www.jetbrains.com/clion/">CLion</a></li>
+<li><a href="https://www.qt.io/development/tools/qt-creator-ide">Qt Creator</a></li>
+<li><a href="https://developer.apple.com/xcode/">Xcode</a></li>
+<li><a href="https://www.cevelop.com">Cevelop</a></li>
+</ul>
+<h4>Standalone GUI-based Coding Editors</h4>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a href="https://cursor.com/">Cursor</a> — AI-powered code editor based on VS Code</li>
+<li><a href="https://voideditor.com/">Void Editor</a> — Open-source Cursor alternative</li>
+<li><a href="https://devin.ai/desktop">Windsurf</a> — AI-powered editor</li>
+<li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
+<li><a href="https://lap.dev/lapce/">Lapce</a> — Modern, open-source, written in Rust</li>
+<li><a href="https://zed.dev/">Zed</a> — High-performance, built in Rust</li>
+</ul>
+<h4>Standalone Text-based Coding Editors</h4>
+<ul>
+<li><a href="https://www.vim.org/">Vim</a></li>
+<li><a href="https://www.gnu.org/software/emacs/">Emacs</a></li>
+<li><a href="https://neovim.io/">NeoVim</a></li>
+<li><a href="https://helix-editor.com/">Helix</a></li>
+</ul>
+<h3>How to Compile?</h3>
+<p>Compile C++11, C++14, C++17, C++20, C++23, C++26 programs:</p>
+<pre><code>g++ -o program              # compiler default standard version
+g++ -std=c++14 program.cpp -o program
+g++ -std=c++&lt;version&gt; program.cpp -o program
+make program.cpp            # a Makefile is not even needed
+</code></pre>
+<p>:::note[Backward Compatibility]
+Any C++ standard is backward compatible. For example, a code compiled with C++17 still works with C++20. C++ is built on top of C and it supports backward compatibility in simple cases. However, there are several exceptions. The most common cases are C++ keywords (<code>new</code>, <code>template</code>, <code>class</code>, <code>typename</code>, etc.) that cannot be used for symbol naming.
+:::</p>
+<p>It is a good practice to add warning flags and sanitizers, especially for beginners, to catch potential problems in the code.</p>
+<p><strong>gcc/clang options:</strong></p>
+<pre><code>g++ -Wall -Wextra -fsanitize=address,undefined -fanalyze program.cpp -o program
+</code></pre>
+<p><strong>Microsoft Compiler options:</strong></p>
+<pre><code>cl /W4 /fsanitize=address /analyze program.cpp
+</code></pre>
+<hr />
+<p><strong>Next Chapter:</strong> <a href="/cpp/getting-started">Getting Started — Why C++, IDE &amp; Compiler Setup</a></p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
+  <entry>
+    <title>C++ Chapter 5: Operators & Input</title>
+    <link href="https://ahzer0coder.github.io/cpp/operators-input/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/operators-input/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>C++ assignment, arithmetic, compound assignment, increment/decrement operators, and standard input with cin.</summary>
+    <content type="html"><![CDATA[<p><strong>Previous Chapter:</strong> <a href="/cpp/types-variables">Types &amp; Variables</a></p>
+<h2>Operators</h2>
+<h3>Assignment Operator</h3>
+<p>The assignment operator <code>=</code> assigns a value to a variable/object:</p>
+<pre><code>int main() {
+    int myint = 20;       // define an integer variable myint
+    int x = 120;          // define an integer variable x
+    x = myint;            // assign a value of x to it
+
+    double mydouble = 2.39;  // define a double variable mydouble
+    char mychar = 's';       // define a char variable mychar
+    mychar = 'c';            // assign a new value to mychar
+}
+</code></pre>
+<h3>Arithmetic Operators</h3>
+<p>We can do arithmetic operations using arithmetic operators:</p>
+<pre><code>+   // addition
+-   // subtraction
+*   // multiplication
+/   // division
+%   // modulo
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int y = 456;
+    int z = x + y;  // addition
+    z = x - y;      // subtraction
+    z = x * y;      // multiplication
+    z = x / y;      // division
+
+    std::cout &lt;&lt; " the value of z is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<p>The integer division, in our example, results in a value of 0. It is because the result of the integer division where both operands are integers is truncated towards zeros. In the expression <code>x / y</code>, <code>x</code> and <code>y</code> are operands and <code>/</code> is the operator. If we want a floating-point result, we need to use the type <code>double</code> and make sure at least one of the division operands is also of type <code>double</code>:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    double y = 456;
+    double z = x / y;
+    std::cout &lt;&lt; " the value z is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Compound Assignment Operators</h3>
+<p>Compound assignment operators allow us to perform an arithmetic operation and assign a result with one operator:</p>
+<pre><code>+=   // compound addition
+-=   // compound subtraction
+*=   // compound multiplication
+/=   // compound division
+%=   // compound modulo
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x += 10;   // the same as x = x + 10
+    x -= 20;   // the same as x = x - 20
+    x *= 5;    // the same as x = x * 5
+    x /= 3;    // the same as x = x / 3
+    x %= 2;    // the same as x = x % 2
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Increment/Decrement Operators</h3>
+<p>Increment/decrement operators increment/decrement the value of the object:</p>
+<pre><code>++x   // pre-increment operator
+x++   // post-increment operator
+--x   // pre-decrement operator
+x--   // post-decrement operator
+</code></pre>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x++;
+    ++x;
+    --x;
+    x--;
+
+    std::cout &lt;&lt; " the value x: " &lt;&lt; x;
+}
+</code></pre>
+<p>Both pre-increment and post-increment operators add 1 to the value of our object, and both pre-decrement and post-decrement operators subtract one from the value of our object. The difference between the two, apart from the implementation mechanism (very broadly speaking), is that with the pre-increment operator, a value of 1 is added first. Then the object is evaluated/accessed in expression. With the post-increment, the object is evaluated/accessed first, and after that, the value of 1 is added. To the next statement that follows, it does not make a difference. The value of the object is the same, no matter what version of the operator was used. The only difference is the timing in the expression where it is used.</p>
+<hr />
+<h2>Standard Input</h2>
+<p><code>std::cin</code> is the standard input stream, and it uses the <code>&gt;&gt;</code> operator to extract what has been read into our variable. The <code>std::cin &gt;&gt; x;</code> statement means: read from a standard input into the <code>x</code> variable. The <code>cin</code> object resides inside the <code>std</code> namespace. So, <code>std::cout &lt;&lt;</code> is used for outputting data (to a screen) and <code>std::cin &gt;&gt;</code> is used for inputting data (from the keyboard).</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Enter a number: ";
+    int x = 0;
+    std::cin &gt;&gt; x;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<p>You can enter more input in the same line:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    std::cout &lt;&lt; "Number 1: " &lt;&lt; x &lt;&lt; ", Number 2: " &lt;&lt; y &lt;&lt; '\n';
+}
+</code></pre>
+<p>You can enter different types of data in the same line:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ", " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Two Inputs</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x = 0;
+    int y = 0;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    std::cout &lt;&lt; "Number 1: " &lt;&lt; x &lt;&lt; ", Number 2: " &lt;&lt; y &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Multiple Inputs</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter an integer, a double, and a char: ";
+    int x = 0;
+    double y = 0;
+    char z = 0;
+    std::cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ", " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Inputs and Arithmetic Operations</h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Please enter two numbers: ";
+    int x;
+    int y;
+    std::cin &gt;&gt; x &gt;&gt; y;
+    int z = x + y;
+    std::cout &lt;&lt; "The sum is: " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Post-Increment and Compound Assignment</h3>
+<p>Write a program that defines an <code>int</code> variable called <code>x</code> with a value of 123, post-increments that value in the next statement, and adds the value of 20 in the following statement using the compound assignment operator:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    x++;
+    x += 20;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; '\n';
+}
+</code></pre>
+<h3>Integral and Floating-point Division</h3>
+<p>Write a program that divides 9 by 2 and assigns the result to an <code>int</code> and a <code>double</code> variable. Then modify one of the operands to be of type <code>double</code> and observe the different outcomes:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 9 / 2;
+    std::cout &lt;&lt; "Integer result: " &lt;&lt; x &lt;&lt; '\n';
+
+    double d = 9 / 2;
+    std::cout &lt;&lt; "Double result (both ints): " &lt;&lt; d &lt;&lt; '\n';
+
+    double z = 9.0 / 2;
+    std::cout &lt;&lt; "Double result (one double): " &lt;&lt; z &lt;&lt; '\n';
+}
+</code></pre>
+<hr />
+<p><strong>Next Chapter:</strong> <a href="/cpp/arrays-pointers-strings">Arrays, Pointers, References &amp; Strings</a></p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
+  <entry>
+    <title>C++ Chapter 4: Types & Variables</title>
+    <link href="https://ahzer0coder.github.io/cpp/types-variables/" rel="alternate" type="text/html"/>
+    <id>https://ahzer0coder.github.io/cpp/types-variables/</id>
+    <published>2026-07-11T00:00:00.000Z</published>
+    <updated>2026-07-25T00:00:00.000Z</updated>
+    <summary>Fundamental C++ types (bool, char, int, double, void), type modifiers, and variable declaration, definition, and initialization.</summary>
+    <content type="html"><![CDATA[<p><strong>Previous Chapter:</strong> <a href="/cpp/hello-world">Hello World &amp; I/O</a></p>
+<h2>Types</h2>
+<h3>Fundamental Types</h3>
+<p>C++ has some built-in types. We often refer to them as fundamental types. A declaration is a statement that introduces a name into a current scope.</p>
+<h4>Boolean</h4>
+<p>Let us declare a variable <code>b</code> of type <code>bool</code>. This type holds values of <code>true</code> and <code>false</code>:</p>
+<pre><code>int main() {
+    bool b; // this has no value, default value is false == 0
+}
+</code></pre>
+<p>How to add value:</p>
+<pre><code>int main() {
+    bool b = true; // or
+    bool A {false};
+}
+</code></pre>
+<p>:::important[Rule]
+These examples declare a (local) variable <code>b</code> of type <code>bool</code> and initialize it to a value of <code>true</code>.</p>
+<p>Our variable now holds a value of <code>true</code>.</p>
+<p>All local variables must always be given an initial value once they are created (never leave them empty).</p>
+<p>If you try to read or use a variable that has not been given an initial value (uninitialized), this will lead to a serious problem called <strong>undefined behavior (UB)</strong>. This means that the program will lose control and may behave completely randomly (e.g., print fake values, operate unpredictably, or crash and stop working).</p>
+<p>More on this in the following chapters.
+:::</p>
+<h4>Character</h4>
+<p>Is used to represent a single character. The size is 1 byte:</p>
+<pre><code>int main() {
+    char c = 'a';
+}
+</code></pre>
+<p>To print:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'a';
+    std::cout &lt;&lt; "the value of variable c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>Once declared and initialized, we can access our variable and change its value:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'a';
+    std::cout &lt;&lt; "the value of variable c is: " &lt;&lt; c;
+    c = 'b';
+    std::cout &lt;&lt; " the value of variable c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>The size of the char type in memory is usually one byte. We obtain the size of the type through the <code>sizeof</code> operator:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "the size for char is: " &lt;&lt; sizeof(char) &lt;&lt; " byte(s)";
+}
+</code></pre>
+<p>There are other character types such as <code>wchar_t</code> for holding characters of Unicode character set, <code>char16_t</code> for holding UTF-16 character sets, but for now, let us stick to the type <code>char</code>. A character literal is a character enclosed in single quotes. Example: <code>'a'</code>, <code>'A'</code>, <code>'z'</code>, <code>'X'</code>, <code>'0'</code> etc. Every character is represented by an integer number in the character set. That is why we can assign both numeric literals (up to a certain number) and character literals to our char variable:</p>
+<pre><code>int main() {
+    char c = 'a';
+    // is the same as if we had
+    // char c = 97;
+}
+</code></pre>
+<p>The <code>'a'</code> character in ASCII table is represented with the number <code>97</code>.</p>
+<h4>Integer</h4>
+<p>Fundamental type is <code>int</code> called integer type. We use it to store integral values (whole numbers), both negative and positive:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int c = -123;
+    std::cout &lt;&lt; "the value x is: " &lt;&lt; x &lt;&lt; '\n' &lt;&lt; "the value c is: " &lt;&lt; c;
+}
+</code></pre>
+<p>The size of <code>int</code> is usually 4 bytes. We can also initialize the variable with another variable. It will receive a copy of its value. We still have two separate objects in memory:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int x = 123;
+    int y = x;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; " ,the value of y is: " &lt;&lt; y;
+    // x is 123
+    // y is 123
+    x = 456;
+    std::cout &lt;&lt; "The value of x is: " &lt;&lt; x &lt;&lt; " ,the value of y is: " &lt;&lt; y;
+    // x is now 456
+    // y is still 123
+}
+</code></pre>
+<p>Programming languages (like C and C++) allow you to write numerical values in three different number systems, and the compiler understands them based on the prefix you write before the number:</p>
+<ul>
+<li><strong>Decimal:</strong> Regular numbers from 0 to 9. You write the number directly without any additions.</li>
+<li><strong>Octal:</strong> Numbers from 0 to 7. To tell the compiler that the number is octal, you must place a zero (<code>0</code>) before it.</li>
+<li><strong>Hexadecimal:</strong> Numbers from 0 to 9 and letters from A to F. For the compiler to understand it, you must place <code>0x</code> before it.</li>
+</ul>
+<pre><code>int main() {
+    int x = 10;     // decimal literal
+    int y = 012;    // octal literal
+    int z = 0xA;    // hexadecimal literal
+}
+</code></pre>
+<p>All these variables have been initialized to a value of 10 represented by different integer literals. For the most part, we will be using decimal literals. There are other integer types such as <code>int64_t</code> and others, but we will stick to <code>int</code> for now.</p>
+<h4>Floating-Point</h4>
+<p>There are three floating-point types in C++: <code>float</code>, <code>double</code>, <code>long double</code>, but we will stick to type <code>double</code> (double-precision). We use it for storing floating-point values / real numbers:</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    double x = 2.56;
+    std::cout &lt;&lt; " the value x is: " &lt;&lt; x;
+}
+</code></pre>
+<h4>Type void</h4>
+<p>Type <code>void</code> is a type with no values. Well, what is the purpose of such type if we can not create objects of that type? Good question. While we can not have objects of type <code>void</code>, we can have functions of type <code>void</code>. Functions that do not return a value. We can also have a void pointer type marked with <code>void*</code>. More on this in later chapters when we discuss pointers and functions.</p>
+<h3>Type Modifiers</h3>
+<p>Types can have modifiers. Some of the modifiers are <code>signed</code> and <code>unsigned</code>. The <code>signed</code> (the default if omitted) means the type can hold both positive and negative values, and <code>unsigned</code> means the type has unsigned representation. Other modifiers are for the size: <code>short</code> — type will have the width of at least 16 bits, and <code>long</code> — type will have the width of at least 32 bits. Furthermore, we can now combine these modifiers.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    unsigned long int x = 4294967295;
+    std::cout &lt;&lt; "The value of an unsigned long integer variable is: " &lt;&lt; x;
+}
+</code></pre>
+<hr />
+<h2>Variable Declaration, Definition, and Initialization</h2>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char c = 'h';
+    int x = 5;
+    double d = 5.2;
+}
+</code></pre>
+<pre><code>int main() {
+    int d, e, f;
+}
+</code></pre>
+<pre><code>int main() {
+    int x = 50;
+    int y = {30};
+    int z {20};
+}
+</code></pre>
+<p>A variable definition is setting a value in memory for a name. The definition is making sure we can access and use the name in our program. Roughly speaking, it is a declaration followed by an initialization (for variables) followed by a semicolon. The definition is also a declaration.</p>
+<h3>Declaration</h3>
+<p>Write a program that declares variables inside the main function. Since we do not use any input or output, we do not need to include the <code>&lt;iostream&gt;</code> header:</p>
+<pre><code>int main() {
+    int x;
+    double y;
+    char z;
+}
+</code></pre>
+<h3>Definition</h3>
+<p>Write a program that defines three variables inside the main function. The variables are of <code>char</code>, <code>int</code>, and type <code>double</code>. The names of the variables are arbitrary. The initializers are arbitrary.</p>
+<pre><code>int main() {
+    int x = 20;
+    double y = 2.36;
+    char z = 'c';
+}
+</code></pre>
+<h3>Initialization</h3>
+<p>Write a program that defines three variables inside the main function. The variables are of <code>char</code>, <code>int</code>, and type <code>double</code>. The names of the variables are arbitrary. The initializers are arbitrary. The initialization is performed using the initializer list. Print the values afterward.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    char mychar {'c'};
+    int myint {225};
+    double mydouble {2.369};
+    std::cout &lt;&lt; " the value char is: " &lt;&lt; mychar &lt;&lt; '\n';
+    std::cout &lt;&lt; " the value int is:  " &lt;&lt; myint &lt;&lt; '\n';
+    std::cout &lt;&lt; " the value double is: " &lt;&lt; mydouble;
+}
+</code></pre>
+<hr />
+<p><strong>Next Chapter:</strong> <a href="/cpp/operators-input">Operators &amp; Input</a></p>
+]]></content>
+    <author>
+      <name>𝔄𝔥𝔷𝔢𝔯0ℭ𝔬𝔡𝔢𝔯 </name>
+    </author>
+    <category term="C++"></category>
+  </entry>
   <entry>
     <title>Introduction to C++</title>
     <link href="https://ahzer0coder.github.io/cpp/introduction-to-cpp/" rel="alternate" type="text/html"/>
