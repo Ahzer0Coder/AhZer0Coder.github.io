@@ -3,7 +3,7 @@ title: "C++ Chapter 1: History & Philosophy"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Learn about the history, philosophy, popularity, and application areas of the C++ programming language."
-image: ../introduction-to-cpp/images/Pasted%20image%2020260711141748.png
+image: /assets/img/cpp-history-philosophy.webp
 tags: ["cpp", "programming", "tutorial", "beginner", "history"]
 category: "C++"
 priority: 1
@@ -15,7 +15,7 @@ series: "cpp"
 seriesOrder: 1
 seriesTitle: "Introduction to C++"
 seriesDescription: "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
-seriesImage: "../introduction-to-cpp/images/Pasted image 20260711141748.png"
+seriesImage: /assets/img/cpp-history-philosophy.webp
 ---
 
 > _"The only way to learn a new programming language is by writing programs in it."_
