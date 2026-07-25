@@ -3,6 +3,7 @@ title: "C++ Chapter 5: Operators & Input"
 published: 2026-07-11
 updated: 2026-07-25
 description: "C++ assignment, arithmetic, compound assignment, increment/decrement operators, and standard input with cin."
+image: ../introduction-to-cpp/images/Pasted%20image%2020260711155847.png
 tags: ["cpp", "programming", "tutorial", "beginner", "operators", "input"]
 category: "C++"
 priority: 5

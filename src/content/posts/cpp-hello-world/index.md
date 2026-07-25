@@ -3,6 +3,7 @@ title: "C++ Chapter 3: Hello World & I/O"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Your first C++ program, understanding I/O streams, comments, and the cout output stream."
+image: ../introduction-to-cpp/images/Pasted%20image%2020260711151621.png
 tags: ["cpp", "programming", "tutorial", "beginner", "hello-world"]
 category: "C++"
 priority: 3

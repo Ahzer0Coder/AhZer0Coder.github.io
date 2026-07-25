@@ -3,6 +3,7 @@ title: "C++ Chapter 6: Arrays, Pointers, References & Strings"
 published: 2026-07-11
 updated: 2026-07-25
 description: "C++ arrays, pointers, null pointers, dereferencing, references, and introduction to std::string."
+image: ../introduction-to-cpp/images/Pasted%20image%2020260711155924.png
 tags: ["cpp", "programming", "tutorial", "beginner", "arrays", "pointers", "strings"]
 category: "C++"
 priority: 6

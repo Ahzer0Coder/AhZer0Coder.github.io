@@ -3,6 +3,7 @@ title: "C++ Chapter 4: Types & Variables"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Fundamental C++ types (bool, char, int, double, void), type modifiers, and variable declaration, definition, and initialization."
+image: ../introduction-to-cpp/images/Pasted%20image%2020260711151641.png
 tags: ["cpp", "programming", "tutorial", "beginner", "types", "variables"]
 category: "C++"
 priority: 4

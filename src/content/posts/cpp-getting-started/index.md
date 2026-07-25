@@ -3,6 +3,7 @@ title: "C++ Chapter 2: Getting Started"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Why learn C++, how to download and set up your IDE, compiler, and debugger for C++ development."
+image: ../introduction-to-cpp/images/Pasted%20image%2020260711151436.png
 tags: ["cpp", "programming", "tutorial", "beginner", "setup"]
 category: "C++"
 priority: 2
