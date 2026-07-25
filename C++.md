@@ -1,145 +1,10 @@
----
-title: "C++"
-published: 2026-07-25
-updated: 2026-07-25
-description: "A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
-image: /assets/img/cpp-cover.webp
-tags: ["cpp", "programming", "tutorial", "beginner"]
-categories: ["C++"]
-priority: 1
-permalink: "cpp"
-draft: false
----
+# C++ Course
 
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+> "The only way to learn a new programming language is by writing programs in it"
 
-<a href="#ch1" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/cpp-cover.webp" alt="Chapter 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">1. Introduction</span>
-</div>
-</a>
+> "In software development, learning is not a big part of the job. It is the job." — Woody Zuill
 
-<a href="#ch2" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i.webp" alt="Chapter 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">2. Why C++ and Download IDE</span>
-</div>
-</a>
-
-<a href="#ch3" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (2).webp" alt="Chapter 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">3. Compiler & Debugger Setup</span>
-</div>
-</a>
-
-<a href="#ch4" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (3).webp" alt="Chapter 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">4. First Program</span>
-</div>
-</a>
-
-<a href="#ch5" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/cpp-cover.webp" alt="Chapter 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">5. Comments</span>
-</div>
-</a>
-
-<a href="#ch6" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i.webp" alt="Chapter 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">6. Hello World with C++</span>
-</div>
-</a>
-
-<a href="#ch7" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (2).webp" alt="Chapter 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">7. Types</span>
-</div>
-</a>
-
-<a href="#ch8" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (3).webp" alt="Chapter 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">8. Variables</span>
-</div>
-</a>
-
-<a href="#ch9" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/cpp-cover.webp" alt="Chapter 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">9. Operators</span>
-</div>
-</a>
-
-<a href="#ch10" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i.webp" alt="Chapter 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">10. Standard Input</span>
-</div>
-</a>
-
-<a href="#ch11" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (2).webp" alt="Chapter 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">11. Arrays</span>
-</div>
-</a>
-
-<a href="#ch12" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i (3).webp" alt="Chapter 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">12. Pointers</span>
-</div>
-</a>
-
-<a href="#ch13" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/cpp-cover.webp" alt="Chapter 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">13. References</span>
-</div>
-</a>
-
-<a href="#ch14" class="card-base group cursor-pointer">
-<div class="aspect-video overflow-hidden">
-<img src="/assets/img/i.webp" alt="Chapter 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-</div>
-<div class="p-3">
-<span class="text-sm font-medium">14. Introduction to Strings</span>
-</div>
-</a>
-
-</div>
+> "Programming is not about typing, it's about thinking." — Rich Hickey
 
 ---
 
@@ -153,6 +18,32 @@ draft: false
 - Can express anything your computer can do
 - Hard to read, write
 - Redundant, boring programming, bugs proliferation
+
+```asm
+main:
+.Lfunc_begin0:
+    push rbp
+.Lcfi0:
+.Lcfi1:
+    mov rbp, rsp
+.Lcfi2:
+    sub rsp, 16
+    movabs rdi, offset .L.str
+.Ltmp0:
+    mov al, 0
+    call printf
+    xor ecx, ecx
+    mov dword ptr [rbp - 4], eax
+    mov eax, ecx
+    add rsp, 16
+    pop rbp
+    ret
+.Ltmp1:
+.Lfunc_end0:
+
+.L.str:
+    .asciz "Hello World\n"
+```
 
 This is the same code in C:
 
@@ -175,7 +66,9 @@ Areas of Application:
 
 The C++ programming language (originally named "C with Classes") was devised by Bjarne Stroustrup, an employee from Bell Labs (AT&T). Stroustrup started working on C with Classes in 1979. (The ++ is a C language operator). The first commercial release of the C++ language was in October 1985.
 
-### Why C++ is so Popular?
+### Areas of Application and Popularity
+
+**Why C++ is so Popular?**
 - There may be more than 200 billion lines of C/C++ code globally
 - Performance is the defining aspect of C++. No other programming language provides the performance-critical facilities of C++
 - Provide the programmer control over every aspect of performance
@@ -184,7 +77,7 @@ The C++ programming language (originally named "C with Classes") was devised by 
 - Multi-Paradigm: Allow writing efficient code without losing high-level abstraction
 - Allow writing low-level code: Drivers, kernels, assembly (asm), etc.
 - Ecosystem: Many support tools such as debuggers, memory checkers, coverage, static analysis, profiling, etc.
-- Maturity: C++ has a 40 years history
+- Maturity: C++ has a 40 years history. Many software problems have been already addressed
 
 **Areas of Application**
 - Operating systems: Windows, Android, OS X, Linux
@@ -194,8 +87,11 @@ The C++ programming language (originally named "C with Classes") was devised by 
 - Web browser: Firefox, Chrome, etc. + WebAssembly
 - High-Performance Computing: drug developing and testing, large scale climate models, physics simulations
 - Embedded systems: IoT, network devices (e.g. GSM), automotive
+- Google and Microsoft use C++ for web indexing
+- Scientific Computing: CERN/NASA, SETI@home, Folding@home
 - Database: MySQL, ScyllaDB
 - Video Games: Unreal Engine, Unity
+- Entertainment: Movie rendering, virtual reality
 - Finance: electronic trading systems (Goldman, JPMorgan, Deutsche Bank)
 
 ### C++ Philosophy
@@ -210,6 +106,28 @@ The C++ programming language (originally named "C with Classes") was devised by 
   1. Ease of reading the code (More readable)
   2. Improving performance and efficiency (Compiler optimizations)
   3. Create custom type systems (Define own type system)
+
+**Key Principles**
+- Programming model: compartmentalization, only addition features if they solve an actual problem, and allow full control
+- Predictable runtime: no garbage collector, no dynamic type system → real-time systems
+- Low resources: low memory and energy consumption → restricted hardware platforms
+- Well suited for static analysis → safety critical software
+- Portability → Modern C++ standards are highly portable
+
+### Who is C++ for?
+
+> "C++ is for people who want to use hardware very well and manage the complexity of doing that through abstraction"
+
+> "a language like C++ is not for everybody. It is generated via sharp and effective tool for professional basically and definitely for people who aim at some kind of precision"
+
+### C++ Weaknesses
+
+**Why C++ is so Difficult?**
+- More languages in one: Standard C/C++, Preprocessor, Object-Oriented features, Templates and Meta-Programming
+- Huge set of features
+- Worry about memory management
+- Low-level implementation details: pointer arithmetic, structure, padding, undefined behavior, etc.
+- Frustrating: compiler/runtime errors (e.g. seg. fault)
 
 > "C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off" — Bjarne Stroustrup
 
@@ -233,9 +151,7 @@ The C++ programming language (originally named "C with Classes") was devised by 
 
 ---
 
-## Chapter 3: Compiler & Debugger Setup
-
-### How to Download Compiler and Debugger for VSCode
+## Chapter 3: How to Download Compiler and Debugger for VSCode
 
 1. Install in VSCode C/C++ extension
    - C++ compiler pre-installed
@@ -470,9 +386,7 @@ int main()
 
 ---
 
-## Chapter 8: Variables
-
-### Variable Declaration, Definition, and Initialization
+## Chapter 8: Variable Declaration, Definition, and Initialization
 
 ```cpp
 #include <iostream>
