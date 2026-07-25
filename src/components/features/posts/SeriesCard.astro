@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  parts: number;
+}
+
+const { title, description, image, url, parts } = Astro.props;
+---
+
+<a
+  href={url}
+  class="group card-base overflow-hidden hover:border-[var(--primary)] transition-all duration-200 flex flex-col"
+>
+  {/* Thumbnail */}
+  <div class="relative w-full h-48 overflow-hidden bg-[var(--btn-plain-bg)]">
+    <img
+      src={image}
+      alt={title}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4">
+      <p class="text-xs text-white/70 mb-1">Series · {parts} parts</p>
+      <h2 class="text-lg font-bold text-white group-hover:text-[var(--primary)] transition-colors">
+        {title}
+      </h2>
+    </div>
+  </div>
+
+  {/* Content */}
+  <div class="p-4 flex flex-col flex-1">
+    <p class="text-sm text-50 line-clamp-2">{description}</p>
+    <div class="mt-2 flex items-center gap-1 text-xs text-40">
+      <span>View Series →</span>
+    </div>
+  </div>
+</a>
