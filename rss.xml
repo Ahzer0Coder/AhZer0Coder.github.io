@@ -910,7 +910,229 @@ In modern C++, you should prefer &lt;code&gt;std::array&lt;/code&gt; and &lt;cod
 :::&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;Pointers&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;(This section is continued from the content above — more details on pointers coming in later chapters.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Objects reside in memory. And so far, we have learned how to access and manipulate objects through variables. Another way to access an object in memory is through pointers. Each object in memory has its type and an address. This allows us to access the object through a pointer. So, pointers are types that can hold the address of a particular object. For illustrative purposes only, we will declare an unutilized pointer that can point to an int object:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main()
+{
+    int* p;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    int x = 123;
+    int* p = &amp;amp;x;
+    std::cout &amp;lt;&amp;lt; &quot;the value of x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; the Place in RAM is: &quot; &amp;lt;&amp;lt; p;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;int* p&lt;/code&gt; (declare reason): Here you are asking to create a new variable with a new name &lt;code&gt;p&lt;/code&gt;. The presence of the asterisk &lt;code&gt;*&lt;/code&gt; immediately after &lt;code&gt;int&lt;/code&gt; is what tells the computer that this variable is not a regular variable for storing numbers, but rather a pointer. This is an operator intended exclusively to hold the &quot;memory address&quot; of another variable of type &lt;code&gt;int&lt;/code&gt; (integer).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;=&lt;/code&gt; (assignment operator): It simply means &quot;take the value in the right side, and store it inside the variable on the left (&lt;code&gt;p&lt;/code&gt;)&quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;amp;x&lt;/code&gt; (address-of operator): The &lt;code&gt;&amp;amp;&lt;/code&gt; sign is called (address operator). When you put it before any variable (such as &lt;code&gt;x&lt;/code&gt;), it means: &quot;You do not need the value stored inside &lt;code&gt;x&lt;/code&gt; (which is 123, for example), but rather the address of the room in which &lt;code&gt;x&lt;/code&gt; resides in memory (RAM).&quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Null Pointer&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;int main()
+{
+    int* p = nullptr;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Problem: In C++, when you create a new pointer without giving it a specific address, it may point randomly to any unknown location in memory. This is dangerous and may cause the program to crash.&lt;/li&gt;
+&lt;li&gt;Solution: If you want to create a pointer, but you have not yet decided which variable it will point to, you must explicitly tell the computer that this pointer does not currently point to anything. We do this using the &lt;code&gt;nullptr&lt;/code&gt; keyword.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Important:&lt;/strong&gt; The pointer type must always match the variable type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dereferencing&lt;/h3&gt;
+&lt;p&gt;To print out the value of the dereferenced pointer, we can use the &lt;code&gt;*&lt;/code&gt; operator. We can also change the value through the pointer:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    int x = 123;
+    int* p = &amp;amp;x;
+    std::cout &amp;lt;&amp;lt; &quot; the value x is: &quot; &amp;lt;&amp;lt; *p &amp;lt;&amp;lt; &quot; the place in RAM: &quot; &amp;lt;&amp;lt; p;
+    *p = 147;
+    std::cout &amp;lt;&amp;lt; &quot; the value x from x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; the value x from *p is: &quot; &amp;lt;&amp;lt; *p;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;p&gt;Another (somewhat) similar concept is a reference type. A reference type is an alias to an existing object in memory. References must be initialized. We describe a reference type as type_name followed by an ampersand &lt;code&gt;&amp;amp;&lt;/code&gt;. Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main()
+{
+    int x = 20;
+    int&amp;amp; y = x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have two different names that refer to the same int object in memory. If we assign a different value to either one of them, they both change as we have one object in memory, but we are using two different names:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    int x = 20;
+    int&amp;amp; y = x;
+    x = 30;
+    std::cout &amp;lt;&amp;lt; &quot; the value x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; the value y is: &quot; &amp;lt;&amp;lt; y;
+    y = 50;
+    std::cout &amp;lt;&amp;lt; &quot; the value x is: &quot; &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &quot; the value y is: &quot; &amp;lt;&amp;lt; y;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; is used for creating references and to find the address in RAM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Introduction to Strings&lt;/h2&gt;
+&lt;p&gt;We mentioned printing out a string literal such as &lt;code&gt;&quot;Hello World.&quot;&lt;/code&gt; to standard output via:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;std::cout &amp;lt;&amp;lt; &quot;Hello World.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can store these literals inside &lt;code&gt;std::string&lt;/code&gt; type. C++ standard library offers a compound type called string or rather &lt;code&gt;std::string&lt;/code&gt; as it is part of the &lt;code&gt;std&lt;/code&gt; namespace. We use it for storing and manipulating strings.&lt;/p&gt;
+&lt;h3&gt;Defining a String&lt;/h3&gt;
+&lt;p&gt;To use the &lt;code&gt;std::string&lt;/code&gt; type, we need to include the &lt;code&gt;&amp;lt;string&amp;gt;&lt;/code&gt; header in our program. To print output we need to include the &lt;code&gt;&amp;lt;iostream&amp;gt;&lt;/code&gt; header:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+int main()
+{
+    std::string s = &quot;hello world&quot;;
+    std::cout &amp;lt;&amp;lt; s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Concatenating Strings&lt;/h3&gt;
+&lt;p&gt;We can add a string literal to our string using the compound operator &lt;code&gt;+=&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+int main()
+{
+    std::string s = &quot;hello&quot;;
+    s += &quot; world&quot;;
+    std::cout &amp;lt;&amp;lt; s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can add a character to our string using the &lt;code&gt;+=&lt;/code&gt; operator:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;string&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    std::string s = &quot;hello&quot;;
+    char c = &apos;!&apos;;
+    s += c;
+    std::cout &amp;lt;&amp;lt; s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can add another string to our string using the &lt;code&gt;+&lt;/code&gt; operator. We say we concatenate the strings:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;string&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    std::string s1 = &quot;hello &quot;;
+    std::string s2 = &quot;world&quot;;
+    std::string s3 = s1 + s2;
+    std::cout &amp;lt;&amp;lt; s3;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Accessing Characters&lt;/h3&gt;
+&lt;p&gt;Individual characters of a string can be accessed through a subscript operator &lt;code&gt;[]&lt;/code&gt; or via a member function &lt;code&gt;.at(index)&lt;/code&gt;. The index starts at 0:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;string&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    std::string s = &quot;hello world&quot;;
+    char c1 = s[0];
+    char c2 = s.at(0);
+    char c3 = s[6];
+    char c4 = s.at(6);
+    std::cout &amp;lt;&amp;lt; c1 &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; c2 &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; c3 &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; c4;
+    std::cout &amp;lt;&amp;lt; &apos;\n&apos; &amp;lt;&amp;lt; s;
+}
+
+/*
+ the output:
+    h
+    h
+    w
+    w
+    hello world
+*/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Comparing Strings&lt;/h3&gt;
+&lt;p&gt;Comparing a string to another string is done using the equality operator &lt;code&gt;==&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+int main()
+{
+    std::string s1 = &quot;hello&quot;;
+    std::string s2 = &quot;world&quot;;
+    if (s1 == s2)
+    {
+        std::cout &amp;lt;&amp;lt; &quot;the strings are equal&quot;;
+    }
+    else
+    {
+        std::cout &amp;lt;&amp;lt; &quot;the strings are not equal&quot;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;String Input&lt;/h3&gt;
+&lt;p&gt;Preferred way of accepting a string from the standard input is via the &lt;code&gt;std::getline&lt;/code&gt; function which takes &lt;code&gt;std::cin&lt;/code&gt; and our string as parameters:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;string&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+int main()
+{
+    std::string s;
+    std::cout &amp;lt;&amp;lt; &quot;please enter string: &quot;;
+    std::getline(std::cin, s);
+    std::cout &amp;lt;&amp;lt; &quot;what you entered: &quot; &amp;lt;&amp;lt; s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;Difference between &lt;code&gt;std::cin &amp;gt;&amp;gt;&lt;/code&gt; and &lt;code&gt;std::getline&lt;/code&gt;&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+int main()
+{
+    std::string me;
+    std::cout &amp;lt;&amp;lt; &quot;please enter string: &quot; &amp;lt;&amp;lt; &apos;\n&apos;;
+    std::cin &amp;gt;&amp;gt; me;
+    std::cout &amp;lt;&amp;lt; &quot;what you entered: &quot; &amp;lt;&amp;lt; me;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;std::cin &amp;gt;&amp;gt;&lt;/code&gt;&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;std::getline&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Reads spaces&lt;/td&gt;
+&lt;td&gt;Stops at first space&lt;/td&gt;
+&lt;td&gt;Reads spaces as part of the text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scope&lt;/td&gt;
+&lt;td&gt;Single word&lt;/td&gt;
+&lt;td&gt;Full line&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Common use&lt;/td&gt;
+&lt;td&gt;Reading numbers and single words&lt;/td&gt;
+&lt;td&gt;Reading full names and sentences&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </content:encoded></item><item><title>Object-Oriented Programming (OOP)</title><link>https://ahzer0coder.github.io/posts/oop/</link><guid isPermaLink="true">https://ahzer0coder.github.io/posts/oop/</guid><description>Core concepts and principles of Object-Oriented Programming</description><pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Object-Oriented Programming (OOP)&lt;/h1&gt;
 &lt;p&gt;Object-Oriented Programming is a programming paradigm based on the concept of &quot;objects&quot;, which can contain data (attributes) and code (methods).&lt;/p&gt;
 &lt;h2&gt;Four Pillars of OOP&lt;/h2&gt;
