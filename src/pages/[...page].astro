@@ -1,4 +1,5 @@
 ---
+import CategoryBar from "@components/features/posts/CategoryBar.astro";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import type { GetStaticPaths } from "astro";
 
@@ -8,4 +9,5 @@ export const getStaticPaths = (async ({ paginate }) => {
 ---
 
 <MainGridLayout>
+	<CategoryBar />
 </MainGridLayout>

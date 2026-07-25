@@ -5,8 +5,11 @@ import { Icon } from "astro-icon/components";
 
 import { getCategoryList, getSortedPostsList } from "@/utils/content-utils";
 import { getCategoryUrl, url } from "@/utils/url-utils";
+import { siteConfig } from "../../../config";
 
-const categories = await getCategoryList();
+const dynamicCategories = await getCategoryList();
+const staticCategories = siteConfig.postListLayout.categoryBar?.categories ?? [];
+const categories = dynamicCategories.length > 0 ? dynamicCategories : staticCategories.map(name => ({ name, count: 0 }));
 const totalPosts = (await getSortedPostsList()).length;
 const homeUrl = url("/");
 const archiveUrl = url("/archive/");

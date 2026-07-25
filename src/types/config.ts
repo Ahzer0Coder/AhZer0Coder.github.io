@@ -50,6 +50,7 @@ export interface SiteConfig {
 		allowSwitch: boolean; // 是否允许用户切换布局
 		categoryBar?: {
 			enable: boolean; // 是否在文章列表页显示分类导航条
+			categories?: string[]; // Static categories to show when no posts exist
 		};
 	};
 
