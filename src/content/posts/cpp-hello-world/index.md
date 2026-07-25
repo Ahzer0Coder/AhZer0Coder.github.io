@@ -1,5 +1,5 @@
 ---
-title: "C++ Chapter 3: Hello World & I/O"
+title: "C++ Hello World & I/O"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Your first C++ program, understanding I/O streams, comments, and the cout output stream."

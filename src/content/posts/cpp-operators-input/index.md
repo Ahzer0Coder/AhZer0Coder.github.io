@@ -1,5 +1,5 @@
 ---
-title: "C++ Chapter 5: Operators & Input"
+title: "C++ Operators & Input"
 published: 2026-07-11
 updated: 2026-07-25
 description: "C++ assignment, arithmetic, compound assignment, increment/decrement operators, and standard input with cin."

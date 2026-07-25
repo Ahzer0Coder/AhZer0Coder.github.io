@@ -1,5 +1,5 @@
 ---
-title: "C++ Chapter 6: Arrays, Pointers, References & Strings"
+title: "C++ Arrays, Pointers, References & Strings"
 published: 2026-07-11
 updated: 2026-07-25
 description: "C++ arrays, pointers, null pointers, dereferencing, references, and introduction to std::string."

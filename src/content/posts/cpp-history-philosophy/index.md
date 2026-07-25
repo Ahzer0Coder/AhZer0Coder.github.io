@@ -1,5 +1,5 @@
 ---
-title: "C++ Chapter 1: History & Philosophy"
+title: "C++ History & Philosophy"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Learn about the history, philosophy, popularity, and application areas of the C++ programming language."

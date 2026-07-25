@@ -1,5 +1,5 @@
 ---
-title: "C++ Chapter 2: Getting Started"
+title: "C++ Getting Started"
 published: 2026-07-11
 updated: 2026-07-25
 description: "Why learn C++, how to download and set up your IDE, compiler, and debugger for C++ development."
