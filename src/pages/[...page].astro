@@ -1,5 +1,4 @@
 ---
-import SeriesCard from "@components/features/posts/SeriesCard.astro";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import type { GetStaticPaths } from "astro";
 
@@ -9,14 +8,4 @@ export const getStaticPaths = (async ({ paginate }) => {
 ---
 
 <MainGridLayout>
-	{/* Series Section */}
-	<div class="mb-6 onload-animation" style={`--i: 0; --interval: 50ms;`}>
-		<SeriesCard
-			title="C++"
-			description="A beginner-friendly, chapter-by-chapter guide to learning C++ from scratch."
-			image="/assets/img/cpp-history-philosophy.webp"
-			url="/cpp/"
-			parts={6}
-		/>
-	</div>
 </MainGridLayout>
